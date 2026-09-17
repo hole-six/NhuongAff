@@ -9,16 +9,16 @@ import { Flame } from "lucide-react";
 import { safeJsonLdString } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Ưu Đãi & Mã Giảm Giá Shopee, TikTok Shop, Lazada Mới Nhất — iviback",
-  description: "Cập nhật liên tục mã giảm giá, deal sập sàn Shopee, TikTok Shop và Lazada. Mua qua link iviback vừa được giá tốt vừa nhận thêm hoàn tiền.",
+  title: "Ưu Đãi & Mã Giảm Giá Shopee, TikTok Shop, Lazada Mới Nhất — BunnyHoanTien",
+  description: "Cập nhật liên tục mã giảm giá, deal sập sàn Shopee, TikTok Shop và Lazada. Mua qua link BunnyHoanTien vừa được giá tốt vừa nhận thêm hoàn tiền.",
   alternates: { canonical: "/uu-dai" },
   openGraph: {
-    title: "Ưu Đãi & Mã Giảm Giá Shopee, TikTok Shop, Lazada Mới Nhất — iviback",
-    description: "Cập nhật liên tục mã giảm giá, deal sập sàn Shopee, TikTok Shop và Lazada. Mua qua link iviback vừa được giá tốt vừa nhận thêm hoàn tiền.",
+    title: "Ưu Đãi & Mã Giảm Giá Shopee, TikTok Shop, Lazada Mới Nhất — BunnyHoanTien",
+    description: "Cập nhật liên tục mã giảm giá, deal sập sàn Shopee, TikTok Shop và Lazada. Mua qua link BunnyHoanTien vừa được giá tốt vừa nhận thêm hoàn tiền.",
     type: "website",
     locale: "vi_VN",
     url: "/uu-dai",
-    siteName: "iviback",
+    siteName: "BunnyHoanTien",
   },
 };
 
@@ -26,8 +26,8 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://iviback.vn/" },
-    { "@type": "ListItem", position: 2, name: "Ưu đãi", item: "https://iviback.vn/uu-dai" },
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://hoahuongaff.click/" },
+    { "@type": "ListItem", position: 2, name: "Ưu đãi", item: "https://hoahuongaff.click/uu-dai" },
   ],
 };
 
@@ -105,7 +105,7 @@ export default async function PublicDealsPage({
           itemListElement: formattedDeals.map((d, idx) => ({
             "@type": "ListItem",
             position: idx + 1,
-            url: d.shortUrl || "https://iviback.vn/uu-dai",
+            url: d.shortUrl || "https://hoahuongaff.click/uu-dai",
             name: d.title,
           })),
         }
@@ -123,12 +123,12 @@ export default async function PublicDealsPage({
         {/* Header Hero */}
         <section className="bg-gradient-to-b from-[#FFF0F4] to-white py-3xl relative overflow-hidden">
           <div className="max-w-[1200px] mx-auto px-lg relative z-10 text-center">
-            <img src="/heogiamgia.png" alt="Ưu đãi và mã giảm giá iviback" className="mx-auto h-24 w-24 object-contain mb-md" />
+            <img src="/heogiamgia.png" alt="Ưu đãi và mã giảm giá BunnyHoanTien" className="mx-auto h-24 w-24 object-contain mb-md" />
             <h1 className="text-[40px] md:text-[56px] font-black text-ink tracking-tight mb-md">
               Ưu Đãi & <span className="text-primary">Mã Giảm Giá</span>
             </h1>
             <p className="text-[18px] text-mute max-w-2xl mx-auto leading-relaxed">
-              Deal sập sàn Shopee, TikTok Shop, Lazada được cập nhật mỗi ngày. Mua qua link iviback vừa được giá tốt, vừa nhận thêm hoàn tiền.
+              Deal sập sàn Shopee, TikTok Shop, Lazada được cập nhật mỗi ngày. Mua qua link BunnyHoanTien vừa được giá tốt, vừa nhận thêm hoàn tiền.
             </p>
           </div>
         </section>

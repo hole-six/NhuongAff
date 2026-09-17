@@ -28,7 +28,7 @@ export async function sendMail(params: {
   html: string;
 }): Promise<{ ok: boolean; simulated: boolean; error?: string }> {
   const transporter = getTransporter();
-  const fromName = process.env.SMTP_FROM_NAME || "iviback Hoan Tien";
+  const fromName = process.env.SMTP_FROM_NAME || "BunnyHoanTien Hoan Tien";
   const fromAddress = process.env.SMTP_USER;
 
   if (!transporter || !fromAddress) {
@@ -69,7 +69,7 @@ function emailShell(bodyHtml: string): string {
           <tr>
             <td style="background:linear-gradient(135deg,#fff3ee 0%,#fde8d8 50%,#ffecd2 100%);padding:40px 32px 32px;text-align:center;border-bottom:1px solid rgba(232,106,51,0.12);">
               <div style="font-size:40px;line-height:1;margin:0 0 10px;">🐷</div>
-              <div style="font-size:28px;font-weight:900;color:${BRAND_COLOR};letter-spacing:0.2px;">iviback Hoàn Tiền</div>
+              <div style="font-size:28px;font-weight:900;color:${BRAND_COLOR};letter-spacing:0.2px;">BunnyHoanTien Hoàn Tiền</div>
               <div style="font-size:12px;font-weight:700;color:#a0816a;text-transform:uppercase;letter-spacing:1.2px;margin-top:6px;">Mua sắm thông minh · Nhận tiền tự động</div>
             </td>
           </tr>
@@ -80,7 +80,7 @@ function emailShell(bodyHtml: string): string {
           </tr>
           <tr>
             <td style="padding:24px 32px;background:#faf8f6;text-align:center;border-top:1px solid rgba(0,0,0,0.04);">
-              <div style="font-size:13px;font-weight:800;color:${BRAND_COLOR};margin-bottom:6px;">iviback.vn</div>
+              <div style="font-size:13px;font-weight:800;color:${BRAND_COLOR};margin-bottom:6px;">hoahuongaff.click</div>
               <div style="font-size:12px;color:#a0816a;line-height:1.6;">Đây là email tự động, vui lòng không trả lời trực tiếp email này.</div>
             </td>
           </tr>
@@ -287,7 +287,7 @@ export function buildAccountCreatedByAdminEmail(params: {
     <h1 style="margin:0 0 16px;font-size:22px;font-weight:900;color:#2d1f14;">🎉 Tài khoản của bạn đã sẵn sàng</h1>
     <p style="margin:0 0 8px;font-size:14px;line-height:1.6;color:#6b5847;">Xin chào <strong>${escapeHtml(params.fullName)}</strong>,</p>
     <p style="margin:0 0 24px;font-size:14px;line-height:1.6;color:#6b5847;">
-      Quản trị viên vừa tạo tài khoản iviback cho bạn bằng email này. Bấm nút bên dưới để đặt mật khẩu và bắt đầu sử dụng
+      Quản trị viên vừa tạo tài khoản BunnyHoanTien cho bạn bằng email này. Bấm nút bên dưới để đặt mật khẩu và bắt đầu sử dụng
       (liên kết có hiệu lực trong ${params.expiresInDays} ngày):
     </p>
     <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto 24px;">
@@ -311,11 +311,11 @@ export function buildReferralSuccessEmail(params: { referrerName: string; friend
     <h1 style="margin:0 0 16px;font-size:22px;font-weight:900;color:#2d1f14;">🎁 Bạn vừa mời thành công!</h1>
     <p style="margin:0 0 8px;font-size:14px;line-height:1.6;color:#6b5847;">Xin chào <strong>${escapeHtml(params.referrerName)}</strong>,</p>
     <p style="margin:0 0 24px;font-size:14px;line-height:1.6;color:#6b5847;">
-      <strong>${escapeHtml(params.friendName)}</strong> vừa đăng ký tài khoản iviback bằng link giới thiệu của bạn.
+      <strong>${escapeHtml(params.friendName)}</strong> vừa đăng ký tài khoản BunnyHoanTien bằng link giới thiệu của bạn.
       Khi bạn ấy hoàn tất đơn hàng đầu tiên và được duyệt, hoa hồng giới thiệu sẽ tự động cộng vào ví của bạn.
     </p>
     <p style="margin:0;font-size:13px;line-height:1.6;color:#a0816a;">
-      Xem chi tiết tại mục "Mời bạn bè" trên iviback.vn.
+      Xem chi tiết tại mục "Mời bạn bè" trên hoahuongaff.click.
     </p>
   `);
 }

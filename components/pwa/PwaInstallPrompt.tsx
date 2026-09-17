@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { X, Share, SquarePlus } from "lucide-react";
-import { versionedAsset } from "@/lib/versionedAsset";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 const DISMISS_KEY = "pwa_install_dismissed_at";
 const DISMISS_COOLDOWN_DAYS = 14;
@@ -44,9 +44,11 @@ function IosStepsModal({ onClose }: { onClose: () => void }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-xl text-center" style={{ background: "linear-gradient(135deg,#FFF3F7,#FDE3EB)" }}>
-          <img src={versionedAsset("/icontitle.png")} alt="" className="mx-auto mb-sm h-14 w-14 rounded-full object-cover" />
+          <div className="mx-auto mb-sm h-14 w-14 rounded-full bg-pink-100 border border-pink-200 p-1 flex items-center justify-center">
+            <BunnyMascot size={42} />
+          </div>
           <h3 className="text-[17px] font-black text-gray-900">Thêm vào Màn hình chính</h3>
-          <p className="mt-1 text-[12px] text-gray-500">3 bước để dùng iviback như một app thật trên iPhone</p>
+          <p className="mt-1 text-[12px] text-gray-500">3 bước để dùng BunnyHoanTien như một app thật trên iPhone</p>
         </div>
         <div className="flex flex-col gap-md p-xl">
           <div className="flex items-center gap-md">
@@ -147,9 +149,11 @@ export function PwaInstallBanner() {
   return (
     <>
       <div className="mb-lg flex items-center gap-sm rounded-2xl bg-white p-md shadow-sm ring-1 ring-black/5 fade-in">
-        <img src={versionedAsset("/icontitle.png")} alt="" className="h-10 w-10 shrink-0 rounded-full object-cover" />
+        <div className="h-10 w-10 shrink-0 rounded-full bg-pink-100 p-1 flex items-center justify-center">
+          <BunnyMascot size={28} />
+        </div>
         <div className="min-w-0 flex-1">
-          <div className="text-[13px] font-bold text-gray-900">Cài đặt iviback vào máy</div>
+          <div className="text-[13px] font-bold text-gray-900">Cài đặt BunnyHoanTien vào máy</div>
           <div className="text-[11px] text-gray-500">Mở nhanh hơn, trải nghiệm mượt như app thật</div>
         </div>
         <button
@@ -211,15 +215,17 @@ export function PwaInstallSettingsCard() {
   return (
     <div className="rounded-3xl bg-white p-xl shadow-sm ring-1 ring-black/[0.06]">
       <div className="mb-md flex items-center gap-sm">
-        <img src={versionedAsset("/icontitle.png")} alt="" className="h-9 w-9 rounded-full object-cover" />
+        <div className="h-9 w-9 shrink-0 rounded-full bg-pink-100 p-1 flex items-center justify-center">
+          <BunnyMascot size={26} />
+        </div>
         <h2 className="text-[15px] font-bold text-gray-900">Cài đặt ứng dụng</h2>
       </div>
       {installed ? (
-        <p className="text-[13px] text-gray-500">Bạn đã cài iviback lên máy này rồi 🎉</p>
+        <p className="text-[13px] text-gray-500">Bạn đã cài BunnyHoanTien lên máy này rồi 🎉</p>
       ) : (
         <>
           <p className="mb-md text-[13px] leading-relaxed text-gray-400">
-            Cài iviback lên {platform === "ios" ? "iPhone" : "điện thoại"} để mở nhanh hơn, dùng như một ứng dụng thật.
+            Cài BunnyHoanTien lên {platform === "ios" ? "iPhone" : "điện thoại"} để mở nhanh hơn, dùng như một ứng dụng thật.
           </p>
           <button
             onClick={handleInstallClick}

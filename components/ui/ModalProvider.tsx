@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState, useCallback, ReactNode } from "react";
 import { X, AlertCircle, Info, HelpCircle } from "lucide-react";
 import { Button } from "./Button";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 type ModalType = "alert" | "confirm";
 
@@ -68,7 +69,7 @@ export function ModalProvider({ children }: { children: ReactNode }) {
       case "warning":
         return <HelpCircle className="text-amber-500" size={32} strokeWidth={1.5} />;
       case "success":
-        return <img src="/heochaomung.png" alt="" className="h-14 w-14 object-contain" />;
+        return <BunnyMascot size={52} />;
       default:
         return <Info className="text-sky-500" size={32} strokeWidth={1.5} />;
     }

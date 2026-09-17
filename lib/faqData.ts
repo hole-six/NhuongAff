@@ -12,20 +12,20 @@ export const FAQ_ITEMS: FaqItem[] = [
   // Về cách hoạt động
   {
     group: "Về cách hoạt động",
-    question: "iviback hoạt động như thế nào?",
+    question: "BunnyHoanTien hoạt động như thế nào?",
     answer:
-      "Khi bạn mua hàng qua link iviback, Shopee, TikTok Shop và Lazada trả hoa hồng affiliate cho chúng tôi. iviback chia lại phần lớn khoản này vào ví của bạn dưới dạng tiền mặt — hoàn toàn tự động, không cần làm thêm gì.",
+      "Khi bạn mua hàng qua link BunnyHoanTien, Shopee, TikTok Shop và Lazada trả hoa hồng affiliate cho chúng tôi. BunnyHoanTien chia lại phần lớn khoản này vào ví của bạn dưới dạng tiền mặt — hoàn toàn tự động, không cần làm thêm gì.",
   },
   {
     group: "Về cách hoạt động",
-    question: "iviback có lấy phí không?",
+    question: "BunnyHoanTien có lấy phí không?",
     answer: "Hoàn toàn miễn phí. Không phí đăng ký, không phí tạo link, không phí rút tiền.",
   },
   {
     group: "Về cách hoạt động",
-    question: "Tôi có thể dùng iviback kết hợp với voucher Shopee, mã freeship, Shopee Xu không?",
+    question: "Tôi có thể dùng BunnyHoanTien kết hợp với voucher Shopee, mã freeship, Shopee Xu không?",
     answer:
-      "Được. Hoàn tiền iviback tính độc lập — bạn vẫn áp đầy đủ voucher, mã giảm giá, Shopee Xu như bình thường trước khi mua. Hai khoản không ảnh hưởng nhau.",
+      "Được. Hoàn tiền BunnyHoanTien tính độc lập — bạn vẫn áp đầy đủ voucher, mã giảm giá, Shopee Xu như bình thường trước khi mua. Hai khoản không ảnh hưởng nhau.",
   },
   {
     group: "Về cách hoạt động",
@@ -39,13 +39,13 @@ export const FAQ_ITEMS: FaqItem[] = [
     group: "Về cách hoạt động",
     question: "Tôi mua trên app Shopee điện thoại được không?",
     answer:
-      "Được. Sau khi tạo link trên iviback, bấm vào link đó — hệ thống tự mở app Shopee với mã tracking đã gắn sẵn. Bạn mua bình thường trên app, hoàn tiền tự ghi nhận.",
+      "Được. Sau khi tạo link trên BunnyHoanTien, bấm vào link đó — hệ thống tự mở app Shopee với mã tracking đã gắn sẵn. Bạn mua bình thường trên app, hoàn tiền tự ghi nhận.",
   },
 
   // Về tiền hoàn
   {
     group: "Về tiền hoàn",
-    question: "Bao lâu tiền về ví iviback sau khi đơn giao thành công?",
+    question: "Bao lâu tiền về ví BunnyHoanTien sau khi đơn giao thành công?",
     answer:
       "7–15 ngày sau khi đơn được xác nhận hoàn tất. Thời gian này phụ thuộc vào kỳ đối soát của Shopee, TikTok Shop và Lazada với hệ thống affiliate.",
   },
@@ -96,13 +96,13 @@ export const FAQ_ITEMS: FaqItem[] = [
     group: "Về lý do link không ghi nhận",
     question: "Mua trên Livestream hoặc Shopee Video có được hoàn tiền không?",
     answer:
-      "Rất tiếc là KHÔNG bạn nhé. Khi mua qua Livestream hoặc Shopee Video, hoa hồng sẽ được ghi nhận cho người phát Live hoặc người đăng Video — không qua iviback — nên chúng tôi không thể hoàn lại cho bạn. Để nhận hoàn tiền, bạn hãy mua trực tiếp qua link được chuyển đổi từ iviback.vn.",
+      "Rất tiếc là KHÔNG bạn nhé. Khi mua qua Livestream hoặc Shopee Video, hoa hồng sẽ được ghi nhận cho người phát Live hoặc người đăng Video — không qua BunnyHoanTien — nên chúng tôi không thể hoàn lại cho bạn. Để nhận hoàn tiền, bạn hãy mua trực tiếp qua link được chuyển đổi từ hoahuongaff.click.",
   },
   {
     group: "Về lý do link không ghi nhận",
     question: "Bao lâu thì đơn hàng được ghi nhận?",
     answer:
-      "Thông thường đơn hàng sẽ xuất hiện trong 24–48 giờ sau khi bạn đặt. Ví dụ: đặt hàng trong ngày 25 → hệ thống ghi nhận vào ngày 26. Bạn vào mục Đơn hàng trên web iviback để theo dõi trạng thái nhé!",
+      "Thông thường đơn hàng sẽ xuất hiện trong 24–48 giờ sau khi bạn đặt. Ví dụ: đặt hàng trong ngày 25 → hệ thống ghi nhận vào ngày 26. Bạn vào mục Đơn hàng trên web BunnyHoanTien để theo dõi trạng thái nhé!",
   },
   {
     group: "Về lý do link không ghi nhận",
@@ -115,13 +115,13 @@ export const FAQ_ITEMS: FaqItem[] = [
     group: "Về lý do link không ghi nhận",
     question: "Làm sao biết đơn của tôi đã được ghi nhận chưa?",
     answer:
-      "Vào mục đơn hàng trên iviback.vn → Đơn ghi nhận thành công sẽ hiện trạng thái \"Đang chờ duyệt\" trong vòng 24–48h sau khi mua. Nếu sau 48h không thấy, bạn có thể hủy và đặt lại đơn khác (nếu không gấp) hoặc liên hệ Zalo 0965.965.439 để được hỗ trợ.",
+      "Vào mục đơn hàng trên hoahuongaff.click → Đơn ghi nhận thành công sẽ hiện trạng thái \"Đang chờ duyệt\" trong vòng 24–48h sau khi mua. Nếu sau 48h không thấy, bạn có thể hủy và đặt lại đơn khác (nếu không gấp) hoặc liên hệ Zalo 0965.965.439 để được hỗ trợ.",
   },
   {
     group: "Về lý do link không ghi nhận",
     question: "Tôi dùng Bot Telegram có bị ảnh hưởng gì không?",
     answer:
-      "Không. Bot Telegram và web iviback dùng chung tài khoản — tiền hoàn về cùng một ví, theo dõi được trên cả hai nơi.",
+      "Không. Bot Telegram và web BunnyHoanTien dùng chung tài khoản — tiền hoàn về cùng một ví, theo dõi được trên cả hai nơi.",
   },
 
   // Về mời bạn bè
@@ -129,7 +129,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     group: "Về mời bạn bè",
     question: "Cơ chế 5% mời bạn hoạt động thế nào?",
     answer:
-      "Khi bạn mời một người dùng mới đăng ký qua link giới thiệu của bạn, bạn nhận thêm 5% trên tiền hoàn của 5 đơn hàng đầu tiên của họ. Người được mời vẫn nhận đủ 100% tiền hoàn của họ — 5% này iviback trả thêm cho bạn, không trừ vào phần của bạn bè.",
+      "Khi bạn mời một người dùng mới đăng ký qua link giới thiệu của bạn, bạn nhận thêm 5% trên tiền hoàn của 5 đơn hàng đầu tiên của họ. Người được mời vẫn nhận đủ 100% tiền hoàn của họ — 5% này BunnyHoanTien trả thêm cho bạn, không trừ vào phần của bạn bè.",
   },
   {
     group: "Về mời bạn bè",
@@ -149,17 +149,17 @@ export const FAQ_ITEMS: FaqItem[] = [
     group: "Các tình huống khác",
     question: "Tôi có thể tạo link cho người khác mua giúp không?",
     answer:
-      "Được. Link iviback không gắn với tài khoản người mua — chỉ cần người mua bấm đúng link của bạn trước khi thanh toán là hoa hồng về ví bạn.",
+      "Được. Link BunnyHoanTien không gắn với tài khoản người mua — chỉ cần người mua bấm đúng link của bạn trước khi thanh toán là hoa hồng về ví bạn.",
   },
   {
     group: "Các tình huống khác",
     question: "Shopee Flash Sale, deal sốc có được hoàn tiền không?",
     answer:
-      "Phụ thuộc vào chính sách hoa hồng của Shopee cho từng chương trình. Một số flash sale Shopee loại trừ affiliate — iviback không kiểm soát được điều này. Khuyến nghị tạo link chuyển đổi từ sản phẩm trong Ưu Đãi trước khi mua.",
+      "Phụ thuộc vào chính sách hoa hồng của Shopee cho từng chương trình. Một số flash sale Shopee loại trừ affiliate — BunnyHoanTien không kiểm soát được điều này. Khuyến nghị tạo link chuyển đổi từ sản phẩm trong Ưu Đãi trước khi mua.",
   },
   {
     group: "Các tình huống khác",
-    question: "Tài khoản iviback có hết hạn không?",
+    question: "Tài khoản BunnyHoanTien có hết hạn không?",
     answer: "Không. Tài khoản giữ nguyên miễn phí mãi mãi. Số dư trong ví không bị trừ dù bạn không dùng trong thời gian dài.",
   },
   {

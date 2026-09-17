@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CheckCircle2, X } from "lucide-react";
 
-const PENDING_LINK_STORAGE_KEY = "iviback_pending_link";
+const PENDING_LINK_STORAGE_KEY = "BunnyHoanTien_pending_link";
 
 // Khách xem thử link ở trang chủ (chưa đăng nhập) → lưu URL gốc vào
 // localStorage → đăng ký xong, lần đầu vào /app/** thì component này tự

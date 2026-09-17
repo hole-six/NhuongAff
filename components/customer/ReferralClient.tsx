@@ -5,6 +5,7 @@ import { formatCurrency, formatDate } from "@/lib/format";
 import { Users, TrendingUp, CheckCircle2 } from "lucide-react";
 import { useModal } from "@/components/ui/ModalProvider";
 import { Button } from "@/components/ui/Button";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 type Friend = {
   id: string;
@@ -89,7 +90,9 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-rose-50 rounded-full blur-3xl opacity-60"></div>
             <div className="relative">
               <div className="flex items-center gap-sm mb-lg">
-                <img src="/heoquatang.png" alt="" className="h-12 w-12 object-contain" />
+                <div className="h-10 w-10 rounded-full bg-pink-100 p-1 flex items-center justify-center">
+                  <BunnyMascot size={28} />
+                </div>
                 <h2 className="text-[16px] font-bold text-gray-900">Link giới thiệu của bạn</h2>
               </div>
               
@@ -275,7 +278,9 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-rose-50 rounded-full blur-3xl opacity-60"></div>
             <div className="relative">
               <div className="flex items-center gap-sm mb-xl">
-                <img src="/heoqua.png" alt="" className="h-12 w-12 object-contain" />
+                <div className="h-10 w-10 rounded-full bg-pink-100 p-1 flex items-center justify-center">
+                  <BunnyMascot size={28} />
+                </div>
                 <h2 className="text-[18px] font-black text-gray-900">Phần thưởng của bạn</h2>
               </div>
 

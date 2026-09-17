@@ -4,18 +4,18 @@ import { MarketingFooter } from "@/components/marketing/MarketingFooter";
 import { safeJsonLdString } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Chính Sách Bảo Mật — iviback",
+  title: "Chính Sách Bảo Mật — BunnyHoanTien",
   description:
-    "Chính sách bảo mật thông tin cá nhân của người dùng iviback: dữ liệu thu thập, mục đích sử dụng, cookie, chia sẻ bên thứ ba và quyền của bạn.",
+    "Chính sách bảo mật thông tin cá nhân của người dùng BunnyHoanTien: dữ liệu thu thập, mục đích sử dụng, cookie, chia sẻ bên thứ ba và quyền của bạn.",
   alternates: { canonical: "/chinh-sach-bao-mat" },
   openGraph: {
-    title: "Chính Sách Bảo Mật — iviback",
+    title: "Chính Sách Bảo Mật — BunnyHoanTien",
     description:
-      "Chính sách bảo mật thông tin cá nhân của người dùng iviback: dữ liệu thu thập, mục đích sử dụng, cookie, chia sẻ bên thứ ba và quyền của bạn.",
+      "Chính sách bảo mật thông tin cá nhân của người dùng BunnyHoanTien: dữ liệu thu thập, mục đích sử dụng, cookie, chia sẻ bên thứ ba và quyền của bạn.",
     type: "website",
     locale: "vi_VN",
     url: "/chinh-sach-bao-mat",
-    siteName: "iviback",
+    siteName: "BunnyHoanTien",
   },
 };
 
@@ -23,8 +23,8 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://iviback.vn/" },
-    { "@type": "ListItem", position: 2, name: "Chính sách bảo mật", item: "https://iviback.vn/chinh-sach-bao-mat" },
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://hoahuongaff.click/" },
+    { "@type": "ListItem", position: 2, name: "Chính sách bảo mật", item: "https://hoahuongaff.click/chinh-sach-bao-mat" },
   ],
 };
 
@@ -32,7 +32,7 @@ const SECTIONS = [
   {
     title: "1. Phạm vi áp dụng",
     body: [
-      "Chính sách bảo mật này áp dụng cho toàn bộ thông tin cá nhân mà iviback thu thập khi bạn sử dụng website iviback.vn và bot Telegram chính thức của iviback. Bằng việc sử dụng dịch vụ, bạn đồng ý với cách thức thu thập và xử lý dữ liệu được mô tả dưới đây.",
+      "Chính sách bảo mật này áp dụng cho toàn bộ thông tin cá nhân mà BunnyHoanTien thu thập khi bạn sử dụng website hoahuongaff.click và bot Telegram chính thức của BunnyHoanTien. Bằng việc sử dụng dịch vụ, bạn đồng ý với cách thức thu thập và xử lý dữ liệu được mô tả dưới đây.",
     ],
   },
   {
@@ -60,14 +60,14 @@ const SECTIONS = [
   {
     title: "4. Cookie và công nghệ theo dõi",
     body: [
-      "iviback sử dụng cookie thiết yếu để duy trì phiên đăng nhập của bạn một cách an toàn (mã hoá, chỉ truyền qua kết nối HTTPS). Chúng tôi không sử dụng cookie quảng cáo của bên thứ ba.",
-      "Khi bạn truy cập hệ thống từ một link mời (dạng iviback.vn/register?ref=...), một cookie ref_code được lưu trong 30 ngày để ghi nhận đúng người đã giới thiệu bạn nếu bạn đăng ký tài khoản trong khoảng thời gian đó.",
+      "BunnyHoanTien sử dụng cookie thiết yếu để duy trì phiên đăng nhập của bạn một cách an toàn (mã hoá, chỉ truyền qua kết nối HTTPS). Chúng tôi không sử dụng cookie quảng cáo của bên thứ ba.",
+      "Khi bạn truy cập hệ thống từ một link mời (dạng hoahuongaff.click/register?ref=...), một cookie ref_code được lưu trong 30 ngày để ghi nhận đúng người đã giới thiệu bạn nếu bạn đăng ký tài khoản trong khoảng thời gian đó.",
     ],
   },
   {
     title: "5. Chia sẻ thông tin với bên thứ ba",
     body: [
-      "iviback không bán, cho thuê hoặc trao đổi thông tin cá nhân của bạn cho bất kỳ bên thứ ba nào vì mục đích thương mại. Thông tin chỉ được chia sẻ trong các trường hợp sau:",
+      "BunnyHoanTien không bán, cho thuê hoặc trao đổi thông tin cá nhân của bạn cho bất kỳ bên thứ ba nào vì mục đích thương mại. Thông tin chỉ được chia sẻ trong các trường hợp sau:",
     ],
     list: [
       "Với ngân hàng bạn khai báo: chỉ số tài khoản/tên chủ tài khoản cần thiết để thực hiện chuyển khoản tiền hoàn.",
@@ -80,9 +80,9 @@ const SECTIONS = [
   {
     title: "6. Bảo mật thông tin",
     list: [
-      "Mật khẩu tài khoản được mã hoá một chiều (hashing), iviback và nhân viên vận hành không có khả năng xem được mật khẩu gốc của bạn.",
+      "Mật khẩu tài khoản được mã hoá một chiều (hashing), BunnyHoanTien và nhân viên vận hành không có khả năng xem được mật khẩu gốc của bạn.",
       "Toàn bộ kết nối giữa trình duyệt/Telegram và hệ thống đều được mã hoá qua giao thức HTTPS.",
-      "Quyền truy cập vào dữ liệu khách hàng trong hệ thống quản trị được giới hạn cho đội ngũ vận hành iviback, phục vụ đúng mục đích nghiệp vụ.",
+      "Quyền truy cập vào dữ liệu khách hàng trong hệ thống quản trị được giới hạn cho đội ngũ vận hành BunnyHoanTien, phục vụ đúng mục đích nghiệp vụ.",
     ],
   },
   {
@@ -102,7 +102,7 @@ const SECTIONS = [
   {
     title: "9. Đối tượng sử dụng dịch vụ",
     body: [
-      "Dịch vụ của iviback dành cho người dùng từ đủ 18 tuổi trở lên. Chúng tôi không chủ đích thu thập thông tin cá nhân của trẻ em dưới 18 tuổi.",
+      "Dịch vụ của BunnyHoanTien dành cho người dùng từ đủ 18 tuổi trở lên. Chúng tôi không chủ đích thu thập thông tin cá nhân của trẻ em dưới 18 tuổi.",
     ],
   },
   {
@@ -114,7 +114,7 @@ const SECTIONS = [
   {
     title: "11. Liên hệ",
     body: [
-      "Nếu bạn có bất kỳ câu hỏi nào về cách iviback thu thập, sử dụng hoặc bảo vệ thông tin cá nhân, vui lòng liên hệ qua hotline 0965.965.439 hoặc các kênh mạng xã hội chính thức tại chân trang website.",
+      "Nếu bạn có bất kỳ câu hỏi nào về cách BunnyHoanTien thu thập, sử dụng hoặc bảo vệ thông tin cá nhân, vui lòng liên hệ qua hotline 0965.965.439 hoặc các kênh mạng xã hội chính thức tại chân trang website.",
     ],
   },
 ];
@@ -132,7 +132,7 @@ export default function PrivacyPolicyPage() {
               Chính Sách <span className="text-primary">Bảo Mật</span>
             </h1>
             <p className="text-[16px] text-mute max-w-xl mx-auto leading-relaxed">
-              Cập nhật lần cuối: tháng 7/2026. iviback cam kết bảo vệ thông tin cá nhân của bạn.
+              Cập nhật lần cuối: tháng 7/2026. BunnyHoanTien cam kết bảo vệ thông tin cá nhân của bạn.
             </p>
           </div>
         </section>

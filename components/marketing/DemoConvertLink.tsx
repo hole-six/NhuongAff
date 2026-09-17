@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Link2, Loader2, ArrowRight, Sparkles } from "lucide-react";
 
-export const PENDING_LINK_STORAGE_KEY = "iviback_pending_link";
+export const PENDING_LINK_STORAGE_KEY = "BunnyHoanTien_pending_link";
 
 type PreviewResult = {
   platformCode: string;

@@ -81,7 +81,7 @@ export async function POST(req: NextRequest) {
 
     void sendMail({
       to: normalizedEmail,
-      subject: "Tài khoản iviback của bạn đã sẵn sàng",
+      subject: "Tài khoản BunnyHoanTien của bạn đã sẵn sàng",
       html: buildAccountCreatedByAdminEmail({
         fullName,
         setPasswordUrl,

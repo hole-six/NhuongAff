@@ -148,7 +148,7 @@ export async function createRioHubTikTokProductLink(params: {
       creator_username: requireCreatorUsername(),
       product_url: params.productUrl,
       sub_id: params.subId,
-      channel: params.channel ?? "iviback",
+      channel: params.channel ?? "BunnyHoanTien",
     }),
   });
 }

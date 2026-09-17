@@ -6,16 +6,16 @@ import Link from "next/link";
 import { safeJsonLdString } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Hướng Dẫn Sử Dụng — iviback Hoàn Tiền Shopee, TikTok Shop, Lazada",
-  description: "Cách sử dụng nền tảng hoàn tiền iviback: 3 bước đơn giản để mua sắm Shopee, TikTok Shop, Lazada và nhận hoàn tiền tự động.",
+  title: "Hướng Dẫn Sử Dụng — BunnyHoanTien Hoàn Tiền Shopee, TikTok Shop, Lazada",
+  description: "Cách sử dụng nền tảng hoàn tiền BunnyHoanTien: 3 bước đơn giản để mua sắm Shopee, TikTok Shop, Lazada và nhận hoàn tiền tự động.",
   alternates: { canonical: "/huong-dan" },
   openGraph: {
-    title: "Hướng Dẫn Sử Dụng — iviback Hoàn Tiền Shopee, TikTok Shop, Lazada",
-    description: "Cách sử dụng nền tảng hoàn tiền iviback: 3 bước đơn giản để mua sắm Shopee, TikTok Shop, Lazada và nhận hoàn tiền tự động.",
+    title: "Hướng Dẫn Sử Dụng — BunnyHoanTien Hoàn Tiền Shopee, TikTok Shop, Lazada",
+    description: "Cách sử dụng nền tảng hoàn tiền BunnyHoanTien: 3 bước đơn giản để mua sắm Shopee, TikTok Shop, Lazada và nhận hoàn tiền tự động.",
     type: "website",
     locale: "vi_VN",
     url: "/huong-dan",
-    siteName: "iviback",
+    siteName: "BunnyHoanTien",
   },
 };
 
@@ -38,8 +38,8 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://iviback.vn/" },
-    { "@type": "ListItem", position: 2, name: "Hướng Dẫn", item: "https://iviback.vn/huong-dan" },
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://hoahuongaff.click/" },
+    { "@type": "ListItem", position: 2, name: "Hướng Dẫn", item: "https://hoahuongaff.click/huong-dan" },
   ],
 };
 

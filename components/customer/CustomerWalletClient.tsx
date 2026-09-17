@@ -5,6 +5,7 @@ import { Wallet, Clock, CheckCircle2, Building2, Edit2, AlertCircle, X, Loader2,
 import { formatCurrency } from "@/lib/format";
 import { useRouter } from "next/navigation";
 import { Pagination } from "@/components/ui/Pagination";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 export const VIETNAM_BANKS = [
   // Ngân hàng quốc doanh / nhà nước chi phối
@@ -210,7 +211,9 @@ export function CustomerWalletClient({
       <div className="mx-auto flex max-w-5xl flex-col gap-xl fade-in pb-2xl">
         {/* HEADER */}
         <div className="flex items-center gap-md">
-          <img src="/heovitien.png" alt="" className="h-14 w-14 object-contain" />
+          <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-pink-400 to-pink-500 p-2 shadow-md flex items-center justify-center shrink-0">
+            <BunnyMascot size={40} />
+          </div>
           <div>
             <h1 className="text-[24px] sm:text-[28px] font-black tracking-tight text-gray-900">
               Thanh Toán

@@ -6,23 +6,23 @@ import { LandingPage } from "@/components/marketing/LandingPage";
 import { safeJsonLdString } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
-  title: "iviback — Mua sắm Shopee, TikTok Shop, Lazada nhận hoàn tiền tự động",
+  title: "BunnyHoanTien — Mua sắm Shopee, TikTok Shop, Lazada nhận hoàn tiền tự động",
   description:
     "Dán link Shopee, TikTok Shop hoặc Lazada, nhận link hoàn tiền tự động. Rút tiền từ 10.000đ, tích hợp bot Telegram, miễn phí hoàn toàn.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "iviback — Mua sắm thông minh, nhận hoàn tiền tự động",
+    title: "BunnyHoanTien — Mua sắm thông minh, nhận hoàn tiền tự động",
     description:
       "Nền tảng affiliate hoàn tiền cho Shopee, TikTok Shop và Lazada. Rút tiền từ 10.000đ, tích hợp bot Telegram.",
     type: "website",
     locale: "vi_VN",
     url: "/",
-    siteName: "iviback",
-    images: [{ url: "/icontitle.png", width: 1536, height: 1024, alt: "iviback - Nền tảng hoàn tiền affiliate" }],
+    siteName: "BunnyHoanTien",
+    images: [{ url: "/icontitle.png", width: 1536, height: 1024, alt: "BunnyHoanTien - Nền tảng hoàn tiền affiliate" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "iviback — Mua sắm thông minh, nhận hoàn tiền tự động",
+    title: "BunnyHoanTien — Mua sắm thông minh, nhận hoàn tiền tự động",
     description:
       "Nền tảng affiliate hoàn tiền cho Shopee, TikTok Shop và Lazada. Rút tiền từ 10.000đ, tích hợp bot Telegram.",
     images: ["/icontitle.png"],
@@ -34,18 +34,18 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://iviback.vn/#website",
-      url: "https://iviback.vn",
-      name: "iviback",
+      "@id": "https://hoahuongaff.click/#website",
+      url: "https://hoahuongaff.click",
+      name: "BunnyHoanTien",
       description: "Nền tảng affiliate hoàn tiền cho Shopee, TikTok Shop và Lazada tại Việt Nam.",
       inLanguage: "vi-VN",
     },
     {
       "@type": "Organization",
-      "@id": "https://iviback.vn/#organization",
-      name: "iviback",
-      url: "https://iviback.vn",
-      logo: "https://iviback.vn/icontitle.png",
+      "@id": "https://hoahuongaff.click/#organization",
+      name: "BunnyHoanTien",
+      url: "https://hoahuongaff.click",
+      logo: "https://hoahuongaff.click/icontitle.png",
       telephone: "+84965965439",
       contactPoint: {
         "@type": "ContactPoint",

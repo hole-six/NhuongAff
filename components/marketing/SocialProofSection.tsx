@@ -5,7 +5,7 @@ const TESTIMONIALS = [
     name: "Minh Châu",
     location: "TP.HCM",
     quote:
-      "Mình hay mua đồ mẹ bé, mỗi tháng cũng vài đơn. Từ hồi dùng iviback tháng nào cũng rút được 80–150k, nhỏ thôi nhưng cộng lại cũng được. Quan trọng là không mất gì, cứ mua như bình thường, còn được thêm hoa hồng.",
+      "Mình hay mua đồ mẹ bé, mỗi tháng cũng vài đơn. Từ hồi dùng BunnyHoanTien tháng nào cũng rút được 80–150k, nhỏ thôi nhưng cộng lại cũng được. Quan trọng là không mất gì, cứ mua như bình thường, còn được thêm hoa hồng.",
   },
   {
     name: "Lan Phương",
@@ -76,7 +76,7 @@ export function SocialProofSection({ totalPaidOut, totalCustomers }: { totalPaid
         {/* Testimonials */}
         <div className="text-center mb-xl">
           <h2 className="text-[28px] sm:text-[36px] font-black text-ink tracking-tight">
-            Khách hàng nói gì về <span className="text-primary">iviback</span>
+            Khách hàng nói gì về <span className="text-primary">BunnyHoanTien</span>
           </h2>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-lg">

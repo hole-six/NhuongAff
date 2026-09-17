@@ -4,9 +4,9 @@ import { RegisterForm } from "./RegisterForm";
 import { AuthShell } from "@/components/auth/AuthShell";
 
 export const metadata: Metadata = {
-  title: "Đăng ký tài khoản — iviback",
+  title: "Đăng ký tài khoản — BunnyHoanTien",
   description:
-    "Tạo tài khoản iviback miễn phí để nhận hoàn tiền mọi đơn Shopee, TikTok Shop và Lazada.",
+    "Tạo tài khoản BunnyHoanTien miễn phí để nhận hoàn tiền mọi đơn Shopee, TikTok Shop và Lazada.",
   alternates: { canonical: "/register" },
 };
 

@@ -4,8 +4,8 @@ import { LoginForm } from "./LoginForm";
 import { AuthShell } from "@/components/auth/AuthShell";
 
 export const metadata: Metadata = {
-  title: "Đăng Nhập Tài Khoản — iviback Hoàn Tiền Shopee, TikTok Shop, Lazada",
-  description: "Đăng nhập vào iviback để quản lý ví hoàn tiền, đơn hàng và rút tiền dễ dàng.",
+  title: "Đăng Nhập Tài Khoản — BunnyHoanTien Hoàn Tiền Shopee, TikTok Shop, Lazada",
+  description: "Đăng nhập vào BunnyHoanTien để quản lý ví hoàn tiền, đơn hàng và rút tiền dễ dàng.",
   alternates: { canonical: "/login" },
 };
 

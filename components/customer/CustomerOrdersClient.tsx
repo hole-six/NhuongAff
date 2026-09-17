@@ -4,6 +4,7 @@ import { CalendarDays, ExternalLink, Package, Gift } from "lucide-react";
 import { Pagination } from "@/components/ui/Pagination";
 import { ServerSearchInput } from "@/components/ui/ServerSearchInput";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 type Order = {
   id: string;
@@ -137,7 +138,9 @@ export function CustomerOrdersClient({ orders, totalPages, currentPage, counts }
       <div className="mt-md rounded-3xl bg-white p-md shadow-sm ring-1 ring-black/5 min-h-[400px]">
         {orders.length === 0 ? (
           <div className="flex h-full min-h-[350px] flex-col items-center justify-center">
-            <img src="/heochodoi.png" alt="" className="mb-md h-20 w-20 object-contain opacity-90" />
+            <div className="mb-md p-3 bg-pink-50 rounded-full border border-pink-100">
+              <BunnyMascot size={56} />
+            </div>
             <div className="text-[14px] font-bold text-gray-400">Chưa có đơn hàng</div>
           </div>
         ) : (
@@ -188,7 +191,7 @@ export function CustomerOrdersClient({ orders, totalPages, currentPage, counts }
                     </div>
                     {o.sourceType === "referral" && (
                       <div className="mt-1 max-w-[280px] text-[11px] leading-snug text-purple-500/90">
-                        Không phải đơn bạn mua — đây là tiền thưởng vì bạn đã giới thiệu người này cho iviback. Xem chi tiết tại mục "Mời bạn".
+                        Không phải đơn bạn mua — đây là tiền thưởng vì bạn đã giới thiệu người này cho BunnyHoanTien. Xem chi tiết tại mục "Mời bạn".
                       </div>
                     )}
                     <div className="mt-1 flex items-center gap-xs">

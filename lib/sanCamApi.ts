@@ -14,9 +14,9 @@ export type SanCamProductData = {
   sold: number | null;
   // Hoa hồng GỘP thật của đúng sản phẩm này (VNĐ) — dùng làm input cho
   // splitCommission() của hệ thống (đã có sẵn thuế + tỷ lệ 80/20 riêng của
-  // iviback), KHÔNG dùng trực tiếp sellerComFinal/shopeeComFinal của API vì
+  // BunnyHoanTien), KHÔNG dùng trực tiếp sellerComFinal/shopeeComFinal của API vì
   // 2 giá trị đó tính theo rate/thuế của TÀI KHOẢN CHỦ API, không phải của
-  // iviback.
+  // BunnyHoanTien.
   commission: number | null;
 };
 

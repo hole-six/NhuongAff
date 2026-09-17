@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { X, MessagesSquare, Headphones, Bell, MessageCircle } from "lucide-react";
 import { SupportInfoGrid } from "./SupportInfoGrid";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 export function FloatingQuickAccess({
   unreadCount,
@@ -73,10 +74,12 @@ export function FloatingQuickAccess({
             <div className="sticky top-0 z-10 flex items-center justify-between px-xl py-lg border-b border-gray-100 bg-white rounded-t-3xl"
               style={{ background: "linear-gradient(135deg,#FFF3F7,#FDE3EB)" }}>
               <div className="flex items-center gap-sm">
-                <img src="/heoQA.png" alt="" className="h-10 w-10 object-contain" />
+                <div className="h-10 w-10 rounded-full bg-pink-100 p-1 flex items-center justify-center shrink-0">
+                  <BunnyMascot size={28} />
+                </div>
                 <div>
                   <h3 className="text-[16px] font-black text-gray-900">Hỗ trợ nhanh</h3>
-                  <p className="text-[12px] text-gray-500">Liên hệ với iviback qua các kênh dưới đây</p>
+                  <p className="text-[12px] text-gray-500">Liên hệ với BunnyHoanTien qua các kênh dưới đây</p>
                 </div>
               </div>
               <button
@@ -98,7 +101,7 @@ export function FloatingQuickAccess({
                 </div>
                 <div className="flex-1">
                   <div className="font-bold text-gray-900">Nhắn tin với cộng đồng</div>
-                  <div className="text-[12px] text-gray-500">Trò chuyện trực tiếp cùng đội ngũ iviback và các thành viên khác</div>
+                  <div className="text-[12px] text-gray-500">Trò chuyện trực tiếp cùng đội ngũ BunnyHoanTien và các thành viên khác</div>
                 </div>
               </Link>
 

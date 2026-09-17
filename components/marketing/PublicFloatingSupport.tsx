@@ -60,11 +60,11 @@ export function PublicFloatingSupport() {
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-2xl bg-white shadow-sm
                                   flex items-center justify-center overflow-hidden">
-                    <BunnyMascot size={34} label="Hỗ trợ khách hàng iviback" />
+                    <BunnyMascot size={34} label="Hỗ trợ khách hàng BunnyHoanTien" />
                   </div>
                   <div>
                     <h3 className="text-[15px] font-black text-ink">Hỗ trợ nhanh 🐰</h3>
-                    <p className="text-[11px] text-mute">Liên hệ với iviback qua các kênh dưới đây</p>
+                    <p className="text-[11px] text-mute">Liên hệ với BunnyHoanTien qua các kênh dưới đây</p>
                   </div>
                 </div>
                 <button

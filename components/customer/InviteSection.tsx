@@ -5,6 +5,7 @@ import Link from "next/link";
 import { createPortal } from "react-dom";
 import { Copy, Check, Download, QrCode, X, ChevronRight } from "lucide-react";
 import { Star } from "lucide-react";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 type Props = {
   customerCode: string;
@@ -114,7 +115,9 @@ export function InviteSection({
       {/* Header */}
       <div className="mb-md flex items-center justify-between gap-sm">
         <div className="flex items-center gap-sm min-w-0">
-          <img src="/heoquatang.png" alt="" className="h-9 w-9 object-contain shrink-0" />
+          <div className="h-9 w-9 rounded-full bg-pink-100 p-1 flex items-center justify-center shrink-0">
+            <BunnyMascot size={26} />
+          </div>
           <h2 className="text-[15px] font-bold text-gray-900">Giới thiệu bạn bè</h2>
         </div>
         <Link
@@ -223,11 +226,9 @@ export function InviteSection({
               >
                 <X size={16} strokeWidth={2.5} />
               </button>
-              <img
-                src="/heoqua.png"
-                alt=""
-                className="mx-auto h-16 w-16 object-contain mb-sm"
-              />
+              <div className="mx-auto h-14 w-14 rounded-full bg-pink-100 p-1 flex items-center justify-center mb-sm">
+                <BunnyMascot size={40} />
+              </div>
               <h3 className="text-[17px] font-black text-gray-900">
                 Mã QR giới thiệu
               </h3>

@@ -6,16 +6,16 @@ import { FAQ_ITEMS } from "@/lib/faqData";
 import { safeJsonLdString } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Câu Hỏi Thường Gặp (FAQ) — iviback",
+  title: "Câu Hỏi Thường Gặp (FAQ) — BunnyHoanTien",
   description: "Giải đáp các thắc mắc về hệ thống hoàn tiền thông minh: rút tiền, phí sử dụng, sàn hỗ trợ và liên kết Telegram.",
   alternates: { canonical: "/faq" },
   openGraph: {
-    title: "Câu Hỏi Thường Gặp (FAQ) — iviback",
+    title: "Câu Hỏi Thường Gặp (FAQ) — BunnyHoanTien",
     description: "Giải đáp các thắc mắc về hệ thống hoàn tiền thông minh: rút tiền, phí sử dụng, sàn hỗ trợ và liên kết Telegram.",
     type: "website",
     locale: "vi_VN",
     url: "/faq",
-    siteName: "iviback",
+    siteName: "BunnyHoanTien",
   },
 };
 
@@ -33,8 +33,8 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://iviback.vn/" },
-    { "@type": "ListItem", position: 2, name: "FAQ", item: "https://iviback.vn/faq" },
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://hoahuongaff.click/" },
+    { "@type": "ListItem", position: 2, name: "FAQ", item: "https://hoahuongaff.click/faq" },
   ],
 };
 
@@ -49,7 +49,7 @@ export default function FaqPage() {
         {/* Header Hero */}
         <section className="bg-gradient-to-b from-[#FFF0F4] to-white py-3xl relative overflow-hidden">
           <div className="max-w-[1200px] mx-auto px-lg relative z-10 text-center">
-            <img src="/heoQA.png" alt="Câu hỏi thường gặp iviback" className="mx-auto h-24 w-24 object-contain mb-md" />
+            <img src="/heoQA.png" alt="Câu hỏi thường gặp BunnyHoanTien" className="mx-auto h-24 w-24 object-contain mb-md" />
             <h1 className="text-[40px] md:text-[56px] font-black text-ink tracking-tight mb-md">
               Câu Hỏi <span className="text-primary">Thường Gặp</span>
             </h1>

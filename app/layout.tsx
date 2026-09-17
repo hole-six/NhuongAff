@@ -13,14 +13,14 @@ const beVietnamPro = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://iviback.vn"),
-  title: "iviback",
+  metadataBase: new URL("https://hoahuongaff.click"),
+  title: "BunnyHoanTien",
   description: "Nền tảng affiliate hoàn tiền tích hợp Web + Zalo",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "iviback",
+    title: "BunnyHoanTien",
   },
   icons: {
     icon: [

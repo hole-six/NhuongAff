@@ -18,7 +18,7 @@ const CHANNELS = [
   {
     key: "facebook",
     label: "Facebook",
-    handle: "Fanpage iviback Hoàn Tiền",
+    handle: "Fanpage BunnyHoanTien Hoàn Tiền",
     cta: "Nhắn tin ngay",
     href: "https://www.facebook.com/share/1BShYKizDV/?mibextid=wwXIfr",
     Icon: FacebookIcon,
@@ -26,7 +26,7 @@ const CHANNELS = [
   {
     key: "zalo",
     label: "Zalo",
-    handle: "Cộng đồng Zalo iviback",
+    handle: "Cộng đồng Zalo BunnyHoanTien",
     cta: "Tham gia ngay",
     href: "https://zalo.me/g/cgmmvw504",
     Icon: ZaloIcon,

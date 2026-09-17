@@ -27,10 +27,10 @@ export function MarketingHeader({ activePath = "/" }: { activePath?: string }) {
           {/* Bunny mascot nhỏ trong vòng tròn hồng nhạt */}
           <div className="w-9 h-9 rounded-full bg-[#FFF0F4] border border-[#FFDFE8] shadow-sm
                           flex items-center justify-center overflow-hidden shrink-0">
-            <BunnyMascot size={30} label="iviback" />
+            <BunnyMascot size={30} label="BunnyHoanTien" />
           </div>
           <span className="font-black text-[18px] text-primary leading-none tracking-tight">
-            iviback
+            BunnyHoanTien
           </span>
         </Link>
 

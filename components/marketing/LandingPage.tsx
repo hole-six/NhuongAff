@@ -23,17 +23,18 @@ import { SocialProofSection } from "@/components/marketing/SocialProofSection";
 import { DemoConvertLink } from "@/components/marketing/DemoConvertLink";
 import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
-/* ─── Icon bay tứ tung — dùng trực tiếp từ Icons8 CDN ─── */
-const I8 = "https://img.icons8.com/color/96";
+/* ─── Icon bay tứ tung — dùng plasticine CDN từ Icons8 (Shopee, TikTok, Lazada) ─── */
+const I8_PLASTICINE = "https://img.icons8.com/plasticine/100";
 const FLOATING_ICONS = [
-  { src: `${I8}/shopee.png`,   alt: "Shopee",   size: 44, cls: "float-icon-1 sparkle-1", style: { top: "10%",   left: "3%"    } },
-  { src: `${I8}/tiktok.png`,   alt: "TikTok",   size: 34, cls: "float-icon-2 sparkle-2", style: { top: "6%",    left: "21%"   } },
-  { src: `${I8}/shopee.png`,   alt: "Shopee",   size: 30, cls: "float-icon-3 sparkle-3", style: { top: "32%",   left: "1%"    } },
-  { src: `${I8}/tiktok.png`,   alt: "TikTok",   size: 38, cls: "float-icon-4 sparkle-1", style: { bottom: "20%", left: "6%"   } },
-  { src: `${I8}/shopee.png`,   alt: "Shopee",   size: 28, cls: "float-icon-5 sparkle-2", style: { bottom: "10%", left: "22%"  } },
-  { src: `${I8}/tiktok.png`,   alt: "TikTok",   size: 48, cls: "float-icon-6 sparkle-3", style: { top: "52%",   left: "40%"   } },
-  { src: `${I8}/shopee.png`,   alt: "Shopee",   size: 36, cls: "float-icon-7 sparkle-1", style: { bottom: "30%", right: "2%"  } },
-  { src: `${I8}/tiktok.png`,   alt: "TikTok",   size: 26, cls: "float-icon-8 sparkle-2", style: { top: "42%",   left: "13%"   } },
+  { src: `${I8_PLASTICINE}/shopee.png`,  alt: "Shopee",  size: 46, cls: "float-icon-1 sparkle-1", style: { top: "8%",   left: "3%"    } },
+  { src: `${I8_PLASTICINE}/tiktok.png`,  alt: "TikTok",  size: 40, cls: "float-icon-2 sparkle-2", style: { top: "5%",    left: "21%"   } },
+  { src: `${I8_PLASTICINE}/lazada.png`,  alt: "Lazada",  size: 44, cls: "float-icon-3 sparkle-3", style: { top: "30%",   left: "2%"    } },
+  { src: `${I8_PLASTICINE}/shopee.png`,  alt: "Shopee",  size: 34, cls: "float-icon-4 sparkle-1", style: { bottom: "18%", left: "5%"   } },
+  { src: `${I8_PLASTICINE}/tiktok.png`,  alt: "TikTok",  size: 36, cls: "float-icon-5 sparkle-2", style: { bottom: "8%",  left: "22%"  } },
+  { src: `${I8_PLASTICINE}/lazada.png`,  alt: "Lazada",  size: 50, cls: "float-icon-6 sparkle-3", style: { top: "48%",   left: "42%"   } },
+  { src: `${I8_PLASTICINE}/shopee.png`,  alt: "Shopee",  size: 40, cls: "float-icon-7 sparkle-1", style: { bottom: "28%", right: "3%"  } },
+  { src: `${I8_PLASTICINE}/tiktok.png`,  alt: "TikTok",  size: 32, cls: "float-icon-8 sparkle-2", style: { top: "38%",   left: "12%"   } },
+  { src: `${I8_PLASTICINE}/lazada.png`,  alt: "Lazada",  size: 38, cls: "float-icon-1 sparkle-3", style: { top: "14%",   right: "4%"   } },
 ];
 
 /* ─── Feature cards (thay PIG_FEATURES) ─── */
@@ -294,7 +295,7 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
 
               {/* Bunny mascot */}
               <div className="relative z-10 bunny-pop wiggle">
-                <BunnyMascot size={260} label="Linh vật thỏ iviback" />
+                <BunnyMascot size={260} label="Linh vật thỏ BunnyHoanTien" />
               </div>
 
               {/* Platform badges bên dưới bunny — Icons8 CDN */}
@@ -471,7 +472,7 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
                     className="text-transparent bg-clip-text"
                     style={{ backgroundImage: "linear-gradient(135deg, #D13A6B 0%, #E8558A 100%)" }}
                   >
-                    iviback?
+                    BunnyHoanTien?
                   </span>
                 </h2>
                 <p className="text-mute text-[17px] mt-3 max-w-lg mx-auto">

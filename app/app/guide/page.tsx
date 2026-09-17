@@ -33,7 +33,7 @@ const notes = [
   },
   {
     title: "Không dùng thêm app/link hoàn tiền khác",
-    body: "Sàn thường tính hoa hồng cho lượt click hợp lệ gần nhất trước khi đặt hàng. Nếu bạn bấm thêm link từ ứng dụng hoàn tiền khác, mã giảm giá ngoài hệ thống, hoặc link chia sẻ từ người khác sau khi đã bấm link của iviback, đơn có thể bị tính cho nguồn khác.",
+    body: "Sàn thường tính hoa hồng cho lượt click hợp lệ gần nhất trước khi đặt hàng. Nếu bạn bấm thêm link từ ứng dụng hoàn tiền khác, mã giảm giá ngoài hệ thống, hoặc link chia sẻ từ người khác sau khi đã bấm link của BunnyHoanTien, đơn có thể bị tính cho nguồn khác.",
   },
   {
     title: "Hoàn tất đơn trong phiên, không thoát giữa chừng",
@@ -104,7 +104,7 @@ export default function CustomerGuidePage() {
         <img src="/heoQA.png" alt="" className="h-14 w-14 object-contain shrink-0" />
         <div className="flex-1">
           <div className="font-bold text-gray-900">Vẫn còn thắc mắc?</div>
-          <div className="text-[13px] text-gray-500">Xem thông tin liên hệ hỗ trợ hoặc trò chuyện cùng cộng đồng iviback.</div>
+          <div className="text-[13px] text-gray-500">Xem thông tin liên hệ hỗ trợ hoặc trò chuyện cùng cộng đồng BunnyHoanTien.</div>
         </div>
         <Link
           href="/app/notifications"

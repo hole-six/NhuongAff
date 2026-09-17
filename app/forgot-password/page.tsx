@@ -4,8 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import { ForgotPasswordForm } from "./ForgotPasswordForm";
 
 export const metadata: Metadata = {
-  title: "Quên mật khẩu — iviback",
-  description: "Đặt lại mật khẩu tài khoản iviback của bạn.",
+  title: "Quên mật khẩu — BunnyHoanTien",
+  description: "Đặt lại mật khẩu tài khoản BunnyHoanTien của bạn.",
   robots: { index: false, follow: false },
 };
 

@@ -8,16 +8,16 @@ import { prisma } from "@/lib/prisma";
 import { safeJsonLdString } from "@/lib/jsonLd";
 
 export const metadata: Metadata = {
-  title: "Cửa Hàng — iviback | Nền Tảng Hỗ Trợ Hoàn Tiền",
-  description: "Danh sách sàn thương mại điện tử được iviback hỗ trợ hoàn tiền: Shopee, TikTok Shop và nhiều đối tác khác.",
+  title: "Cửa Hàng — BunnyHoanTien | Nền Tảng Hỗ Trợ Hoàn Tiền",
+  description: "Danh sách sàn thương mại điện tử được BunnyHoanTien hỗ trợ hoàn tiền: Shopee, TikTok Shop và nhiều đối tác khác.",
   alternates: { canonical: "/cua-hang" },
   openGraph: {
-    title: "Cửa Hàng — iviback",
-    description: "Danh sách sàn thương mại điện tử được iviback hỗ trợ hoàn tiền: Shopee, TikTok Shop và nhiều đối tác khác.",
+    title: "Cửa Hàng — BunnyHoanTien",
+    description: "Danh sách sàn thương mại điện tử được BunnyHoanTien hỗ trợ hoàn tiền: Shopee, TikTok Shop và nhiều đối tác khác.",
     type: "website",
     locale: "vi_VN",
     url: "/cua-hang",
-    siteName: "iviback",
+    siteName: "BunnyHoanTien",
   },
 };
 
@@ -25,8 +25,8 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://iviback.vn/" },
-    { "@type": "ListItem", position: 2, name: "Cửa Hàng", item: "https://iviback.vn/cua-hang" },
+    { "@type": "ListItem", position: 1, name: "Trang chủ", item: "https://hoahuongaff.click/" },
+    { "@type": "ListItem", position: 2, name: "Cửa Hàng", item: "https://hoahuongaff.click/cua-hang" },
   ],
 };
 

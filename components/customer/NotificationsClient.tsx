@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { CheckCheck } from "lucide-react";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 type Notification = {
   id: string;
@@ -94,7 +95,9 @@ export function NotificationsClient({
 
       {notifications.length === 0 ? (
         <div className="flex flex-col items-center gap-sm rounded-3xl bg-white py-3xl shadow-sm ring-1 ring-black/5">
-          <img src="/heochodoi.png" alt="" className="h-16 w-16 object-contain opacity-70" />
+          <div className="p-3 bg-pink-50 rounded-full border border-pink-100 mb-xs">
+            <BunnyMascot size={48} />
+          </div>
           <span className="text-[14px] font-bold text-gray-400">Chưa có thông báo nào</span>
         </div>
       ) : (
