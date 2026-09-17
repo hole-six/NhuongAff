@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { formatDate } from "@/lib/format";
 import { CustomerLinkForm } from "@/components/customer/CustomerLinkForm";
 import { RefundHistoryClient } from "@/components/customer/RefundHistoryClient";
-import { versionedAsset } from "@/lib/versionedAsset";
+import { RefundNotes } from "@/components/customer/RefundNotes";
 
 const PLATFORM_DISPLAY_ORDER: Record<string, number> = { SHOPEE: 0, TIKTOK: 1, LAZADA: 2 };
 
@@ -84,11 +84,11 @@ export default async function CustomerRefundsPage({ searchParams }: { searchPara
         </div>
       </div>
 
-      {/* GHI CHÚ KHI MUA SẮM — ảnh, đặt ngay dưới tiêu đề */}
-      <img src={versionedAsset("/anhluuy.jpg")} alt="Lưu ý khi mua sắm" className="w-full rounded-2xl shadow-sm" />
-
-      {/* FORM: CHỌN NỀN TẢNG & TẠO LINK */}
-      <CustomerLinkForm platforms={sortPlatformsForDisplay(platforms).map((p) => ({ id: p.id, code: p.code, label: p.name }))} />
+      {/* Trái: chọn nền tảng & tạo link — Phải: 6 điều lưu ý (trước đây là ảnh) */}
+      <div className="grid grid-cols-1 gap-xl lg:grid-cols-[minmax(0,1fr)_minmax(0,380px)] lg:items-start">
+        <CustomerLinkForm platforms={sortPlatformsForDisplay(platforms).map((p) => ({ id: p.id, code: p.code, label: p.name }))} />
+        <RefundNotes />
+      </div>
 
       {/* HISTORY CARD */}
       <RefundHistoryClient

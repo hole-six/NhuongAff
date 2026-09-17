@@ -99,117 +99,130 @@ export default async function CustomerHomePage() {
 
       {!customer?.phone && <PhoneNumberPrompt />}
 
-      {/* ═══ HEADER CHÀO MỪNG ═══ */}
+      {/* ═══ TOP HERO CONTAINER (GREETING + QUICK ACCESS + 4 STAT CARDS) ═══ */}
       <div
-        className="relative overflow-hidden rounded-3xl p-xl sm:p-2xl"
+        className="relative overflow-hidden rounded-3xl p-lg sm:p-xl shadow-sm border border-[#FFD0DE]/50"
         style={{ background: "linear-gradient(135deg, #FFF3F7 0%, #FDE3EB 50%, #FFE8F0 100%)" }}
       >
-        <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#FFC4D6] opacity-30" />
-        <div className="pointer-events-none absolute -bottom-6 right-24 h-24 w-24 rounded-full bg-[#F2809E] opacity-20" />
-        <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#FFDCE7] opacity-40" />
+        {/* Decorative background blobs */}
+        <div className="pointer-events-none absolute -right-8 -top-8 h-44 w-44 rounded-full bg-[#FFC4D6] opacity-35 blur-xl" />
+        <div className="pointer-events-none absolute -bottom-10 right-32 h-36 w-36 rounded-full bg-[#F2809E] opacity-20 blur-lg" />
+        <div className="pointer-events-none absolute top-1/2 left-1/3 h-32 w-32 rounded-full bg-[#FFDCE7] opacity-30 blur-xl" />
 
-        <div className="relative z-10 flex items-center justify-between gap-lg flex-wrap">
-          <div className="flex items-center gap-lg">
-            <BunnyFace mood="sparkle" size={88} className="drop-shadow-md shrink-0" />
-            <div>
-              <p className="text-[12px] font-bold uppercase tracking-widest text-[#D13A6B]/60 mb-1">
-                Chào mừng trở lại
-              </p>
-              <h1 className="text-[26px] sm:text-[32px] font-black leading-tight text-[#2E1F26]">
-                Xin chào, <span className="text-[#D13A6B]">{firstName}</span>! 🎉
-              </h1>
-              <p className="mt-1 text-[13px] text-[#9A8490] leading-relaxed">
-                {allOrders.length === 0
-                  ? "Chưa có đơn nào — hãy chia sẻ link để bắt đầu hoàn tiền!"
-                  : `Bạn có ${allOrders.length} đơn đã ghi nhận. Tiếp tục kiếm tiền nhé! 🐰`}
-              </p>
-            </div>
-          </div>
-
-          <div className="flex gap-lg flex-wrap items-center">
-            <a href="/app/refunds">
-              <button className="sheen gloss flex items-center gap-xs rounded-2xl bg-[#D13A6B] px-xl py-[10px] text-[13px] font-bold text-white shadow-glow transition-all duration-200 ease-soft hover:bg-[#B92E5B] active:scale-[0.97]">
-                Hoàn tiền ngay
-                <ArrowUpRight size={14} strokeWidth={2.5} />
-              </button>
-            </a>
-            <div className="hidden sm:grid h-[96px] w-[96px] place-items-center rounded-full bg-white/70 ring-2 ring-[#D13A6B]/12 shadow-cute">
-              <BunnyMascot size={78} />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ═══ 4 STAT CARDS ═══ */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-md">
-        {/* Card 1: Chờ duyệt */}
-        <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-          <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-pink-50 opacity-60" />
-          <div className="relative">
-            <div className="flex items-start justify-between mb-md">
-              <BunnyFace mood="wink" size={44} className="transition-transform group-hover:scale-110" />
-              <span className="rounded-full bg-amber-100 px-sm py-[3px] text-[10px] font-bold text-amber-600">Đang xử lý</span>
-            </div>
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1">Chờ duyệt</div>
-            <div className="text-[20px] font-black text-gray-900 tabular-nums leading-tight">{formatCurrency(pendingIncome)}</div>
-            <div className="mt-1 text-[11px] text-gray-400">
-              {allOrders.filter((o) => o.orderStatus === "pending").length} đơn hàng
-            </div>
-          </div>
-        </div>
-
-        {/* Card 2: Sẵn sàng rút */}
-        <div
-          className="group relative overflow-hidden rounded-2xl p-lg shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
-          style={{ background: "linear-gradient(135deg, #e8f5e9 0%, #f1fdf2 100%)", outline: "1px solid rgba(0,0,0,0.06)" }}
-        >
-          <div className="relative">
-            <div className="flex items-start justify-between mb-md">
-              <div className="relative">
-                <BunnyFace mood="delighted" size={44} className="transition-transform group-hover:scale-110" />
-                <div className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 shadow-sm">
-                  <span className="text-[9px] font-black text-white">✓</span>
-                </div>
+        <div className="relative z-10 flex flex-col gap-xl">
+          {/* Greeting Header & Quick Access Actions */}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-lg">
+            {/* Greeting info */}
+            <div className="flex items-center gap-md">
+              <BunnyFace mood="sparkle" size={80} className="drop-shadow-md shrink-0 transition-transform hover:scale-105" />
+              <div>
+                <p className="text-[12px] font-bold uppercase tracking-widest text-[#D13A6B]/70 mb-1">
+                  Chào mừng trở lại
+                </p>
+                <h1 className="text-[24px] sm:text-[30px] font-black leading-tight text-[#2E1F26]">
+                  Xin chào, <span className="text-[#D13A6B]">{firstName}</span>! 🎉
+                </h1>
+                <p className="mt-1 text-[13px] text-[#8C7481] leading-relaxed">
+                  {allOrders.length === 0
+                    ? "Chưa có đơn nào — chọn nút hoàn tiền ngay để bắt đầu!"
+                    : `Bạn có ${allOrders.length} đơn đã ghi nhận. Tiếp tục kiếm tiền nhé! 🐰`}
+                </p>
               </div>
-              <span className="rounded-full bg-emerald-100 px-sm py-[3px] text-[10px] font-bold text-emerald-600">Rút được</span>
             </div>
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1">Sẵn sàng rút</div>
-            <div className="text-[20px] font-black text-gray-900 tabular-nums leading-tight">{formatCurrency(availableBalance)}</div>
-            <div className="mt-1 text-[11px] text-gray-400">
-              {allOrders.filter((o) => o.orderStatus === "approved" && o.payoutStatus === "unpaid").length} đơn hàng
+
+            {/* Quick Access Action Pills Bar */}
+            <div className="flex items-center gap-xs sm:gap-sm flex-wrap">
+              <a href="/app/refunds">
+                <button className="sheen gloss flex items-center gap-xs rounded-2xl bg-gradient-to-r from-[#D13A6B] to-[#E84878] px-lg py-[10px] text-[13px] font-bold text-white shadow-md shadow-[#D13A6B]/25 transition-all duration-200 hover:scale-[1.02] active:scale-[0.97]">
+                  <BunnyFace mood="heart" size={20} />
+                  <span>Hoàn tiền ngay</span>
+                  <ArrowUpRight size={15} strokeWidth={2.5} />
+                </button>
+              </a>
+
+              <a href="/app/wallet">
+                <button className="flex items-center gap-xs rounded-2xl bg-white/90 hover:bg-white px-md py-[10px] text-[13px] font-bold text-emerald-700 shadow-sm ring-1 ring-emerald-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.97]">
+                  <BunnyFace mood="delighted" size={20} />
+                  <span>Rút tiền</span>
+                </button>
+              </a>
+
+              <a href="/app/orders">
+                <button className="flex items-center gap-xs rounded-2xl bg-white/90 hover:bg-white px-md py-[10px] text-[13px] font-bold text-blue-700 shadow-sm ring-1 ring-blue-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.97]">
+                  <BunnyFace mood="sparkle" size={20} />
+                  <span>Đơn hàng</span>
+                </button>
+              </a>
+
+              <a href="/app/deals">
+                <button className="flex items-center gap-xs rounded-2xl bg-white/90 hover:bg-white px-md py-[10px] text-[13px] font-bold text-purple-700 shadow-sm ring-1 ring-purple-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.97]">
+                  <BunnyFace mood="wink" size={20} />
+                  <span>Ưu đãi hot</span>
+                </button>
+              </a>
+
+              <div className="hidden xl:flex h-11 w-11 items-center justify-center rounded-2xl bg-white/80 ring-2 ring-[#D13A6B]/15 shadow-cute ml-xs">
+                <BunnyMascot size={32} />
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Card 3: Đã rút */}
-        <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-          <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-rose-50 opacity-50" />
-          <div className="relative">
-            <div className="flex items-start justify-between mb-md">
-              <BunnyFace mood="heart" size={44} className="transition-transform group-hover:scale-110" />
-              <span className="rounded-full bg-rose-100 px-sm py-[3px] text-[10px] font-bold text-rose-600">Đã nhận</span>
+          {/* Integrated 4 Stat Cards Row */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-sm sm:gap-md pt-xs">
+            {/* Card 1: Chờ duyệt */}
+            <div className="group relative overflow-hidden rounded-2xl bg-white/85 backdrop-blur-sm p-md sm:p-lg shadow-sm border border-rose-100/60 transition-all duration-200 hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
+              <div className="flex items-start justify-between mb-sm">
+                <BunnyFace mood="wink" size={38} className="transition-transform group-hover:scale-110" />
+                <span className="rounded-full bg-amber-100 px-xs sm:px-sm py-[2px] text-[10px] font-bold text-amber-600">Đang xử lý</span>
+              </div>
+              <div className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">Chờ duyệt</div>
+              <div className="text-[18px] sm:text-[22px] font-black text-gray-900 tabular-nums leading-tight">{formatCurrency(pendingIncome)}</div>
+              <div className="mt-1 text-[11px] font-medium text-gray-400">
+                {allOrders.filter((o) => o.orderStatus === "pending").length} đơn hàng
+              </div>
             </div>
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1">Đã rút</div>
-            <div className="text-[20px] font-black text-gray-900 tabular-nums leading-tight">{formatCurrency(paidTotal)}</div>
-            <div className="mt-1 text-[11px] text-gray-400">
-              {allOrders.filter((o) => o.payoutStatus === "paid").length} đơn hàng
-            </div>
-          </div>
-        </div>
 
-        {/* Card 4: Tổng tích luỹ */}
-        <div
-          className="group relative overflow-hidden rounded-2xl p-lg shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
-          style={{ background: "linear-gradient(135deg, #f3e8ff 0%, #fdf4ff 100%)", outline: "1px solid rgba(0,0,0,0.06)" }}
-        >
-          <div className="relative">
-            <div className="flex items-start justify-between mb-md">
-              <BunnyFace mood="bashful" size={44} className="transition-transform group-hover:scale-110" />
-              <span className="rounded-full bg-purple-100 px-sm py-[3px] text-[10px] font-bold text-purple-600">Tổng cộng</span>
+            {/* Card 2: Sẵn sàng rút */}
+            <div className="group relative overflow-hidden rounded-2xl bg-white/85 backdrop-blur-sm p-md sm:p-lg shadow-sm border border-emerald-100/80 transition-all duration-200 hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
+              <div className="flex items-start justify-between mb-sm">
+                <div className="relative">
+                  <BunnyFace mood="delighted" size={38} className="transition-transform group-hover:scale-110" />
+                  <div className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 shadow-sm">
+                    <span className="text-[8px] font-black text-white">✓</span>
+                  </div>
+                </div>
+                <span className="rounded-full bg-emerald-100 px-xs sm:px-sm py-[2px] text-[10px] font-bold text-emerald-600">Rút được</span>
+              </div>
+              <div className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">Sẵn sàng rút</div>
+              <div className="text-[18px] sm:text-[22px] font-black text-gray-900 tabular-nums leading-tight">{formatCurrency(availableBalance)}</div>
+              <div className="mt-1 text-[11px] font-medium text-gray-400">
+                {allOrders.filter((o) => o.orderStatus === "approved" && o.payoutStatus === "unpaid").length} đơn hàng
+              </div>
             </div>
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1">Tổng tích luỹ</div>
-            <div className="text-[20px] font-black text-gray-900 tabular-nums leading-tight">{formatCurrency(totalIncome)}</div>
-            <div className="mt-1 text-[11px] text-gray-400">{allOrders.length} đơn hàng</div>
+
+            {/* Card 3: Đã rút */}
+            <div className="group relative overflow-hidden rounded-2xl bg-white/85 backdrop-blur-sm p-md sm:p-lg shadow-sm border border-rose-100/60 transition-all duration-200 hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
+              <div className="flex items-start justify-between mb-sm">
+                <BunnyFace mood="heart" size={38} className="transition-transform group-hover:scale-110" />
+                <span className="rounded-full bg-rose-100 px-xs sm:px-sm py-[2px] text-[10px] font-bold text-rose-600">Đã nhận</span>
+              </div>
+              <div className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">Đã rút</div>
+              <div className="text-[18px] sm:text-[22px] font-black text-gray-900 tabular-nums leading-tight">{formatCurrency(paidTotal)}</div>
+              <div className="mt-1 text-[11px] font-medium text-gray-400">
+                {allOrders.filter((o) => o.payoutStatus === "paid").length} đơn hàng
+              </div>
+            </div>
+
+            {/* Card 4: Tổng tích luỹ */}
+            <div className="group relative overflow-hidden rounded-2xl bg-white/85 backdrop-blur-sm p-md sm:p-lg shadow-sm border border-purple-100/60 transition-all duration-200 hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
+              <div className="flex items-start justify-between mb-sm">
+                <BunnyFace mood="bashful" size={38} className="transition-transform group-hover:scale-110" />
+                <span className="rounded-full bg-purple-100 px-xs sm:px-sm py-[2px] text-[10px] font-bold text-purple-600">Tổng cộng</span>
+              </div>
+              <div className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">Tổng tích luỹ</div>
+              <div className="text-[18px] sm:text-[22px] font-black text-gray-900 tabular-nums leading-tight">{formatCurrency(totalIncome)}</div>
+              <div className="mt-1 text-[11px] font-medium text-gray-400">{allOrders.length} đơn hàng</div>
+            </div>
           </div>
         </div>
       </div>
@@ -309,9 +322,8 @@ export default async function CustomerHomePage() {
           )}
         </div>
 
-        {/* PANEL PHẢI */}
+        {/* PANEL PHẢI: Giới thiệu bạn bè với QR */}
         <div className="flex flex-col gap-lg">
-          {/* Giới thiệu bạn bè với QR */}
           <InviteSection
             customerCode={customerCode}
             qrDataUrl={qrDataUrl}
@@ -320,31 +332,6 @@ export default async function CustomerHomePage() {
             referralValidityMonths={referralValidityMonths}
             isPartner={customer?.isPartner ?? false}
           />
-
-          {/* Truy cập nhanh */}
-          <div className="rounded-3xl bg-white p-xl shadow-sm ring-1 ring-black/[0.06]">
-            <h2 className="mb-md flex items-center gap-sm text-[14px] font-bold text-gray-700">
-              <BunnyFace mood="sparkle" size={28} />
-              Truy cập nhanh
-            </h2>
-            <div className="grid grid-cols-2 gap-sm">
-              {[
-                { href: "/app/wallet", label: "Rút tiền", mood: "delighted" as const, bg: "bg-emerald-50", text: "text-emerald-600" },
-                { href: "/app/refunds", label: "Hoàn tiền", mood: "heart" as const, bg: "bg-rose-50", text: "text-rose-600" },
-                { href: "/app/orders", label: "Đơn hàng", mood: "sparkle" as const, bg: "bg-blue-50", text: "text-blue-600" },
-                { href: "/app/deals", label: "Ưu đãi hot", mood: "wink" as const, bg: "bg-purple-50", text: "text-purple-600" },
-              ].map(({ href, label, mood, bg, text }) => (
-                <a
-                  key={href}
-                  href={href}
-                  className={`flex flex-col items-center gap-xs rounded-2xl ${bg} p-md transition-all hover:-translate-y-0.5 hover:shadow-sm`}
-                >
-                  <BunnyFace mood={mood} size={36} />
-                  <span className={`text-[12px] font-bold ${text}`}>{label}</span>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </div>
