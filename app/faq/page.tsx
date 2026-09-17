@@ -90,11 +90,11 @@ export default function FaqPage() {
 
           <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10 text-center">
             {/* Bunny mascots at corners */}
-            <div className="absolute -top-8 left-0 hidden lg:block opacity-90 bunny-pop" style={{ animationDelay: '0.2s' }}>
-              <img src="/mascots/icons/bunny-surprised.webp" alt="" className="h-20 w-20 object-contain wiggle" />
+            <div className="absolute -top-4 -left-4 hidden lg:block opacity-90 bunny-pop" style={{ animationDelay: '0.2s' }}>
+              <img src="/mascots/icons/bunny-surprised.webp" alt="" className="h-24 w-24 object-contain wiggle" />
             </div>
-            <div className="absolute -top-8 right-0 hidden lg:block opacity-90 bunny-pop" style={{ animationDelay: '0.4s' }}>
-              <img src="/mascots/icons/bunny-love.webp" alt="" className="h-20 w-20 object-contain float" />
+            <div className="absolute -top-4 -right-4 hidden lg:block opacity-90 bunny-pop" style={{ animationDelay: '0.4s' }}>
+              <img src="/mascots/icons/bunny-heart.webp" alt="" className="h-24 w-24 object-contain float" />
             </div>
 
             {/* Badge */}
@@ -145,13 +145,13 @@ export default function FaqPage() {
         <section className="py-16 md:py-20 max-w-[900px] mx-auto px-6 md:px-12 relative">
           {/* Background decorations */}
           <div className="absolute -left-12 top-24 hidden lg:block opacity-80 bunny-pop" style={{ animationDelay: '0.5s' }}>
-            <img src="/mascots/icons/bunny-happy.webp" alt="" className="h-24 w-24 object-contain float" style={{ animationDelay: '1s' }} />
+            <img src="/mascots/icons/bunny-delighted.webp" alt="" className="h-24 w-24 object-contain float" style={{ animationDelay: '1s' }} />
           </div>
           <div className="absolute -right-12 top-64 hidden lg:block opacity-80 bunny-pop" style={{ animationDelay: '0.7s' }}>
-            <img src="/mascots/icons/bunny-cool.webp" alt="" className="h-24 w-24 object-contain float" style={{ animationDelay: '2s' }} />
+            <img src="/mascots/icons/bunny-wink.webp" alt="" className="h-24 w-24 object-contain float" style={{ animationDelay: '2s' }} />
           </div>
           <div className="absolute -left-8 bottom-32 hidden lg:block opacity-80 bunny-pop" style={{ animationDelay: '0.9s' }}>
-            <img src="/mascots/icons/bunny-love.webp" alt="" className="h-20 w-20 object-contain wiggle" />
+            <img src="/mascots/icons/bunny-heart.webp" alt="" className="h-20 w-20 object-contain wiggle" />
           </div>
 
           {/* Main FAQ card */}
@@ -184,7 +184,7 @@ export default function FaqPage() {
             {/* Bottom CTA */}
             <div className="mt-12 pt-10 border-t-2 border-[#FFDFE8]/50 text-center">
               <div className="flex justify-center mb-4">
-                <img src="/mascots/icons/bunny-happy.webp" alt="" className="h-16 w-16 object-contain wiggle" />
+                <img src="/mascots/icons/bunny-delighted.webp" alt="" className="h-16 w-16 object-contain wiggle" />
               </div>
               <h3 className="text-[22px] font-black text-ink mb-3">
                 Vẫn còn thắc mắc?
@@ -220,8 +220,8 @@ export default function FaqPage() {
           {/* Bottom floating bunnies */}
           <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 hidden md:flex gap-8 opacity-70 bunny-pop" style={{ animationDelay: '1s' }}>
             <img src="/mascots/icons/bunny-surprised.webp" alt="" className="h-16 w-16 object-contain float" style={{ animationDelay: '0.5s' }} />
-            <img src="/mascots/icons/bunny-cool.webp" alt="" className="h-16 w-16 object-contain float" style={{ animationDelay: '1.5s' }} />
-            <img src="/mascots/icons/bunny-happy.webp" alt="" className="h-16 w-16 object-contain float" style={{ animationDelay: '2.5s' }} />
+            <img src="/mascots/icons/bunny-wink.webp" alt="" className="h-16 w-16 object-contain float" style={{ animationDelay: '1.5s' }} />
+            <img src="/mascots/icons/bunny-delighted.webp" alt="" className="h-16 w-16 object-contain float" style={{ animationDelay: '2.5s' }} />
           </div>
         </section>
 

@@ -38,10 +38,11 @@ const FLOATING_ICONS = [
   { src: `${I8_PLASTICINE}/lazada.png`,  alt: "Lazada",  size: 38, cls: "float-icon-1 sparkle-3", style: { top: "14%",   right: "4%"   } },
 ];
 
-/* ─── Feature cards dùng trực tiếp icon Plasticine từ Icons8 CDN ─── */
+/* ─── Feature cards - Dùng Lucide React icon cho "Tạo link tức thì" vì Icons8 không có ─── */
 const BUNNY_FEATURES = [
   {
-    iconSrc: `${I8_PLASTICINE}/flash.png`,
+    iconSrc: null, // Dùng Lucide Zap icon thay vì Icons8
+    useLucideIcon: true,
     color: "from-[#FFF0F4] to-white",
     border: "border-[#FFDFE8]",
     dot: "bg-primary",
@@ -351,14 +352,18 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
                       className="shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center
                                  shadow-sm bg-white border border-white p-2"
                     >
-                      <img
-                        src={f.iconSrc}
-                        alt={f.title}
-                        width={36}
-                        height={36}
-                        loading="lazy"
-                        className="w-9 h-9 object-contain group-hover:scale-110 transition-transform duration-200"
-                      />
+                      {f.useLucideIcon ? (
+                        <Zap className="w-9 h-9 text-primary group-hover:scale-110 transition-transform duration-200" strokeWidth={2.5} />
+                      ) : (
+                        <img
+                          src={f.iconSrc}
+                          alt={f.title}
+                          width={36}
+                          height={36}
+                          loading="lazy"
+                          className="w-9 h-9 object-contain group-hover:scale-110 transition-transform duration-200"
+                        />
+                      )}
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-1.5">
