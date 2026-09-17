@@ -78,7 +78,7 @@ export default function CustomerGuidePage() {
       {/* Lưu ý quan trọng */}
       <div className="flex flex-col gap-lg">
         <div className="flex items-center gap-sm">
-          <img src="/heothongbao.png" alt="" className="h-9 w-9 object-contain" />
+          <img src="/mascots/icons/bunny-sparkle.webp" alt="" className="h-9 w-9 object-contain" />
           <div>
             <h2 className="display-xs">Lưu ý quan trọng để chắc chắn được hoàn tiền</h2>
             <p className="text-[13px] text-mute">Đọc kỹ trước khi mua — tránh mất tiền hoàn vì những lỗi rất dễ gặp.</p>
@@ -101,7 +101,7 @@ export default function CustomerGuidePage() {
       {/* CTA hỗ trợ */}
       <div className="flex flex-col sm:flex-row sm:items-center gap-md rounded-3xl p-lg shadow-sm ring-1 ring-black/5"
         style={{ background: "linear-gradient(135deg,#FFF3F7,#FDE3EB)" }}>
-        <img src="/heoQA.png" alt="" className="h-14 w-14 object-contain shrink-0" />
+        <img src="/mascots/icons/bunny-surprised.webp" alt="" className="h-14 w-14 object-contain shrink-0" />
         <div className="flex-1">
           <div className="font-bold text-gray-900">Vẫn còn thắc mắc?</div>
           <div className="text-[13px] text-gray-500">Xem thông tin liên hệ hỗ trợ hoặc trò chuyện cùng cộng đồng BunnyHoanTien.</div>

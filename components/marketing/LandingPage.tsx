@@ -174,7 +174,7 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
     <div className="min-h-screen bg-white font-sans overflow-x-hidden text-ink">
       <MarketingHeader activePath="/" />
 
-      <main className="pt-[64px]">
+      <main className="pt-[90px]">
 
         {/* ═══ HERO SECTION ═══ */}
         <section className="relative overflow-hidden bg-white" style={{ minHeight: "90vh" }}>
@@ -218,25 +218,37 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-[#E8558A]
                               text-white px-5 py-2 rounded-full shadow-md badge-glow text-[13px] font-bold">
                 <Gift size={15} strokeWidth={2} />
-                Hoàn 80% hoa hồng · Mời bạn +5%
+                Trả bạn 80% hoa hồng · Mời bạn thêm 5%
               </div>
 
               {/* Headline */}
-              <h1 className="text-[42px] md:text-[60px] font-black leading-[1.08] tracking-[-0.025em] text-ink">
-                Mua sắm thông minh,{" "}
+              <h1 className="text-balance text-[42px] md:text-[60px] font-black leading-[1.08] tracking-[-0.025em] text-ink">
+                Tung tăng mua,{" "}
                 <span
                   className="text-transparent bg-clip-text"
                   style={{ backgroundImage: "linear-gradient(135deg, #D13A6B 0%, #E8558A 100%)" }}
                 >
-                  tiền tự về ví
+                  không lo nhiều tiền
                 </span>{" "}
                 🐰
               </h1>
 
               <p className="text-[18px] text-body leading-relaxed max-w-lg">
-                Dán link Shopee, TikTok Shop & Lazada — hoàn tiền tự động cho mọi đơn. Rút từ{" "}
-                <span className="font-bold text-ink">10.000đ</span>, miễn phí hoàn toàn.
+                Vẫn cái giỏ hàng đó, vẫn cái giá đó — chỉ khác là mua qua đây thì{" "}
+                <span className="font-bold text-ink">80% hoa hồng</span> sàn trả về túi bạn, không
+                phải túi ai khác. Rút từ <span className="font-bold text-ink">10.000đ</span>, miễn
+                phí trọn đời.
               </p>
+
+              {/* Ví dụ bằng số thật — nói 80% suông thì khó hình dung */}
+              <div className="flex flex-wrap items-center gap-sm rounded-2xl border border-primary-pale bg-white/80 px-lg py-md text-[14px] shadow-cute">
+                <span className="font-bold text-ink">Đơn 1.000.000đ</span>
+                <span className="text-mute">→ sàn trả hoa hồng ~80.000đ</span>
+                <span className="text-mute">→</span>
+                <span className="rounded-pill bg-primary-neutral px-md py-[3px] font-black text-primary">
+                  bạn nhận ~57.000đ
+                </span>
+              </div>
 
               {/* CTA buttons */}
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -249,7 +261,7 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
                              hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5
                              active:scale-95 transition-all duration-200 overflow-hidden sheen gloss"
                 >
-                  Bắt đầu miễn phí
+                  Lấy tiền hoàn của tôi
                   <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <a
@@ -259,7 +271,7 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
                              border-2 border-[#FFDFE8] hover:border-primary/40
                              hover:bg-[#FFF0F4] transition-all shadow-sm"
                 >
-                  Cách hoạt động
+                  Xem cách ăn tiền
                 </a>
               </div>
 
@@ -270,7 +282,7 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
 
               {/* Trust pills */}
               <div className="flex flex-wrap gap-2 pt-1">
-                {["✓ Miễn phí 100%", "✓ Rút tiền 24/7", "✓ Không phí ẩn"].map((t) => (
+                {["✓ Không mất đồng nào", "✓ Rút bất cứ lúc nào", "✓ Giá mua y như cũ"].map((t) => (
                   <span
                     key={t}
                     className="text-[12px] font-bold text-body bg-white border border-[#FFDFE8]
@@ -413,10 +425,10 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
                   Đơn giản · Minh bạch · Tự động
                 </div>
                 <h2 className="font-black text-[36px] md:text-[48px] text-ink tracking-tight">
-                  3 Bước Nhận Hoàn Tiền
+                  Ba bước, tiền về ví
                 </h2>
                 <p className="text-mute text-[17px] max-w-xl mx-auto mt-3 leading-relaxed">
-                  Chưa bao giờ việc tiết kiệm tiền lại dễ dàng và minh bạch đến thế.
+                  Không cài app lạ, không nhập thẻ, không đổi thói quen mua sắm.
                 </p>
               </div>
             </Reveal>
@@ -502,10 +514,10 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
 
                   <div className="relative z-10 space-y-5">
                     <h3 className="font-black text-[28px] md:text-[34px] text-white leading-tight tracking-tight">
-                      Tỉ lệ hoàn tiền<br/>cao nhất thị trường
+                      Phần lớn hoa hồng<br/>là của bạn
                     </h3>
                     <p className="text-white/85 text-[15px] leading-relaxed">
-                      Hàng ngàn người dùng đã tiết kiệm hàng chục triệu đồng mỗi năm nhờ cơ chế hoàn tiền thông minh.
+                      Sàn trả hoa hồng cho việc giới thiệu đơn hàng. Chúng tôi giữ lại một phần nhỏ để vận hành, 80% còn lại trả thẳng cho bạn.
                     </p>
                     <ul className="space-y-3 pt-2">
                       {[
@@ -626,7 +638,7 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
                 <h2 className="font-black text-[32px] md:text-[42px] text-ink tracking-tight">
                   Câu hỏi thường gặp
                 </h2>
-                <p className="text-mute text-[16px] mt-2">Mọi thắc mắc được giải đáp tận tình</p>
+                <p className="text-mute text-[16px] mt-2">Thắc mắc gì cũng có câu trả lời ở đây</p>
               </div>
             </Reveal>
             <FaqAccordion items={FAQ_ITEMS} />

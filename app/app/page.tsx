@@ -5,7 +5,6 @@ import {
   Package,
   ArrowUpRight,
   Link2,
-  ShoppingBag,
   ChevronRight,
   Star,
   Store,
@@ -19,6 +18,7 @@ import { InviteSection } from "@/components/customer/InviteSection";
 import { PhoneNumberPrompt } from "@/components/customer/PhoneNumberPrompt";
 import { BunnyMascot } from "@/components/ui/BunnyMascot";
 import { BunnyFace } from "@/components/ui/BunnyFace";
+import { Icons8Icon, PlatformLogo } from "@/components/icons/PlatformIcons";
 
 // Platform color map để hiển thị ảnh placeholder
 const PLATFORM_STYLE: Record<string, { color: string }> = {
@@ -134,7 +134,7 @@ export default async function CustomerHomePage() {
             <div className="flex items-center gap-xs sm:gap-sm flex-wrap">
               <a href="/app/refunds">
                 <button className="sheen gloss flex items-center gap-xs rounded-2xl bg-gradient-to-r from-[#D13A6B] to-[#E84878] px-lg py-[10px] text-[13px] font-bold text-white shadow-md shadow-[#D13A6B]/25 transition-all duration-200 hover:scale-[1.02] active:scale-[0.97]">
-                  <BunnyFace mood="heart" size={20} />
+                  <Icons8Icon slug="money" size={20} alt="" />
                   <span>Hoàn tiền ngay</span>
                   <ArrowUpRight size={15} strokeWidth={2.5} />
                 </button>
@@ -142,21 +142,21 @@ export default async function CustomerHomePage() {
 
               <a href="/app/wallet">
                 <button className="flex items-center gap-xs rounded-2xl bg-white/90 hover:bg-white px-md py-[10px] text-[13px] font-bold text-emerald-700 shadow-sm ring-1 ring-emerald-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.97]">
-                  <BunnyFace mood="delighted" size={20} />
+                  <Icons8Icon slug="bank-card-back-side" size={20} alt="" />
                   <span>Rút tiền</span>
                 </button>
               </a>
 
               <a href="/app/orders">
                 <button className="flex items-center gap-xs rounded-2xl bg-white/90 hover:bg-white px-md py-[10px] text-[13px] font-bold text-blue-700 shadow-sm ring-1 ring-blue-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.97]">
-                  <BunnyFace mood="sparkle" size={20} />
+                  <Icons8Icon slug="shopping-bag" size={20} alt="" />
                   <span>Đơn hàng</span>
                 </button>
               </a>
 
               <a href="/app/deals">
                 <button className="flex items-center gap-xs rounded-2xl bg-white/90 hover:bg-white px-md py-[10px] text-[13px] font-bold text-purple-700 shadow-sm ring-1 ring-purple-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.97]">
-                  <BunnyFace mood="wink" size={20} />
+                  <Icons8Icon slug="discount" size={20} alt="" />
                   <span>Ưu đãi hot</span>
                 </button>
               </a>
@@ -172,7 +172,7 @@ export default async function CustomerHomePage() {
             {/* Card 1: Chờ duyệt */}
             <div className="group relative overflow-hidden rounded-2xl bg-white/85 backdrop-blur-sm p-md sm:p-lg shadow-sm border border-rose-100/60 transition-all duration-200 hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
               <div className="flex items-start justify-between mb-sm">
-                <BunnyFace mood="wink" size={38} className="transition-transform group-hover:scale-110" />
+                <Icons8Icon slug="hourglass" size={38} alt="" className="transition-transform group-hover:scale-110" />
                 <span className="rounded-full bg-amber-100 px-xs sm:px-sm py-[2px] text-[10px] font-bold text-amber-600">Đang xử lý</span>
               </div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">Chờ duyệt</div>
@@ -186,7 +186,7 @@ export default async function CustomerHomePage() {
             <div className="group relative overflow-hidden rounded-2xl bg-white/85 backdrop-blur-sm p-md sm:p-lg shadow-sm border border-emerald-100/80 transition-all duration-200 hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
               <div className="flex items-start justify-between mb-sm">
                 <div className="relative">
-                  <BunnyFace mood="delighted" size={38} className="transition-transform group-hover:scale-110" />
+                  <Icons8Icon slug="money" size={38} alt="" className="transition-transform group-hover:scale-110" />
                   <div className="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 shadow-sm">
                     <span className="text-[8px] font-black text-white">✓</span>
                   </div>
@@ -203,7 +203,7 @@ export default async function CustomerHomePage() {
             {/* Card 3: Đã rút */}
             <div className="group relative overflow-hidden rounded-2xl bg-white/85 backdrop-blur-sm p-md sm:p-lg shadow-sm border border-rose-100/60 transition-all duration-200 hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
               <div className="flex items-start justify-between mb-sm">
-                <BunnyFace mood="heart" size={38} className="transition-transform group-hover:scale-110" />
+                <Icons8Icon slug="bank-card-back-side" size={38} alt="" className="transition-transform group-hover:scale-110" />
                 <span className="rounded-full bg-rose-100 px-xs sm:px-sm py-[2px] text-[10px] font-bold text-rose-600">Đã nhận</span>
               </div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">Đã rút</div>
@@ -216,7 +216,7 @@ export default async function CustomerHomePage() {
             {/* Card 4: Tổng tích luỹ */}
             <div className="group relative overflow-hidden rounded-2xl bg-white/85 backdrop-blur-sm p-md sm:p-lg shadow-sm border border-purple-100/60 transition-all duration-200 hover:bg-white hover:-translate-y-0.5 hover:shadow-md">
               <div className="flex items-start justify-between mb-sm">
-                <BunnyFace mood="bashful" size={38} className="transition-transform group-hover:scale-110" />
+                <Icons8Icon slug="money-bag" size={38} alt="" className="transition-transform group-hover:scale-110" />
                 <span className="rounded-full bg-purple-100 px-xs sm:px-sm py-[2px] text-[10px] font-bold text-purple-600">Tổng cộng</span>
               </div>
               <div className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">Tổng tích luỹ</div>
@@ -234,7 +234,7 @@ export default async function CustomerHomePage() {
         <div className="rounded-3xl bg-white p-md sm:p-xl shadow-sm ring-1 ring-black/[0.06] overflow-hidden">
           <div className="mb-lg flex items-center justify-between border-b border-gray-100 pb-md">
             <h2 className="flex items-center gap-sm text-[15px] font-bold text-gray-900">
-              <BunnyFace mood="sparkle" size={32} />
+              <Icons8Icon slug="shopping-bag" size={28} alt="" />
               Lịch sử đơn hàng
             </h2>
             <a
@@ -349,20 +349,29 @@ function ProductThumb({
   platform: string;
 }) {
   if (image) {
+    // Có ảnh sản phẩm thì gắn thêm logo sàn nhỏ ở góc để biết đơn thuộc sàn nào.
     return (
-      <img
-        src={image}
-        alt=""
-        className="h-12 w-12 shrink-0 rounded-xl object-cover ring-1 ring-black/[0.06] shadow-sm"
-      />
+      <div className="relative h-12 w-12 shrink-0">
+        <img
+          src={image}
+          alt=""
+          className="h-12 w-12 rounded-xl object-cover ring-1 ring-black/[0.06] shadow-sm"
+        />
+        <span className="absolute -bottom-1 -right-1 grid h-[22px] w-[22px] place-items-center rounded-full bg-white ring-1 ring-black/[0.06]">
+          <PlatformLogo platform={platform} size={15} />
+        </span>
+      </div>
     );
   }
+
+  // Không có ảnh thì lấy thẳng logo sàn làm ảnh đại diện, thay cho icon túi
+  // chung chung vốn không cho biết đơn đến từ đâu.
   return (
     <div
-      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl shadow-sm"
-      style={{ backgroundColor: `${color}18`, color }}
+      className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ring-1 ring-black/[0.04] shadow-sm"
+      style={{ backgroundColor: `${color}14` }}
     >
-      <ShoppingBag size={18} strokeWidth={1.75} />
+      <PlatformLogo platform={platform} size={28} />
     </div>
   );
 }

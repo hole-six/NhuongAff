@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { Phone, Heart, Sparkles } from "lucide-react";
+import { ArrowRight, Phone, Mail } from "lucide-react";
 import {
   FacebookIcon,
   ZaloIcon,
@@ -10,118 +8,151 @@ import {
   InstagramIcon,
   ThreadsIcon,
 } from "@/components/icons/PlatformIcons";
-import { BunnyMascot } from "@/components/ui/BunnyMascot";
+import { BunnyFace } from "@/components/ui/BunnyFace";
 
 const SOCIAL_LINKS = [
-  { key: "facebook", label: "Facebook", href: "https://www.facebook.com/share/1BShYKizDV/?mibextid=wwXIfr", Icon: FacebookIcon },
   { key: "zalo", label: "Zalo", href: "https://zalo.me/g/cgmmvw504", Icon: ZaloIcon },
-  { key: "youtube", label: "Youtube", href: "https://www.youtube.com/@iviback", Icon: YoutubeIcon },
-  { key: "tiktok", label: "Tiktok", href: "https://www.tiktok.com/@vi_ha790?_r=1&_t=ZS-983XgTM1aum", Icon: TiktokIcon },
+  { key: "facebook", label: "Facebook", href: "https://www.facebook.com/share/1BShYKizDV/?mibextid=wwXIfr", Icon: FacebookIcon },
+  { key: "tiktok", label: "TikTok", href: "https://www.tiktok.com/@vi_ha790?_r=1&_t=ZS-983XgTM1aum", Icon: TiktokIcon },
+  { key: "youtube", label: "YouTube", href: "https://www.youtube.com/@iviback", Icon: YoutubeIcon },
   { key: "instagram", label: "Instagram", href: "https://www.instagram.com/imviihaaa?igsh=M2RqZml1NHpzbmgx&utm_source=qr", Icon: InstagramIcon },
   { key: "threads", label: "Threads", href: "https://www.threads.com/@imviihaaa?igshid=NTc4MTIwNjQ2YQ==", Icon: ThreadsIcon },
 ];
 
+const LINK_GROUPS = [
+  {
+    title: "Bắt đầu",
+    links: [
+      { label: "Tạo tài khoản miễn phí", href: "/register" },
+      { label: "Đăng nhập", href: "/login" },
+      { label: "Cách hoạt động", href: "/huong-dan" },
+    ],
+  },
+  {
+    title: "Khám phá",
+    links: [
+      { label: "Cửa hàng", href: "/cua-hang" },
+      { label: "Ưu đãi hôm nay", href: "/uu-dai" },
+      { label: "Câu hỏi thường gặp", href: "/faq" },
+    ],
+  },
+  {
+    title: "Minh bạch",
+    links: [
+      { label: "Điều khoản sử dụng", href: "/dieu-khoan-su-dung" },
+      { label: "Chính sách bảo mật", href: "/chinh-sach-bao-mat" },
+    ],
+  },
+];
+
 export function MarketingFooter() {
   return (
-    <footer className="bg-gradient-to-b from-white via-[#FFF8FA] to-[#FFEBF2] border-t border-pink-100">
-      <div className="max-w-[1200px] mx-auto px-6 py-12 flex flex-col md:flex-row justify-between gap-10">
-        {/* Brand & Info */}
-        <div className="space-y-4 max-w-sm">
-          <div className="flex items-center gap-3">
-            <div className="h-11 w-11 rounded-2xl bg-gradient-to-br from-pink-400 to-pink-500 p-1.5 shadow-md shadow-pink-200 flex items-center justify-center">
-              <BunnyMascot size={32} />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-black text-slate-800 tracking-tight flex items-center gap-1.5">
-                BunnyHoanTien
-                <Sparkles className="w-4 h-4 text-pink-400 fill-pink-300" />
-              </span>
-              <span className="text-[11px] font-bold tracking-widest text-pink-500 uppercase">Hệ Thống Hoàn Tiền Thông Minh</span>
+    <footer className="bg-canvas-soft pt-3xl">
+      <div className="mx-auto max-w-[1160px] px-lg">
+        {/* Dải kêu gọi hành động nổi hẳn lên trên phần chân trang */}
+        <div className="gloss relative overflow-hidden rounded-[32px] bg-gradient-to-br from-primary via-[#E8558A] to-[#F2809E] px-lg py-2xl text-center shadow-glow sm:px-2xl">
+          <div className="relative z-10 mx-auto flex max-w-[620px] flex-col items-center gap-md">
+            <BunnyFace mood="delighted" size={78} className="float drop-shadow" />
+            <h2 className="text-balance text-[26px] font-black leading-tight tracking-tight text-white sm:text-[32px]">
+              Tung tăng mua sắm, để tiền tự chạy về ví
+            </h2>
+            <p className="text-[15px] leading-relaxed text-white/85">
+              Mở tài khoản chưa tới một phút. Không phí, không ràng buộc, mua như thường ngày là
+              đã có tiền hoàn.
+            </p>
+            <Link
+              href="/register"
+              className="sheen mt-xs inline-flex min-h-[52px] items-center gap-sm rounded-pill bg-white px-2xl text-[15px] font-black text-primary shadow-cute-lg transition-transform duration-200 ease-soft hover:-translate-y-[2px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+            >
+              Nhận tiền hoàn ngay
+              <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Thân chân trang: thương hiệu bên trái, ba nhóm liên kết bên phải */}
+        <div className="grid grid-cols-1 gap-2xl py-2xl lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1.6fr)]">
+          <div>
+            <p className="text-[22px] font-black leading-none tracking-tight text-primary">
+              BunnyHoanTien
+            </p>
+            <p className="mt-sm max-w-[380px] text-[14px] leading-relaxed text-mute">
+              Nền tảng hoàn tiền cho Shopee, TikTok Shop và Lazada. Bạn mua như bình thường, phần
+              hoa hồng affiliate được chia lại phần lớn cho bạn.
+            </p>
+
+            <div className="mt-lg flex flex-col gap-sm">
+              <a
+                href="tel:0965965439"
+                className="inline-flex min-h-[44px] w-fit items-center gap-sm rounded-pill border border-primary-pale bg-white px-lg text-[13px] font-bold text-ink transition-colors duration-200 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                <Phone size={15} strokeWidth={2.5} className="text-primary" aria-hidden="true" />
+                0965.965.439
+              </a>
+              <a
+                href="mailto:hoadt122@gmail.com"
+                className="inline-flex min-h-[44px] w-fit items-center gap-sm rounded-pill border border-primary-pale bg-white px-lg text-[13px] font-bold text-ink transition-colors duration-200 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                <Mail size={15} strokeWidth={2.5} className="text-primary" aria-hidden="true" />
+                hoadt122@gmail.com
+              </a>
             </div>
           </div>
-          <p className="text-slate-500 text-sm leading-relaxed font-medium">
-            Nền tảng hoàn tiền mua sắm Shopee, TikTok Shop & Lazada hàng đầu Việt Nam. Tối ưu ưu đãi, tích lũy tiền hoàn tự động & rút về ngân hàng dễ dàng.
-          </p>
-          <div className="pt-2 space-y-2">
-            <h5 className="font-bold text-xs uppercase tracking-wider text-slate-700">Kết nối cộng đồng</h5>
-            <div className="flex flex-wrap items-center gap-2">
-              {SOCIAL_LINKS.map(({ key, label, href, Icon }) => (
+
+          <div className="grid grid-cols-2 gap-xl sm:grid-cols-3">
+            {LINK_GROUPS.map((group) => (
+              <div key={group.title}>
+                <h3 className="text-[11px] font-black uppercase tracking-[0.14em] text-primary/70">
+                  {group.title}
+                </h3>
+                <ul className="mt-md flex flex-col gap-sm">
+                  {group.links.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        className="text-[14px] font-medium text-body transition-colors duration-200 hover:text-primary"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mạng xã hội dạng nhãn có chữ — icon trơn khó đoán là kênh nào */}
+        <div className="border-t border-primary-pale/70 py-xl">
+          <h3 className="text-[11px] font-black uppercase tracking-[0.14em] text-primary/70">
+            Cộng đồng
+          </h3>
+          <ul className="mt-md flex flex-wrap gap-sm">
+            {SOCIAL_LINKS.map(({ key, label, href, Icon }) => (
+              <li key={key}>
                 <a
-                  key={key}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={label}
-                  title={label}
-                  className="p-2 rounded-xl bg-white border border-pink-100 shadow-sm hover:border-pink-300 hover:shadow-md hover:-translate-y-1 transition-all duration-200"
+                  className="lift inline-flex min-h-[44px] items-center gap-sm rounded-pill border border-primary-pale bg-white px-lg text-[13px] font-bold text-ink transition-colors duration-200 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
-                  <Icon size={26} />
+                  <Icon size={18} />
+                  {label}
                 </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Links Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 gap-8 md:gap-16">
-          <div className="space-y-3">
-            <h5 className="font-extrabold text-base text-slate-800 tracking-tight flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-pink-400"></span>
-              Hỗ trợ khách hàng
-            </h5>
-            <ul className="space-y-2.5 text-slate-500 font-medium text-sm">
-              <li>
-                <Link className="hover:text-pink-500 hover:translate-x-1.5 inline-flex items-center gap-1 transition-all duration-200" href="/faq">
-                  Trung tâm trợ giúp
-                </Link>
               </li>
-              <li>
-                <Link className="hover:text-pink-500 hover:translate-x-1.5 inline-flex items-center gap-1 transition-all duration-200" href="/dieu-khoan-su-dung">
-                  Điều khoản sử dụng
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-pink-500 hover:translate-x-1.5 inline-flex items-center gap-1 transition-all duration-200" href="/chinh-sach-bao-mat">
-                  Chính sách bảo mật
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          <div className="space-y-3">
-            <h5 className="font-extrabold text-base text-slate-800 tracking-tight flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-pink-400"></span>
-              Tài khoản & Hệ thống
-            </h5>
-            <ul className="space-y-2.5 text-slate-500 font-medium text-sm">
-              <li>
-                <Link className="hover:text-pink-500 hover:translate-x-1.5 inline-flex items-center gap-1 transition-all duration-200" href="/login">
-                  Đăng nhập tài khoản
-                </Link>
-              </li>
-              <li>
-                <Link className="hover:text-pink-500 hover:translate-x-1.5 inline-flex items-center gap-1 transition-all duration-200" href="/register">
-                  Đăng ký miễn phí
-                </Link>
-              </li>
-            </ul>
-          </div>
+            ))}
+          </ul>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-pink-100 px-6 py-4 bg-white/80 backdrop-blur-sm">
-        <div className="max-w-[1200px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="text-slate-400 font-medium text-xs flex items-center gap-1">
-            © {new Date().getFullYear()} BunnyHoanTien. Made with <Heart className="w-3.5 h-3.5 text-pink-400 fill-pink-400 inline" /> for smart shoppers.
+      <div className="border-t border-primary-pale/70 bg-white/70">
+        <div className="mx-auto flex max-w-[1160px] flex-col items-center gap-xs px-lg py-lg text-center sm:flex-row sm:justify-between sm:text-left">
+          <p className="text-[12px] font-medium text-mute">
+            © {new Date().getFullYear()} BunnyHoanTien — Hoàn tiền cho người mua sắm thông minh.
           </p>
-          <a
-            href="tel:0965965439"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-pink-50 border border-pink-200 text-xs text-pink-600 font-bold hover:bg-pink-100 transition-colors"
-          >
-            <Phone size={14} strokeWidth={2.5} />
-            Hotline: 0965.965.439
-          </a>
+          <p className="text-[12px] text-mute">
+            Tiền hoàn được tính trên hoa hồng affiliate thực nhận từ sàn.
+          </p>
         </div>
       </div>
     </footer>

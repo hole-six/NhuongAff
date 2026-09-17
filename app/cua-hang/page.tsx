@@ -42,7 +42,7 @@ export default async function CuaHangPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLdString(breadcrumbJsonLd) }} />
       <MarketingHeader activePath="/cua-hang" />
 
-      <main className="pt-[80px]">
+      <main className="pt-[90px]">
         {/* Header Hero */}
         <section className="bg-gradient-to-b from-[#FFF0F4] to-white py-3xl relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('/background.png')] bg-cover bg-center opacity-10 pointer-events-none" />

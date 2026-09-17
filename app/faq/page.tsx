@@ -45,11 +45,11 @@ export default function FaqPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLdString(breadcrumbJsonLd) }} />
       <MarketingHeader activePath="/faq" />
 
-      <main className="pt-[80px]">
+      <main className="pt-[90px]">
         {/* Header Hero */}
         <section className="bg-gradient-to-b from-[#FFF0F4] to-white py-3xl relative overflow-hidden">
           <div className="max-w-[1200px] mx-auto px-lg relative z-10 text-center">
-            <img src="/heoQA.png" alt="Câu hỏi thường gặp BunnyHoanTien" className="mx-auto h-24 w-24 object-contain mb-md" />
+            <img src="/mascots/icons/bunny-surprised.webp" alt="Câu hỏi thường gặp BunnyHoanTien" className="mx-auto h-24 w-24 object-contain mb-md" />
             <h1 className="text-[40px] md:text-[56px] font-black text-ink tracking-tight mb-md">
               Câu Hỏi <span className="text-primary">Thường Gặp</span>
             </h1>

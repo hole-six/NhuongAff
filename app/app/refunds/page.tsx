@@ -63,7 +63,7 @@ export default async function CustomerRefundsPage({ searchParams }: { searchPara
   }));
 
   return (
-    <div className="mx-auto flex max-w-4xl flex-col gap-xl fade-in pb-2xl">
+    <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-2xl fade-in pb-3xl">
       {/* HEADER CARD */}
       <div className="relative overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 p-lg sm:p-2xl flex items-center justify-between gap-md">
         {/* Subtle decorative background gradient */}
@@ -80,12 +80,12 @@ export default async function CustomerRefundsPage({ searchParams }: { searchPara
 
         {/* Mascot / Icon Placeholder */}
         <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full bg-[#FFF0F4] shadow-sm">
-          <img src="/heoQA.png" alt="" className="h-14 w-14 object-contain drop-shadow-sm" />
+          <img src="/mascots/icons/bunny-surprised.webp" alt="" className="h-14 w-14 object-contain drop-shadow-sm" />
         </div>
       </div>
 
       {/* Trái: chọn nền tảng & tạo link — Phải: 6 điều lưu ý (trước đây là ảnh) */}
-      <div className="grid grid-cols-1 gap-xl lg:grid-cols-[minmax(0,1fr)_minmax(0,380px)] lg:items-start">
+      <div className="grid grid-cols-1 gap-2xl lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:items-start">
         <CustomerLinkForm platforms={sortPlatformsForDisplay(platforms).map((p) => ({ id: p.id, code: p.code, label: p.name }))} />
         <RefundNotes />
       </div>

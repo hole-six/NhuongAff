@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ArrowRight, LayoutDashboard, Menu, X } from "lucide-react";
 import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 const NAV_LINKS = [
@@ -12,147 +13,192 @@ const NAV_LINKS = [
   { label: "FAQ", href: "/faq" },
 ];
 
+type Auth = { authenticated: boolean; role?: string } | null;
+
 export function MarketingHeader({ activePath = "/" }: { activePath?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [auth, setAuth] = useState<Auth>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Hỏi trạng thái đăng nhập sau khi trang đã hiện, để các trang marketing vẫn
+  // được build tĩnh. Chưa biết thì tạm hiện nút đăng nhập (đa số khách vào là
+  // chưa đăng nhập), biết rồi mới đổi.
+  useEffect(() => {
+    let alive = true;
+    fetch("/api/auth/me", { credentials: "include" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => alive && setAuth(d))
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Khoá cuộn nền khi menu mobile đang mở, tránh cuộn xuyên qua lớp phủ.
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const loggedIn = auth?.authenticated === true;
+  const dashHref = auth?.role === "admin" ? "/admin" : "/app";
+  const dashLabel = auth?.role === "admin" ? "Trang quản trị" : "Vào trang quản lý";
 
   return (
-    <header className="fixed top-0 w-full z-50 glass border-b border-[#FFDFE8]/70 shadow-sm">
-      <nav className="flex justify-between items-center w-full px-5 md:px-10 max-w-[1200px] mx-auto h-16">
-
-        {/* ── Logo: Bunny SVG + wordmark ── */}
+    <header className="fixed inset-x-0 top-0 z-50 px-lg pt-md">
+      <div
+        className={`mx-auto flex h-[62px] max-w-[1160px] items-center gap-md rounded-pill border border-white/70 bg-white/80 pl-md pr-sm backdrop-blur-xl transition-all duration-300 ease-soft ${
+          scrolled ? "shadow-cute-lg" : "shadow-cute"
+        }`}
+      >
+        {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2.5 hover:opacity-90 transition-opacity"
+          className="flex shrink-0 items-center gap-sm rounded-pill transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
         >
-          {/* Bunny mascot nhỏ trong vòng tròn hồng nhạt */}
-          <div className="w-9 h-9 rounded-full bg-[#FFF0F4] border border-[#FFDFE8] shadow-sm
-                          flex items-center justify-center overflow-hidden shrink-0">
-            <BunnyMascot size={30} label="BunnyHoanTien" />
-          </div>
-          <span className="font-black text-[18px] text-primary leading-none tracking-tight">
+          <span className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden rounded-full border border-primary-pale bg-primary-neutral">
+            <BunnyMascot size={32} label="BunnyHoanTien" />
+          </span>
+          {/* Ẩn chữ ở màn hình hẹp: logo + chữ + nút CTA + hamburger không đủ
+              chỗ trên 390px, chữ tràn ra làm mất nút hamburger. */}
+          <span className="hidden text-[17px] font-black leading-none tracking-tight text-primary sm:inline">
             BunnyHoanTien
           </span>
         </Link>
 
-        {/* ── Desktop Nav ── */}
-        <div className="hidden md:flex items-center gap-6">
+        {/* Nav dạng viên thuốc, mục đang mở được tô nền thay vì gạch chân */}
+        <nav className="mx-auto hidden items-center gap-xxs rounded-pill bg-primary-neutral/70 p-[5px] lg:flex">
           {NAV_LINKS.map(({ label, href }) => {
             const isActive = activePath === href;
             return (
               <Link
                 key={href}
                 href={href}
-                className={`text-[14px] font-semibold transition-all duration-200 ${
+                aria-current={isActive ? "page" : undefined}
+                className={`rounded-pill px-lg py-[7px] text-[13.5px] font-bold transition-all duration-200 ease-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                   isActive
-                    ? "text-primary border-b-2 border-primary pb-0.5"
-                    : "text-body hover:text-primary"
+                    ? "bg-white text-primary shadow-cute"
+                    : "text-body hover:bg-white/70 hover:text-primary"
                 }`}
               >
                 {label}
               </Link>
             );
           })}
-        </div>
+        </nav>
 
-        {/* ── CTA + Hamburger ── */}
-        <div className="flex items-center gap-3">
-          <Link
-            href="/login"
-            className="hidden sm:inline-flex items-center gap-1.5
-                       bg-white text-primary border border-[#FFDFE8]
-                       rounded-full px-4 py-1.5 font-bold text-[13px]
-                       hover:bg-[#FFF0F4] hover:border-primary/40
-                       shadow-sm transition-all duration-200 active:scale-95"
-          >
-            Đăng nhập
-          </Link>
-          <Link
-            href="/register"
-            className="bg-gradient-to-r from-primary to-[#E8558A] text-white
-                       rounded-full px-4 py-1.5 font-bold text-[13px]
-                       shadow-md hover:shadow-lg hover:shadow-primary/30
-                       hover:-translate-y-0.5 transition-all duration-200
-                       active:scale-95 whitespace-nowrap"
-          >
-            Mở app
-          </Link>
+        {/* CTA — đổi theo trạng thái đăng nhập */}
+        <div className="ml-auto flex shrink-0 items-center gap-sm lg:ml-0">
+          {loggedIn ? (
+            <Link
+              href={dashHref}
+              className="sheen gloss inline-flex min-h-[42px] items-center gap-xs rounded-pill bg-gradient-to-r from-primary to-[#E8558A] px-lg text-[13px] font-bold text-white shadow-glow transition-all duration-200 ease-soft hover:-translate-y-[2px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            >
+              <LayoutDashboard size={15} strokeWidth={2.5} aria-hidden="true" />
+              <span className="hidden sm:inline">{dashLabel}</span>
+              <span className="sm:hidden">Vào app</span>
+            </Link>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className="hidden min-h-[42px] items-center rounded-pill border border-primary-pale bg-white px-lg text-[13px] font-bold text-primary transition-all duration-200 ease-soft hover:border-primary/40 hover:bg-primary-neutral sm:inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                Đăng nhập
+              </Link>
+              <Link
+                href="/register"
+                className="sheen gloss inline-flex min-h-[42px] items-center gap-xs rounded-pill bg-gradient-to-r from-primary to-[#E8558A] px-lg text-[13px] font-bold text-white shadow-glow transition-all duration-200 ease-soft hover:-translate-y-[2px] active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                Nhận tiền hoàn
+                <ArrowRight size={15} strokeWidth={2.5} aria-hidden="true" />
+              </Link>
+            </>
+          )}
 
-          {/* Hamburger (mobile only) */}
           <button
-            className="flex md:hidden flex-col justify-center items-center w-9 h-9
-                       rounded-full bg-[#FFF3F7] hover:bg-[#FFDFE8] transition-colors gap-1"
+            type="button"
             onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? "Đóng menu" : "Mở menu"}
             aria-expanded={menuOpen}
+            className="grid h-[42px] w-[42px] shrink-0 place-items-center rounded-full bg-primary-neutral text-primary transition-colors duration-200 hover:bg-primary-pale lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
-            <span
-              className={`block w-4 h-0.5 bg-primary rounded-full transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-[6px]" : ""
-              }`}
-            />
-            <span
-              className={`block w-4 h-0.5 bg-primary rounded-full transition-all duration-300 ${
-                menuOpen ? "opacity-0 scale-x-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-4 h-0.5 bg-primary rounded-full transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-[6px]" : ""
-              }`}
-            />
+            {menuOpen ? <X size={19} strokeWidth={2.5} /> : <Menu size={19} strokeWidth={2.5} />}
           </button>
         </div>
-      </nav>
-
-      {/* ── Mobile Dropdown Menu ── */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out
-                    bg-white border-t border-[#FFDFE8]/60 ${
-                      menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                    }`}
-      >
-        <div className="flex flex-col px-5 py-4 gap-1">
-          {NAV_LINKS.map(({ label, href }) => {
-            const isActive = activePath === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                onClick={() => setMenuOpen(false)}
-                className={`text-[15px] font-semibold py-2.5 px-4 rounded-2xl transition-all duration-200 ${
-                  isActive
-                    ? "text-primary bg-[#FFF0F4]"
-                    : "text-body hover:text-primary hover:bg-[#FFF9FB]"
-                }`}
-              >
-                {isActive ? "🐰 " : ""}{label}
-              </Link>
-            );
-          })}
-
-          <div className="mt-2 pt-3 border-t border-[#FFDFE8]/60 flex flex-col gap-2">
-            <Link
-              href="/login"
-              onClick={() => setMenuOpen(false)}
-              className="block w-full text-center bg-white text-primary border border-[#FFDFE8]
-                         rounded-2xl px-5 py-2.5 font-bold text-[14px]
-                         hover:bg-[#FFF0F4] transition-all duration-200"
-            >
-              Đăng nhập
-            </Link>
-            <Link
-              href="/register"
-              onClick={() => setMenuOpen(false)}
-              className="block w-full text-center
-                         bg-gradient-to-r from-primary to-[#E8558A] text-white
-                         rounded-2xl px-5 py-2.5 font-bold text-[14px]
-                         shadow-md hover:shadow-lg transition-all duration-200"
-            >
-              Đăng ký miễn phí 🐰
-            </Link>
-          </div>
-        </div>
       </div>
+
+      {/* Menu mobile: thẻ bo tròn trượt xuống dưới đảo, không phải thanh dán mép */}
+      {menuOpen && (
+        <>
+          <button
+            type="button"
+            aria-label="Đóng menu"
+            onClick={() => setMenuOpen(false)}
+            className="fixed inset-0 -z-10 cursor-default bg-ink/20 backdrop-blur-[2px] lg:hidden"
+          />
+          <div className="rise-in mx-auto mt-sm max-w-[1160px] overflow-hidden rounded-[26px] border border-white/70 bg-white/95 p-sm shadow-cute-lg backdrop-blur-xl lg:hidden">
+            <nav className="flex flex-col gap-xxs">
+              {NAV_LINKS.map(({ label, href }) => {
+                const isActive = activePath === href;
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    onClick={() => setMenuOpen(false)}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`flex min-h-[48px] items-center rounded-2xl px-lg text-[15px] font-bold transition-colors duration-200 ${
+                      isActive ? "bg-primary-neutral text-primary" : "text-body hover:bg-canvas-soft"
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="mt-sm border-t border-primary-pale/60 pt-sm">
+              {loggedIn ? (
+                <Link
+                  href={dashHref}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex min-h-[50px] w-full items-center justify-center gap-xs rounded-2xl bg-gradient-to-r from-primary to-[#E8558A] text-[15px] font-black text-white shadow-glow"
+                >
+                  <LayoutDashboard size={17} strokeWidth={2.5} aria-hidden="true" />
+                  {dashLabel}
+                </Link>
+              ) : (
+                <div className="flex flex-col gap-sm">
+                  <Link
+                    href="/login"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex min-h-[50px] w-full items-center justify-center rounded-2xl border border-primary-pale bg-white text-[15px] font-bold text-primary"
+                  >
+                    Đăng nhập
+                  </Link>
+                  <Link
+                    href="/register"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex min-h-[50px] w-full items-center justify-center gap-xs rounded-2xl bg-gradient-to-r from-primary to-[#E8558A] text-[15px] font-black text-white shadow-glow"
+                  >
+                    Nhận tiền hoàn
+                    <ArrowRight size={17} strokeWidth={2.5} aria-hidden="true" />
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+        </>
+      )}
     </header>
   );
 }

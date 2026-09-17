@@ -162,7 +162,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
         <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#a7f3d0] opacity-35" />
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-lg flex-wrap">
           <div className="flex items-center gap-lg">
-            <img src="/heongansach.png" alt="" className="h-20 w-20 object-contain drop-shadow-lg shrink-0" />
+            <img src="/mascots/icons/bunny-blink.webp" alt="" className="h-20 w-20 object-contain drop-shadow-lg shrink-0" />
             <div>
               <p className="text-[11px] font-bold uppercase tracking-widest text-emerald-500 mb-1">Quản lý đối soát</p>
               <h1 className="text-[26px] sm:text-[30px] font-black leading-tight text-[#064e3b]">Đơn hàng</h1>
@@ -191,7 +191,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
         <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] hover:-translate-y-1 hover:shadow-md transition-all">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-slate-50 opacity-60" />
           <div className="relative flex items-center gap-md">
-            <img src="/heongansach.png" alt="" className="h-12 w-12 object-contain transition-transform group-hover:scale-110" />
+            <img src="/mascots/icons/bunny-blink.webp" alt="" className="h-12 w-12 object-contain transition-transform group-hover:scale-110" />
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">Tổng đơn</div>
               <div className="text-[24px] font-black text-gray-900 tabular-nums leading-tight">{allCount.toLocaleString()}</div>
@@ -201,7 +201,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
         <div className="group relative overflow-hidden rounded-2xl p-lg shadow-sm ring-1 ring-black/[0.06] hover:-translate-y-1 hover:shadow-md transition-all"
           style={{ background: "linear-gradient(135deg,#e8f5e9,#f1fdf2)" }}>
           <div className="relative flex items-center gap-md">
-            <img src="/heovitien.png" alt="" className="h-12 w-12 object-contain transition-transform group-hover:scale-110" />
+            <img src="/mascots/icons/bunny-heart.webp" alt="" className="h-12 w-12 object-contain transition-transform group-hover:scale-110" />
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">Tiền đã về</div>
               <div className="text-[16px] font-black text-emerald-600 tabular-nums leading-tight">{formatCurrency(sums.moneyInTotal)}</div>
@@ -211,7 +211,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
         <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] hover:-translate-y-1 hover:shadow-md transition-all">
           <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-pink-50 opacity-60" />
           <div className="relative flex items-center gap-md">
-            <img src="/heochodoi.png" alt="" className="h-12 w-12 object-contain transition-transform group-hover:scale-110" />
+            <img src="/mascots/icons/bunny-sleepy.webp" alt="" className="h-12 w-12 object-contain transition-transform group-hover:scale-110" />
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">Chưa trả</div>
               <div className="text-[24px] font-black text-[#D13A6B] tabular-nums leading-tight">{unpaidCount}</div>
@@ -221,7 +221,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
         <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] hover:-translate-y-1 hover:shadow-md transition-all">
           <div className="absolute inset-0 bg-gradient-to-br from-red-50 to-rose-50 opacity-60" />
           <div className="relative flex items-center gap-md">
-            <img src="/heoQA.png" alt="" className="h-12 w-12 object-contain transition-transform group-hover:scale-110" />
+            <img src="/mascots/icons/bunny-surprised.webp" alt="" className="h-12 w-12 object-contain transition-transform group-hover:scale-110" />
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">Chưa map</div>
               <div className="text-[24px] font-black text-red-500 tabular-nums leading-tight">{unassignedCount}</div>

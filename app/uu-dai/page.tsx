@@ -119,11 +119,11 @@ export default async function PublicDealsPage({
       )}
       <MarketingHeader activePath="/uu-dai" />
 
-      <main className="pt-[80px]">
+      <main className="pt-[90px]">
         {/* Header Hero */}
         <section className="bg-gradient-to-b from-[#FFF0F4] to-white py-3xl relative overflow-hidden">
           <div className="max-w-[1200px] mx-auto px-lg relative z-10 text-center">
-            <img src="/heogiamgia.png" alt="Ưu đãi và mã giảm giá BunnyHoanTien" className="mx-auto h-24 w-24 object-contain mb-md" />
+            <img src="/mascots/icons/bunny-wink.webp" alt="Ưu đãi và mã giảm giá BunnyHoanTien" className="mx-auto h-24 w-24 object-contain mb-md" />
             <h1 className="text-[40px] md:text-[56px] font-black text-ink tracking-tight mb-md">
               Ưu Đãi & <span className="text-primary">Mã Giảm Giá</span>
             </h1>

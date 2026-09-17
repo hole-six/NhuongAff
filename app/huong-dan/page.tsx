@@ -49,7 +49,7 @@ export default function HuongDanPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLdString(breadcrumbJsonLd) }} />
       <MarketingHeader activePath="/huong-dan" />
 
-      <main className="pt-[80px]">
+      <main className="pt-[90px]">
         {/* Header Hero */}
         <section className="bg-gradient-to-b from-[#FFF0F4] to-white py-3xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-pale/30 rounded-full blur-[120px] -z-10 pointer-events-none"></div>

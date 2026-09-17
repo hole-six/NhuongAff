@@ -66,7 +66,7 @@ export function InviteSection({
       ctx.fillStyle = "#fff1e9";
       ctx.fillRect(0, 0, width, 150);
 
-      const mascot = await loadImage("/heoqua.png").catch(() => null);
+      const mascot = await loadImage("/mascots/icons/bunny-heart.webp").catch(() => null);
       if (mascot) ctx.drawImage(mascot, width / 2 - 32, 22, 64, 64);
 
       ctx.fillStyle = "#111827";

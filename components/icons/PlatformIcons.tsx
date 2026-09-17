@@ -1,6 +1,15 @@
-import { useId } from "react";
-
 type IconProps = { size?: number; className?: string };
+
+/** Icon bất kỳ từ Icons8 — dùng khi cần slug ngoài danh sách nền tảng bên dưới. */
+export function Icons8Icon({
+  slug,
+  style = "plasticine",
+  alt = "",
+  size = 22,
+  className = "",
+}: IconProps & { slug: string; style?: string; alt?: string }) {
+  return <Icons8Image size={size} className={className} style={style} slug={slug} alt={alt} />;
+}
 
 function Icons8Image({
   size = 22,
@@ -56,4 +65,31 @@ export function TiktokIcon(props: IconProps) {
 
 export function LazadaIcon(props: IconProps) {
   return <Icons8Image {...props} style="plasticine" slug="lazada" alt="Lazada" />;
+}
+
+const PLATFORM_LOGOS: Record<string, (p: IconProps) => JSX.Element> = {
+  SHOPEE: ShopeeIcon,
+  TIKTOK: TiktokIcon,
+  LAZADA: LazadaIcon,
+};
+
+export const PLATFORM_COLORS: Record<string, string> = {
+  SHOPEE: "#EE4D2D",
+  TIKTOK: "#000000",
+  LAZADA: "#0F146D",
+  TIKI: "#1A73E8",
+};
+
+/**
+ * Logo sàn theo mã nền tảng ("SHOPEE" | "TIKTOK" | "LAZADA").
+ * Sàn lạ chưa có logo thì trả về null để nơi gọi tự quyết định hiển thị gì.
+ */
+export function PlatformLogo({
+  platform,
+  size = 22,
+  className = "",
+}: IconProps & { platform: string }) {
+  const Logo = PLATFORM_LOGOS[platform?.toUpperCase()];
+  if (!Logo) return null;
+  return <Logo size={size} className={className} />;
 }

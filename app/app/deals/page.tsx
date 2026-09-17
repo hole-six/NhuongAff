@@ -106,7 +106,7 @@ export default async function CustomerDealsPage({ searchParams }: { searchParams
         </div>
 
         <img
-          src="/heogiamgia.png"
+          src="/mascots/icons/bunny-wink.webp"
           alt=""
           className="pointer-events-none absolute -right-2 bottom-0 z-10 hidden h-[140px] w-[140px] object-contain drop-shadow-xl sm:block"
         />

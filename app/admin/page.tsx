@@ -52,7 +52,7 @@ export default async function AdminDashboardPage() {
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-lg flex-wrap">
           <div className="flex items-center gap-lg">
             <img
-              src="/heodashboard.png"
+              src="/mascots/icons/bunny-sparkle.webp"
               alt="Tổng quan"
               className="h-20 w-20 sm:h-24 sm:w-24 object-contain drop-shadow-lg shrink-0"
             />
@@ -96,7 +96,7 @@ export default async function AdminDashboardPage() {
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 transition-transform group-hover:scale-110">
-                <img src="/heochaomung.png" alt="" className="h-7 w-7 object-contain" />
+                <img src="/mascots/icons/bunny-delighted.webp" alt="" className="h-7 w-7 object-contain" />
               </div>
               <span className="rounded-full bg-blue-100 px-sm py-[3px] text-[10px] font-bold text-blue-600">Thành viên</span>
             </div>
@@ -112,7 +112,7 @@ export default async function AdminDashboardPage() {
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-100 transition-transform group-hover:scale-110">
-                <img src="/heogiamgia.png" alt="" className="h-7 w-7 object-contain" />
+                <img src="/mascots/icons/bunny-wink.webp" alt="" className="h-7 w-7 object-contain" />
               </div>
               <span className="rounded-full bg-violet-100 px-sm py-[3px] text-[10px] font-bold text-violet-600">Affiliate</span>
             </div>
@@ -128,7 +128,7 @@ export default async function AdminDashboardPage() {
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-100 transition-transform group-hover:scale-110">
-                <img src="/heoqua.png" alt="" className="h-7 w-7 object-contain" />
+                <img src="/mascots/icons/bunny-heart.webp" alt="" className="h-7 w-7 object-contain" />
               </div>
               <span className="rounded-full bg-amber-100 px-sm py-[3px] text-[10px] font-bold text-amber-600">Đơn hàng</span>
             </div>
@@ -144,7 +144,7 @@ export default async function AdminDashboardPage() {
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-100 transition-transform group-hover:scale-110">
-                <img src="/heovitien.png" alt="" className="h-7 w-7 object-contain" />
+                <img src="/mascots/icons/bunny-heart.webp" alt="" className="h-7 w-7 object-contain" />
               </div>
               <span className="rounded-full bg-emerald-100 px-sm py-[3px] text-[10px] font-bold text-emerald-600">Đã hoàn</span>
             </div>
@@ -166,7 +166,7 @@ export default async function AdminDashboardPage() {
               style={{ background: "linear-gradient(135deg, #FFF3F7 0%, #FDE3EB 100%)" }}>
               <div className="pointer-events-none absolute -right-6 -top-6 h-28 w-28 rounded-full bg-[#D13A6B] opacity-10" />
               <div className="relative z-10 flex items-center gap-sm mb-xl">
-                <img src="/heongansach.png" alt="" className="h-10 w-10 object-contain" />
+                <img src="/mascots/icons/bunny-blink.webp" alt="" className="h-10 w-10 object-contain" />
                 <div>
                   <h2 className="text-[16px] font-bold text-gray-900">Doanh thu & Lợi nhuận</h2>
                   <p className="text-[12px] text-gray-400">Tổng hợp tài chính toàn hệ thống</p>
@@ -235,7 +235,7 @@ export default async function AdminDashboardPage() {
         <div className="flex flex-col gap-lg">
           <div className="rounded-3xl bg-white shadow-sm ring-1 ring-black/[0.06] p-xl flex flex-col gap-md">
             <div className="flex items-center gap-sm mb-sm">
-              <img src="/heodashboard.png" alt="" className="h-9 w-9 object-contain" />
+              <img src="/mascots/icons/bunny-sparkle.webp" alt="" className="h-9 w-9 object-contain" />
               <h2 className="text-[15px] font-bold text-gray-900">Chỉ số vận hành</h2>
             </div>
 
@@ -278,7 +278,7 @@ export default async function AdminDashboardPage() {
           {/* Quick actions */}
           <div className="rounded-3xl bg-white shadow-sm ring-1 ring-black/[0.06] p-xl">
             <h2 className="mb-md flex items-center gap-sm text-[14px] font-bold text-gray-700">
-              <img src="/heoquatang.png" alt="" className="h-7 w-7 object-contain" />
+              <img src="/mascots/icons/bunny-heart.webp" alt="" className="h-7 w-7 object-contain" />
               Thao tác nhanh
             </h2>
             <div className="grid grid-cols-2 gap-sm">

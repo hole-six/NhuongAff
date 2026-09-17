@@ -68,6 +68,7 @@ export default async function CustomerOrdersPage({ searchParams }: { searchParam
       productTitle: o.trackingLink?.productTitle ?? o.itemName ?? null,
       productImage: o.trackingLink?.productImage ?? null,
       platformName: o.platform.name,
+      platformCode: o.platform.code,
       sourceType: o.sourceType,
       createdAt: formatDate(o.createdAt),
       orderAmount: formatCurrency(Number(o.orderAmount ?? 0)),
