@@ -169,7 +169,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
               <p className="mt-1 text-[13px] text-emerald-600">
                 <span className="font-bold text-emerald-700">{allCount.toLocaleString()}</span> đơn •{" "}
                 Công nợ chưa trả:{" "}
-                <span className="font-bold text-[#e86a33]">{formatCurrency(sums.unpaidTotal)}</span>
+                <span className="font-bold text-[#D13A6B]">{formatCurrency(sums.unpaidTotal)}</span>
               </p>
             </div>
           </div>
@@ -209,12 +209,12 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
           </div>
         </div>
         <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] hover:-translate-y-1 hover:shadow-md transition-all">
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-orange-50 opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-pink-50 opacity-60" />
           <div className="relative flex items-center gap-md">
             <img src="/heochodoi.png" alt="" className="h-12 w-12 object-contain transition-transform group-hover:scale-110" />
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">Chưa trả</div>
-              <div className="text-[24px] font-black text-[#e86a33] tabular-nums leading-tight">{unpaidCount}</div>
+              <div className="text-[24px] font-black text-[#D13A6B] tabular-nums leading-tight">{unpaidCount}</div>
             </div>
           </div>
         </div>

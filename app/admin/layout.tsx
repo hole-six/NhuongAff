@@ -54,12 +54,12 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   return (
     <div
       className="flex h-screen overflow-hidden flex-col md:flex-row"
-      style={{ background: "#FFFAF7" }}
+      style={{ background: "#FFF9FB" }}
     >
       <AdminSidebar adminName={session.fullName} sections={sections} />
 
       {/* ── Main content ── */}
-      <main className="relative flex-1 overflow-y-auto" style={{ background: "#FFFAF7" }}>
+      <main className="relative flex-1 overflow-y-auto" style={{ background: "#FFF9FB" }}>
         <div className="min-h-full p-4 sm:p-6 md:p-8 w-full max-w-[100vw]">
           {children}
         </div>

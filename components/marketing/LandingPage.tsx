@@ -21,13 +21,14 @@ import { MarketingFooter } from "@/components/marketing/MarketingFooter";
 import { PublicFloatingSupport } from "@/components/marketing/PublicFloatingSupport";
 import { SocialProofSection } from "@/components/marketing/SocialProofSection";
 import { DemoConvertLink } from "@/components/marketing/DemoConvertLink";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 const PIG_FEATURES = [
   {
     image: "/heochaomung.png",
     title: "Tạo link tức thì",
     description: "Tạo link Shopee nhanh chóng chỉ với 1 click. Mua gì cũng hoàn, không bỏ lỡ ưu đãi.",
-    bg: "bg-[#fdece3]",
+    bg: "bg-[#FFF0F4]",
   },
   {
     image: "/heoQA.png",
@@ -39,7 +40,7 @@ const PIG_FEATURES = [
     image: "/heoqua.png",
     title: "Rút tiền từ 10K",
     description: "Rút tiền linh hoạt chỉ từ 10.000đ. Về ví nhanh chóng, không cần chờ lâu.",
-    bg: "bg-[#fdf3e0]",
+    bg: "bg-[#FFF6EF]",
   },
   {
     image: "/heogiamgia.png",
@@ -130,10 +131,10 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
 
       <main className="pt-[80px]">
         {/* Hero Section */}
-        <section className="relative overflow-hidden bg-[#fff0e6]">
+        <section className="relative overflow-hidden bg-[#FFF0F4]">
           {/* Background on desktop — object-contain so the pig+phone never
               gets cropped regardless of section height (the section's own
-              bg-[#fff0e6] matches the image's cream tone, so any letterboxed
+              bg-[#FFF0F4] matches the image's cream tone, so any letterboxed
               gap blends in seamlessly). Anchored right, since the image
               already reserves open cream space on the left for copy. On
               mobile the wide ratio would hide the pig almost entirely, so it
@@ -149,9 +150,15 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
 
           <div className="relative z-10 max-w-[1200px] mx-auto px-lg md:px-3xl py-3xl md:py-[110px]">
             <div className="max-w-xl space-y-lg fade-in">
-              <div className="inline-flex items-center gap-sm bg-gradient-to-r from-primary to-[#ff8a65] text-white px-lg py-sm rounded-full shadow-md shadow-primary/30">
-                <Gift size={16} strokeWidth={2} />
-                <span className="text-[13px] font-bold">Hoàn 80% + 5% mời bạn</span>
+              <div className="flex items-center gap-lg">
+                {/* Thỏ có màu kem nên cần nền trắng + viền hồng mới nổi trên nền hero hồng nhạt */}
+                <div className="shrink-0 grid h-[104px] w-[104px] place-items-center rounded-full bg-white ring-2 ring-primary/15 shadow-cute-lg">
+                  <BunnyMascot size={84} />
+                </div>
+                <div className="inline-flex items-center gap-sm bg-gradient-to-r from-primary to-[#E8558A] text-white px-lg py-sm rounded-full shadow-glow sheen">
+                  <Gift size={16} strokeWidth={2} />
+                  <span className="text-[13px] font-bold">Hoàn 80% + 5% mời bạn</span>
+                </div>
               </div>
 
               <h1 className="text-[40px] md:text-[56px] font-black leading-tight text-ink tracking-tight">
@@ -291,7 +298,7 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
               </div>
 
               {/* Coupons */}
-              <div className="bg-gradient-to-br from-[#fff0e6] to-white rounded-[40px] p-2xl flex flex-col justify-between border border-primary/10 shadow-lg shadow-primary/5 hover:-translate-y-1 transition-transform group">
+              <div className="bg-gradient-to-br from-[#FFF0F4] to-white rounded-[40px] p-2xl flex flex-col justify-between border border-primary/10 shadow-lg shadow-primary/5 hover:-translate-y-1 transition-transform group">
                 <img src="/heogiamgia.png" alt="Mã giảm giá và voucher độc quyền" className="h-16 w-16 object-contain" />
                 <div className="mt-xl">
                   <h4 className="font-black text-[20px] text-ink mb-xs">Mã giảm giá</h4>

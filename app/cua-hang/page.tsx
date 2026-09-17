@@ -44,7 +44,7 @@ export default async function CuaHangPage() {
 
       <main className="pt-[80px]">
         {/* Header Hero */}
-        <section className="bg-gradient-to-b from-[#fff0e6] to-white py-3xl relative overflow-hidden">
+        <section className="bg-gradient-to-b from-[#FFF0F4] to-white py-3xl relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('/background.png')] bg-cover bg-center opacity-10 pointer-events-none" />
           <div className="max-w-[1200px] mx-auto px-lg relative z-10 text-center">
             <h1 className="text-[40px] md:text-[56px] font-black text-ink tracking-tight mb-md">

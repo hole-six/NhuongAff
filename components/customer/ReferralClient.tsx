@@ -86,7 +86,7 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
         <div className="lg:col-span-3 flex flex-col gap-xl">
           {/* Link Section */}
           <div className="rounded-3xl bg-white p-xl shadow-sm ring-1 ring-black/5 relative overflow-hidden">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-orange-50 rounded-full blur-3xl opacity-60"></div>
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-rose-50 rounded-full blur-3xl opacity-60"></div>
             <div className="relative">
               <div className="flex items-center gap-sm mb-lg">
                 <img src="/heoquatang.png" alt="" className="h-12 w-12 object-contain" />
@@ -272,7 +272,7 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
         <div className="lg:col-span-2 flex flex-col gap-xl">
           {/* Rewards Box */}
           <div className="rounded-3xl bg-white p-xl shadow-sm ring-1 ring-black/5 relative overflow-hidden">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-orange-50 rounded-full blur-3xl opacity-60"></div>
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-rose-50 rounded-full blur-3xl opacity-60"></div>
             <div className="relative">
               <div className="flex items-center gap-sm mb-xl">
                 <img src="/heoqua.png" alt="" className="h-12 w-12 object-contain" />
@@ -281,7 +281,7 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
 
               <div className="flex flex-col gap-lg">
                 <div className="flex gap-md">
-                  <CheckCircle2 className="text-[#e86a33] shrink-0 mt-0.5" size={20} />
+                  <CheckCircle2 className="text-[#D13A6B] shrink-0 mt-0.5" size={20} />
                   <div className="w-full">
                     <h3 className="text-[14px] font-bold text-gray-900">Nhận thêm {referralRate * 100}% hoa hồng</h3>
                     <p className="text-[13px] text-gray-500 mt-1">Bạn nhận thêm {referralRate * 100}% trên số tiền hoàn mà bạn bè nhận được ở mỗi đơn hàng thành công — cộng trực tiếp vào ví của bạn.</p>
@@ -302,7 +302,7 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
                 ) : (
                   <>
                     <div className="flex gap-md">
-                      <CheckCircle2 className="text-[#e86a33] shrink-0 mt-0.5" size={20} />
+                      <CheckCircle2 className="text-[#D13A6B] shrink-0 mt-0.5" size={20} />
                       <div>
                         <h3 className="text-[14px] font-bold text-gray-900">Áp dụng cho {maxReferralOrders} đơn đầu tiên mỗi người bạn</h3>
                         <p className="text-[13px] text-gray-500 mt-1">{maxReferralOrders} đơn hàng đầu tiên tính riêng cho từng người bạn bạn mời — mời càng nhiều bạn, càng được nhiều hoa hồng.</p>
@@ -310,7 +310,7 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
                     </div>
 
                     <div className="flex gap-md">
-                      <CheckCircle2 className="text-[#e86a33] shrink-0 mt-0.5" size={20} />
+                      <CheckCircle2 className="text-[#D13A6B] shrink-0 mt-0.5" size={20} />
                       <div>
                         <h3 className="text-[14px] font-bold text-gray-900">Thời hạn {referralValidityMonths} tháng</h3>
                         <p className="text-[13px] text-gray-500 mt-1">Các đơn hàng phải phát sinh trong vòng {referralValidityMonths} tháng kể từ lúc bạn bè đăng ký tài khoản.</p>
@@ -320,7 +320,7 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
                 )}
 
                 <div className="flex gap-md">
-                  <CheckCircle2 className="text-[#e86a33] shrink-0 mt-0.5" size={20} />
+                  <CheckCircle2 className="text-[#D13A6B] shrink-0 mt-0.5" size={20} />
                   <div>
                     <h3 className="text-[14px] font-bold text-gray-900">Bạn bè không bị ảnh hưởng</h3>
                     <p className="text-[13px] text-gray-500 mt-1">Người được mời vẫn nhận đủ % hoàn tiền như bình thường — khoản hoa hồng bạn nhận thêm không trừ bớt gì từ phần của họ.</p>
@@ -341,14 +341,14 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
           {/* How it works */}
           <div className="rounded-3xl bg-white p-xl shadow-sm ring-1 ring-black/5">
             <h2 className="text-[16px] font-bold text-gray-900 mb-lg">Cách thức hoạt động</h2>
-            <div className="relative border-l-2 border-[#e86a33]/20 ml-3 pl-lg space-y-lg py-2">
+            <div className="relative border-l-2 border-[#D13A6B]/20 ml-3 pl-lg space-y-lg py-2">
               <div className="relative">
-                <div className="absolute -left-[29px] top-1 h-3 w-3 rounded-full bg-[#e86a33] ring-4 ring-orange-50"></div>
+                <div className="absolute -left-[29px] top-1 h-3 w-3 rounded-full bg-[#D13A6B] ring-4 ring-rose-50"></div>
                 <h3 className="text-[14px] font-bold text-gray-900">Lấy link mời</h3>
                 <p className="text-[13px] text-gray-500 mt-1">Copy link giới thiệu cá nhân của bạn ở phía trên.</p>
               </div>
               <div className="relative">
-                <div className="absolute -left-[29px] top-1 h-3 w-3 rounded-full bg-[#e86a33] ring-4 ring-orange-50"></div>
+                <div className="absolute -left-[29px] top-1 h-3 w-3 rounded-full bg-[#D13A6B] ring-4 ring-rose-50"></div>
                 <h3 className="text-[14px] font-bold text-gray-900">Gửi cho bạn bè</h3>
                 <p className="text-[13px] text-gray-500 mt-1">Chia sẻ link qua Zalo, Facebook hoặc bất kỳ đâu.</p>
               </div>

@@ -17,6 +17,7 @@ import { prisma } from "@/lib/prisma";
 import { formatCurrency, formatDate } from "@/lib/format";
 import { InviteSection } from "@/components/customer/InviteSection";
 import { PhoneNumberPrompt } from "@/components/customer/PhoneNumberPrompt";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 // Platform color map để hiển thị ảnh placeholder
 const PLATFORM_STYLE: Record<string, { color: string }> = {
@@ -88,7 +89,7 @@ export default async function CustomerHomePage() {
     qrDataUrl = await QRCode.toDataURL(inviteUrl, {
       width: 280,
       margin: 2,
-      color: { dark: "#2d1f14", light: "#ffffff" },
+      color: { dark: "#2E1F26", light: "#ffffff" },
     });
   } catch (_) {}
 
@@ -100,11 +101,11 @@ export default async function CustomerHomePage() {
       {/* ═══ HEADER CHÀO MỪNG ═══ */}
       <div
         className="relative overflow-hidden rounded-3xl p-xl sm:p-2xl"
-        style={{ background: "linear-gradient(135deg, #fff3ee 0%, #fde8d8 50%, #ffecd2 100%)" }}
+        style={{ background: "linear-gradient(135deg, #FFF3F7 0%, #FDE3EB 50%, #FFE8F0 100%)" }}
       >
-        <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#ffcba4] opacity-30" />
-        <div className="pointer-events-none absolute -bottom-6 right-24 h-24 w-24 rounded-full bg-[#ffa07a] opacity-20" />
-        <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#ffe0cc] opacity-40" />
+        <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#FFC4D6] opacity-30" />
+        <div className="pointer-events-none absolute -bottom-6 right-24 h-24 w-24 rounded-full bg-[#F2809E] opacity-20" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#FFDCE7] opacity-40" />
 
         <div className="relative z-10 flex items-center justify-between gap-lg flex-wrap">
           <div className="flex items-center gap-lg">
@@ -114,13 +115,13 @@ export default async function CustomerHomePage() {
               className="h-20 w-20 sm:h-24 sm:w-24 object-contain drop-shadow-lg shrink-0"
             />
             <div>
-              <p className="text-[12px] font-bold uppercase tracking-widest text-[#e86a33]/60 mb-1">
+              <p className="text-[12px] font-bold uppercase tracking-widest text-[#D13A6B]/60 mb-1">
                 Chào mừng trở lại
               </p>
-              <h1 className="text-[26px] sm:text-[32px] font-black leading-tight text-[#2d1f14]">
-                Xin chào, <span className="text-[#e86a33]">{firstName}</span>! 🎉
+              <h1 className="text-[26px] sm:text-[32px] font-black leading-tight text-[#2E1F26]">
+                Xin chào, <span className="text-[#D13A6B]">{firstName}</span>! 🎉
               </h1>
-              <p className="mt-1 text-[13px] text-[#a0816a] leading-relaxed">
+              <p className="mt-1 text-[13px] text-[#9A8490] leading-relaxed">
                 {allOrders.length === 0
                   ? "Chưa có đơn nào — hãy chia sẻ link để bắt đầu hoàn tiền!"
                   : `Bạn có ${allOrders.length} đơn đã ghi nhận. Tiếp tục kiếm tiền nhé! 🐷`}
@@ -128,13 +129,16 @@ export default async function CustomerHomePage() {
             </div>
           </div>
 
-          <div className="flex gap-sm flex-wrap items-center">
+          <div className="flex gap-lg flex-wrap items-center">
             <a href="/app/refunds">
-              <button className="flex items-center gap-xs rounded-2xl bg-[#e86a33] px-xl py-[10px] text-[13px] font-bold text-white shadow-md shadow-[#e86a33]/30 transition-all hover:bg-[#d65d2a] hover:shadow-lg active:scale-[0.97]">
+              <button className="sheen gloss flex items-center gap-xs rounded-2xl bg-[#D13A6B] px-xl py-[10px] text-[13px] font-bold text-white shadow-glow transition-all duration-200 ease-soft hover:bg-[#B92E5B] active:scale-[0.97]">
                 Hoàn tiền ngay
                 <ArrowUpRight size={14} strokeWidth={2.5} />
               </button>
             </a>
+            <div className="hidden sm:grid h-[96px] w-[96px] place-items-center rounded-full bg-white/70 ring-2 ring-[#D13A6B]/12 shadow-cute">
+              <BunnyMascot size={78} />
+            </div>
           </div>
         </div>
       </div>
@@ -143,7 +147,7 @@ export default async function CustomerHomePage() {
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-md">
         {/* Card 1: Chờ duyệt */}
         <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-orange-50 opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-pink-50 opacity-60" />
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
               <img src="/heochodoi.png" alt="" className="h-11 w-11 object-contain transition-transform group-hover:scale-110" />
@@ -182,11 +186,11 @@ export default async function CustomerHomePage() {
 
         {/* Card 3: Đã rút */}
         <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-rose-50 opacity-50" />
+          <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-rose-50 opacity-50" />
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
               <img src="/heongansach.png" alt="" className="h-11 w-11 object-contain transition-transform group-hover:scale-110" />
-              <span className="rounded-full bg-orange-100 px-sm py-[3px] text-[10px] font-bold text-orange-600">Đã nhận</span>
+              <span className="rounded-full bg-rose-100 px-sm py-[3px] text-[10px] font-bold text-rose-600">Đã nhận</span>
             </div>
             <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1">Đã rút</div>
             <div className="text-[20px] font-black text-gray-900 tabular-nums leading-tight">{formatCurrency(paidTotal)}</div>
@@ -225,7 +229,7 @@ export default async function CustomerHomePage() {
             </h2>
             <a
               href="/app/orders"
-              className="flex items-center gap-[3px] text-[12px] font-bold text-[#e86a33] hover:text-[#d65d2a] transition-colors"
+              className="flex items-center gap-[3px] text-[12px] font-bold text-[#D13A6B] hover:text-[#B92E5B] transition-colors"
             >
               Xem tất cả
               <ChevronRight size={14} strokeWidth={2.5} />
@@ -242,7 +246,7 @@ export default async function CustomerHomePage() {
             <ul className="flex flex-col divide-y divide-gray-50">
               {recentOrders.map((order) => {
                 const platformCode = order.platform?.code?.toUpperCase() ?? "";
-                const platformColor = PLATFORM_STYLE[platformCode]?.color ?? "#e86a33";
+                const platformColor = PLATFORM_STYLE[platformCode]?.color ?? "#D13A6B";
                 const productImage = order.trackingLink?.productImage ?? null;
                 const productTitle =
                   order.trackingLink?.productTitle ??
@@ -252,7 +256,7 @@ export default async function CustomerHomePage() {
                 return (
                   <li
                     key={order.id}
-                    className="flex items-center gap-sm sm:gap-md py-md px-xs hover:bg-orange-50/30 rounded-xl transition-colors"
+                    className="flex items-center gap-sm sm:gap-md py-md px-xs hover:bg-rose-50/30 rounded-xl transition-colors"
                   >
                     {/* Ảnh sản phẩm */}
                     <ProductThumb image={productImage} color={platformColor} platform={platformCode} />
@@ -329,7 +333,7 @@ export default async function CustomerHomePage() {
             <div className="grid grid-cols-2 gap-sm">
               {[
                 { href: "/app/wallet", label: "Rút tiền", img: "/heovitien.png", bg: "bg-emerald-50", text: "text-emerald-600" },
-                { href: "/app/refunds", label: "Hoàn tiền", img: "/heogiamgia.png", bg: "bg-orange-50", text: "text-orange-600" },
+                { href: "/app/refunds", label: "Hoàn tiền", img: "/heogiamgia.png", bg: "bg-rose-50", text: "text-rose-600" },
                 { href: "/app/orders", label: "Đơn hàng", img: "/heongansach.png", bg: "bg-blue-50", text: "text-blue-600" },
                 { href: "/app/deals", label: "Ưu đãi hot", img: "/heoqua.png", bg: "bg-purple-50", text: "text-purple-600" },
               ].map(({ href, label, img, bg, text }) => (

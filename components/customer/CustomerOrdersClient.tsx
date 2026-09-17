@@ -54,7 +54,7 @@ export function CustomerOrdersClient({ orders, totalPages, currentPage, counts }
       return <span className="inline-flex rounded-md bg-emerald-50 px-2 py-1 text-[11px] font-bold text-emerald-600">✅ Đã nhận tiền</span>;
     }
     if (order.orderStatus === "approved" && order.payoutStatus !== "paid") {
-      return <span className="inline-flex rounded-md bg-[#fff0e6] px-2 py-1 text-[11px] font-bold text-[#e86a33]">💰 Tiền đã về — chờ chuyển khoản</span>;
+      return <span className="inline-flex rounded-md bg-[#FFF0F4] px-2 py-1 text-[11px] font-bold text-[#D13A6B]">💰 Tiền đã về — chờ chuyển khoản</span>;
     }
     if (order.orderStatus === "processing") {
       const daysText = order.daysLeft === 0 ? "hôm nay" : order.daysLeft === 1 ? "1 ngày nữa" : `${order.daysLeft} ngày nữa`;
@@ -148,7 +148,7 @@ export function CustomerOrdersClient({ orders, totalPages, currentPage, counts }
                 className={`group flex flex-col sm:flex-row sm:items-center justify-between gap-md rounded-2xl border p-md transition-all ${
                   o.sourceType === "referral"
                     ? "border-purple-100 bg-purple-50/30 hover:border-purple-200"
-                    : "border-gray-100 hover:border-[#e86a33]/30 hover:bg-[#fff0e6]/20"
+                    : "border-gray-100 hover:border-[#D13A6B]/30 hover:bg-[#FFF0F4]/20"
                 }`}
               >
                 <div className="flex items-start gap-md">
@@ -156,7 +156,7 @@ export function CustomerOrdersClient({ orders, totalPages, currentPage, counts }
                     className={`flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl ring-1 ${
                       o.sourceType === "referral"
                         ? "bg-purple-100 text-purple-500 ring-purple-100"
-                        : "bg-gray-50 text-gray-400 ring-gray-100 group-hover:bg-white group-hover:text-[#e86a33]"
+                        : "bg-gray-50 text-gray-400 ring-gray-100 group-hover:bg-white group-hover:text-[#D13A6B]"
                     }`}
                   >
                     {o.sourceType === "referral" ? (
@@ -210,12 +210,12 @@ export function CustomerOrdersClient({ orders, totalPages, currentPage, counts }
                     <div className="text-[14px] font-bold text-gray-900">{o.orderAmount}</div>
                   </div>
                   <div>
-                    <div className={`text-[11px] font-bold uppercase tracking-wider ${o.sourceType === "referral" ? "text-purple-600" : "text-[#e86a33]"}`}>
+                    <div className={`text-[11px] font-bold uppercase tracking-wider ${o.sourceType === "referral" ? "text-purple-600" : "text-[#D13A6B]"}`}>
                       {o.sourceType === "referral" ? "Hoa hồng nhận" : "Tiền hoàn"}
                     </div>
-                    <div className={`text-[15px] font-black ${o.sourceType === "referral" ? "text-purple-600" : "text-[#e86a33]"}`}>{o.customerRewardAmount}</div>
+                    <div className={`text-[15px] font-black ${o.sourceType === "referral" ? "text-purple-600" : "text-[#D13A6B]"}`}>{o.customerRewardAmount}</div>
                   </div>
-                  <button className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-gray-400 transition-colors hover:bg-[#e86a33] hover:text-white">
+                  <button className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-gray-400 transition-colors hover:bg-[#D13A6B] hover:text-white">
                     <ExternalLink size={16} strokeWidth={2.5} />
                   </button>
                 </div>
@@ -232,7 +232,7 @@ export function CustomerOrdersClient({ orders, totalPages, currentPage, counts }
 const INFO_BOX_TONES = {
   amber: "bg-amber-50 border-amber-200 text-amber-700",
   blue: "bg-blue-50 border-blue-200 text-blue-700",
-  orange: "bg-[#fff0e6] border-[#e86a33]/20 text-[#e86a33]",
+  orange: "bg-[#FFF0F4] border-[#D13A6B]/20 text-[#D13A6B]",
   emerald: "bg-emerald-50 border-emerald-200 text-emerald-700",
   red: "bg-red-50 border-red-200 text-red-700",
 };

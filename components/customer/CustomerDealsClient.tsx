@@ -72,7 +72,7 @@ export function CustomerDealsClient({ deals }: { deals: Deal[] }) {
                     href={deal.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex h-10 flex-1 items-center justify-center gap-xs rounded-xl bg-[#e86a33] text-[13px] font-bold text-white hover:bg-[#d65d2a] transition-colors"
+                    className="flex h-10 flex-1 items-center justify-center gap-xs rounded-xl bg-[#D13A6B] text-[13px] font-bold text-white hover:bg-[#B92E5B] transition-colors"
                   >
                     <ExternalLink size={14} />
                     Mua ngay

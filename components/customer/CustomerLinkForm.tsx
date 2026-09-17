@@ -89,7 +89,7 @@ export function CustomerLinkForm({ platforms }: { platforms: Option[] }) {
     <div className="flex flex-col gap-xl">
       <div>
         <div className="mb-md flex items-center gap-sm">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#e86a33] text-[12px] font-bold text-white shadow-sm">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D13A6B] text-[12px] font-bold text-white shadow-sm">
             1
           </span>
           <span className="text-[15px] font-bold text-gray-900">Chọn nền tảng</span>
@@ -107,7 +107,7 @@ export function CustomerLinkForm({ platforms }: { platforms: Option[] }) {
                   onClick={() => setPlatformId(p.id)}
                   className={`group flex h-[88px] w-[100px] flex-col items-center justify-center gap-xs rounded-2xl border transition-all duration-200 ${
                     active
-                      ? "border-[#e86a33] bg-white shadow-[0_4px_12px_rgba(232,106,51,0.15)] scale-105"
+                      ? "border-[#D13A6B] bg-white shadow-[0_4px_12px_rgba(232,106,51,0.15)] scale-105"
                       : "border-gray-100 bg-white hover:border-gray-300 hover:bg-gray-50 hover:-translate-y-1 hover:shadow-sm"
                   }`}
                 >
@@ -129,7 +129,7 @@ export function CustomerLinkForm({ platforms }: { platforms: Option[] }) {
 
       <div className="rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/5">
         <div className="mb-md flex items-center gap-sm">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#e86a33] text-[12px] font-bold text-white shadow-sm">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#D13A6B] text-[12px] font-bold text-white shadow-sm">
             2
           </span>
           <span className="text-[14px] font-bold text-gray-900">
@@ -142,13 +142,13 @@ export function CustomerLinkForm({ platforms }: { platforms: Option[] }) {
             required
             value={originalUrl}
             onChange={(e) => setOriginalUrl(e.target.value)}
-            className="h-12 bg-gray-50 border-gray-200 focus:border-[#e86a33] focus:ring-[#e86a33]/20"
+            className="h-12 bg-gray-50 border-gray-200 focus:border-[#D13A6B] focus:ring-[#D13A6B]/20"
           />
 
           <Button
             type="submit"
             disabled={loading || !platformId}
-            className="h-12 w-fit bg-[#e86a33] text-white hover:bg-[#d65d2a] hover:shadow-md hover:shadow-[#e86a33]/30 active:bg-[#c25324] focus-visible:ring-[#e86a33]"
+            className="h-12 w-fit bg-[#D13A6B] text-white hover:bg-[#B92E5B] hover:shadow-md hover:shadow-[#D13A6B]/30 active:bg-[#c25324] focus-visible:ring-[#D13A6B]"
           >
             {loading ? (
               "Đang tạo..."
@@ -180,7 +180,7 @@ export function CustomerLinkForm({ platforms }: { platforms: Option[] }) {
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  <Link2 size={24} strokeWidth={1.5} className="text-[#e86a33]" />
+                  <Link2 size={24} strokeWidth={1.5} className="text-[#D13A6B]" />
                 )}
               </div>
               <div className="min-w-0 flex-1">
@@ -188,7 +188,7 @@ export function CustomerLinkForm({ platforms }: { platforms: Option[] }) {
                   {result.productTitle ?? "Sản phẩm mua sắm"}
                 </p>
                 <div className="mt-xs flex items-center gap-xs flex-wrap">
-                  <span className="rounded-md bg-[#e86a33]/10 px-sm py-[2px] text-[11px] font-bold text-[#e86a33]">
+                  <span className="rounded-md bg-[#D13A6B]/10 px-sm py-[2px] text-[11px] font-bold text-[#D13A6B]">
                     {selectedPlatform?.label ?? "Sản phẩm"}
                   </span>
                   <span className="font-mono text-[11px] text-gray-400 truncate">{result.trackingCode}</span>

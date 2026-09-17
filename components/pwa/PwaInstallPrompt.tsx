@@ -43,14 +43,14 @@ function IosStepsModal({ onClose }: { onClose: () => void }) {
         className="relative w-full max-w-sm overflow-hidden rounded-3xl bg-white shadow-2xl fade-in"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="p-xl text-center" style={{ background: "linear-gradient(135deg,#fff3ee,#fde8d8)" }}>
+        <div className="p-xl text-center" style={{ background: "linear-gradient(135deg,#FFF3F7,#FDE3EB)" }}>
           <img src={versionedAsset("/icontitle.png")} alt="" className="mx-auto mb-sm h-14 w-14 rounded-full object-cover" />
           <h3 className="text-[17px] font-black text-gray-900">Thêm vào Màn hình chính</h3>
           <p className="mt-1 text-[12px] text-gray-500">3 bước để dùng iviback như một app thật trên iPhone</p>
         </div>
         <div className="flex flex-col gap-md p-xl">
           <div className="flex items-center gap-md">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-100 text-[14px] font-black text-[#e86a33]">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rose-100 text-[14px] font-black text-[#D13A6B]">
               1
             </div>
             <div className="flex items-center gap-xs text-[13px] text-gray-700">
@@ -58,7 +58,7 @@ function IosStepsModal({ onClose }: { onClose: () => void }) {
             </div>
           </div>
           <div className="flex items-center gap-md">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-100 text-[14px] font-black text-[#e86a33]">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rose-100 text-[14px] font-black text-[#D13A6B]">
               2
             </div>
             <div className="flex items-center gap-xs text-[13px] text-gray-700">
@@ -66,7 +66,7 @@ function IosStepsModal({ onClose }: { onClose: () => void }) {
             </div>
           </div>
           <div className="flex items-center gap-md">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-100 text-[14px] font-black text-[#e86a33]">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-rose-100 text-[14px] font-black text-[#D13A6B]">
               3
             </div>
             <div className="text-[13px] text-gray-700">
@@ -75,7 +75,7 @@ function IosStepsModal({ onClose }: { onClose: () => void }) {
           </div>
           <button
             onClick={onClose}
-            className="mt-sm w-full rounded-2xl bg-[#e86a33] py-[12px] text-[14px] font-bold text-white active:scale-[0.98] transition-transform"
+            className="mt-sm w-full rounded-2xl bg-[#D13A6B] py-[12px] text-[14px] font-bold text-white active:scale-[0.98] transition-transform"
           >
             Đã hiểu
           </button>
@@ -154,7 +154,7 @@ export function PwaInstallBanner() {
         </div>
         <button
           onClick={handleInstallClick}
-          className="shrink-0 rounded-xl bg-[#e86a33] px-md py-[8px] text-[12px] font-bold text-white shadow-md shadow-[#e86a33]/30 transition-transform active:scale-[0.97]"
+          className="shrink-0 rounded-xl bg-[#D13A6B] px-md py-[8px] text-[12px] font-bold text-white shadow-md shadow-[#D13A6B]/30 transition-transform active:scale-[0.97]"
         >
           Cài đặt
         </button>
@@ -223,7 +223,7 @@ export function PwaInstallSettingsCard() {
           </p>
           <button
             onClick={handleInstallClick}
-            className="rounded-2xl bg-[#e86a33] px-lg py-[10px] text-[13px] font-bold text-white shadow-md shadow-[#e86a33]/30 transition-transform active:scale-[0.97]"
+            className="rounded-2xl bg-[#D13A6B] px-lg py-[10px] text-[13px] font-bold text-white shadow-md shadow-[#D13A6B]/30 transition-transform active:scale-[0.97]"
           >
             {platform === "ios" ? "Xem hướng dẫn cài đặt" : "Cài đặt ngay"}
           </button>

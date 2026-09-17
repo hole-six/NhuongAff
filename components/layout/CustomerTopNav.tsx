@@ -17,7 +17,7 @@ export function CustomerTopNav({ userName }: { userName: string }) {
   ];
 
   return (
-    <header className="bg-white border-b border-primary-pale/50 shadow-sm sticky top-0 z-50">
+    <header className="glass border-b border-primary-pale/50 shadow-sm sticky top-0 z-50">
       <div className="max-w-[1400px] mx-auto px-lg md:px-xl h-[72px] flex items-center justify-between">
         
         {/* Brand */}

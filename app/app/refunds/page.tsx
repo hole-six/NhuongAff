@@ -67,7 +67,7 @@ export default async function CustomerRefundsPage({ searchParams }: { searchPara
       {/* HEADER CARD */}
       <div className="relative overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5 p-lg sm:p-2xl flex items-center justify-between gap-md">
         {/* Subtle decorative background gradient */}
-        <div className="absolute top-0 right-0 h-full w-1/2 bg-gradient-to-l from-[#fff0e6] to-transparent opacity-60" />
+        <div className="absolute top-0 right-0 h-full w-1/2 bg-gradient-to-l from-[#FFF0F4] to-transparent opacity-60" />
         
         <div className="relative z-10">
           <h1 className="text-[24px] sm:text-[32px] font-black tracking-tight text-gray-900">
@@ -79,7 +79,7 @@ export default async function CustomerRefundsPage({ searchParams }: { searchPara
         </div>
 
         {/* Mascot / Icon Placeholder */}
-        <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full bg-[#fff0e6] shadow-sm">
+        <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full bg-[#FFF0F4] shadow-sm">
           <img src="/heoQA.png" alt="" className="h-14 w-14 object-contain drop-shadow-sm" />
         </div>
       </div>

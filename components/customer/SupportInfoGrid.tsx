@@ -89,14 +89,14 @@ export function SupportInfoGrid() {
       {/* Hotline nổi bật */}
       <div
         className="flex flex-col gap-md rounded-3xl p-lg shadow-sm ring-1 ring-black/5"
-        style={{ background: "linear-gradient(135deg,#fff3ee,#fde8d8)" }}
+        style={{ background: "linear-gradient(135deg,#FFF3F7,#FDE3EB)" }}
       >
         <div className="flex items-center gap-md">
           <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald-500 shadow-md shadow-emerald-500/30">
             <Phone size={24} className="text-white" strokeWidth={2.5} />
           </div>
           <div className="min-w-0 flex-1">
-            <div className="text-[11px] font-bold uppercase tracking-wide text-[#e86a33]/70">Hotline hỗ trợ</div>
+            <div className="text-[11px] font-bold uppercase tracking-wide text-[#D13A6B]/70">Hotline hỗ trợ</div>
             <div className="text-[20px] font-black text-gray-900 tracking-tight">{PHONE_DISPLAY}</div>
           </div>
         </div>
@@ -129,7 +129,7 @@ export function SupportInfoGrid() {
               <div className="font-bold text-gray-900">{c.label}</div>
               <div className="truncate text-[12px] text-gray-400">{c.handle}</div>
             </div>
-            <div className="shrink-0 text-[12px] font-bold text-[#e86a33] opacity-0 transition-opacity group-hover:opacity-100">
+            <div className="shrink-0 text-[12px] font-bold text-[#D13A6B] opacity-0 transition-opacity group-hover:opacity-100">
               {c.cta} →
             </div>
           </a>

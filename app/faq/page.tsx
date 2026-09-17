@@ -47,7 +47,7 @@ export default function FaqPage() {
 
       <main className="pt-[80px]">
         {/* Header Hero */}
-        <section className="bg-gradient-to-b from-[#fff0e6] to-white py-3xl relative overflow-hidden">
+        <section className="bg-gradient-to-b from-[#FFF0F4] to-white py-3xl relative overflow-hidden">
           <div className="max-w-[1200px] mx-auto px-lg relative z-10 text-center">
             <img src="/heoQA.png" alt="Câu hỏi thường gặp iviback" className="mx-auto h-24 w-24 object-contain mb-md" />
             <h1 className="text-[40px] md:text-[56px] font-black text-ink tracking-tight mb-md">

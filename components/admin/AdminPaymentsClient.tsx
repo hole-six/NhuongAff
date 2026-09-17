@@ -104,7 +104,7 @@ function BatchDetailModal({ batchId, onClose }: { batchId: string; onClose: () =
       >
         {/* Header */}
         <div className="sticky top-0 z-10 flex items-center justify-between px-xl py-lg border-b border-gray-100 bg-white rounded-t-3xl"
-          style={{ background: "linear-gradient(135deg,#fff3ee,#fde8d8)" }}>
+          style={{ background: "linear-gradient(135deg,#FFF3F7,#FDE3EB)" }}>
           <div className="flex items-center gap-sm">
             <img src="/heovitien.png" alt="" className="h-10 w-10 object-contain" />
             <div>
@@ -149,7 +149,7 @@ function BatchDetailModal({ batchId, onClose }: { batchId: string; onClose: () =
                 <div className="ml-auto text-right">
                   <p className="text-[11px] text-gray-400">Tổng tiền</p>
                   <div className="flex items-center justify-end gap-xs">
-                    <p className="text-[18px] font-black text-[#e86a33]">{formatCurrency(Number(batch.totalAmount))}</p>
+                    <p className="text-[18px] font-black text-[#D13A6B]">{formatCurrency(Number(batch.totalAmount))}</p>
                     <CopyBtn value={String(Math.round(Number(batch.totalAmount)))} />
                   </div>
                 </div>
@@ -159,7 +159,7 @@ function BatchDetailModal({ batchId, onClose }: { batchId: string; onClose: () =
               <div className="rounded-2xl bg-gray-50 border border-gray-100 p-lg">
                 <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-md">Thông tin khách hàng</p>
                 <div className="flex items-center gap-md mb-md">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#e86a33] to-[#d65d2a] text-white font-black text-[15px]">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#D13A6B] to-[#B92E5B] text-white font-black text-[15px]">
                     {batch.customer.fullName.charAt(0).toUpperCase()}
                   </div>
                   <div>
@@ -170,7 +170,7 @@ function BatchDetailModal({ batchId, onClose }: { batchId: string; onClose: () =
                 <div className="flex flex-col gap-2">
                   {batch.customer.bankAccountNumber && (
                     <div className="flex items-center gap-sm rounded-xl bg-white p-sm ring-1 ring-gray-100">
-                      <CreditCard size={14} className="text-[#e86a33] shrink-0" />
+                      <CreditCard size={14} className="text-[#D13A6B] shrink-0" />
                       <div className="flex-1 min-w-0">
                         <p className="text-[11px] font-bold text-gray-800">{batch.customer.bankName}</p>
                         <p className="font-mono text-[11px] text-gray-500">{batch.customer.bankAccountNumber} — {batch.customer.bankAccountName}</p>
@@ -344,7 +344,7 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
         <input type="text" placeholder="Tìm tên khách, mã KH, mã phiếu, số tài khoản..."
           value={search}
           onChange={(e) => { setSearch(e.target.value); setCurrentPage(1); }}
-          className="h-11 w-full rounded-2xl bg-white pl-10 pr-md text-[14px] font-medium shadow-sm ring-1 ring-black/[0.08] focus:outline-none focus:ring-2 focus:ring-[#e86a33]/40 transition-all"
+          className="h-11 w-full rounded-2xl bg-white pl-10 pr-md text-[14px] font-medium shadow-sm ring-1 ring-black/[0.08] focus:outline-none focus:ring-2 focus:ring-[#D13A6B]/40 transition-all"
         />
       </div>
 
@@ -360,7 +360,7 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
             <button key={t.id} onClick={() => handleTabChange(t.id)}
               className={`flex h-10 shrink-0 items-center gap-xs whitespace-nowrap rounded-full px-lg text-[13px] font-bold transition-all ${
                 activeTab === t.id
-                  ? "bg-[#e86a33] text-white shadow-md shadow-[#e86a33]/25"
+                  ? "bg-[#D13A6B] text-white shadow-md shadow-[#D13A6B]/25"
                   : "bg-white text-gray-500 ring-1 ring-black/[0.08] hover:bg-gray-50 hover:text-gray-900"
               }`}>
               <span className={activeTab === t.id ? "text-white/80" : "text-gray-400"}>{t.icon}</span>
@@ -378,7 +378,7 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
             <img src="/heovitien.png" alt="" className="h-10 w-10 object-contain" />
             <div>
               <div className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">{pendingList.length} khách chờ thanh toán</div>
-              <div className="text-[16px] font-black text-[#e86a33]">{formatCurrency(todayTotal)}</div>
+              <div className="text-[16px] font-black text-[#D13A6B]">{formatCurrency(todayTotal)}</div>
             </div>
           </div>
         )}
@@ -407,7 +407,7 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
                 <div key={c.id} className="rounded-3xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] flex flex-col gap-md hover:shadow-md transition-shadow">
                   {/* Avatar + name */}
                   <div className="flex items-center gap-sm">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#e86a33] to-[#d65d2a] text-white font-black text-[16px] shadow-md shadow-[#e86a33]/20">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#D13A6B] to-[#B92E5B] text-white font-black text-[16px] shadow-md shadow-[#D13A6B]/20">
                       {c.name.charAt(0).toUpperCase()}
                     </div>
                     <div className="min-w-0 flex-1">
@@ -425,7 +425,7 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
                   <div>
                     <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-[2px]">{c.count} đơn cần thanh toán</div>
                     <div className="flex items-center gap-xs">
-                      <div className="text-[28px] font-black text-[#e86a33] leading-none tabular-nums">{formatCurrency(c.amount)}</div>
+                      <div className="text-[28px] font-black text-[#D13A6B] leading-none tabular-nums">{formatCurrency(c.amount)}</div>
                       <CopyBtn value={String(Math.round(c.amount))} />
                     </div>
                   </div>
@@ -434,7 +434,7 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
                   {c.bankAccountNumber ? (
                     <div className="flex flex-col gap-[6px]">
                       <div className="flex items-center gap-sm rounded-xl bg-gray-50 p-sm ring-1 ring-gray-100">
-                        <CreditCard size={13} className="text-[#e86a33] shrink-0" />
+                        <CreditCard size={13} className="text-[#D13A6B] shrink-0" />
                         <div className="min-w-0 flex-1">
                           <div className="text-[11px] font-bold text-gray-800 truncate">{c.bankName}</div>
                           <div className="font-mono text-[11px] text-gray-500">{c.bankAccountNumber}</div>
@@ -577,7 +577,7 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
                   <tbody>
                     {paginatedBatches.map((b) => (
                       <tr key={b.id}
-                        className={`border-b border-gray-50 transition-colors hover:bg-orange-50/20 ${b.status === "paid" ? "" : "bg-amber-50/30"}`}>
+                        className={`border-b border-gray-50 transition-colors hover:bg-rose-50/20 ${b.status === "paid" ? "" : "bg-amber-50/30"}`}>
                         <td className="px-md py-md">
                           <span className="font-mono font-bold text-[13px] text-gray-900">{b.paymentCode}</span>
                           {b.billStorageKey && (
@@ -587,12 +587,12 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
                           )}
                         </td>
                         <td className="px-md py-md font-semibold text-gray-800">{b.customerName}</td>
-                        <td className="px-md py-md font-black text-[14px] text-[#e86a33]">{formatCurrency(b.totalAmount)}</td>
+                        <td className="px-md py-md font-black text-[14px] text-[#D13A6B]">{formatCurrency(b.totalAmount)}</td>
                         <td className="px-md py-md text-center">
                           <button
                             onClick={() => setViewingBatch(b.id)}
                             title="Xem danh sách đơn hàng trong phiếu"
-                            className="inline-flex items-center justify-center h-6 min-w-6 rounded-md bg-gray-100 font-mono text-[12px] font-bold text-gray-600 px-sm hover:bg-[#e86a33]/10 hover:text-[#e86a33] transition-colors"
+                            className="inline-flex items-center justify-center h-6 min-w-6 rounded-md bg-gray-100 font-mono text-[12px] font-bold text-gray-600 px-sm hover:bg-[#D13A6B]/10 hover:text-[#D13A6B] transition-colors"
                           >
                             {b.itemCount}
                           </button>
@@ -607,7 +607,7 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
                           <div className="flex items-center gap-sm">
                             {/* Xem chi tiết — quan trọng nhất */}
                             <button onClick={() => setViewingBatch(b.id)}
-                              className="flex h-8 items-center gap-xs rounded-xl bg-[#e86a33]/10 px-sm text-[12px] font-bold text-[#e86a33] hover:bg-[#e86a33]/20 transition-colors">
+                              className="flex h-8 items-center gap-xs rounded-xl bg-[#D13A6B]/10 px-sm text-[12px] font-bold text-[#D13A6B] hover:bg-[#D13A6B]/20 transition-colors">
                               <Eye size={13} strokeWidth={2} /> Xem
                             </button>
                             {/* Mark paid nếu chưa xong */}

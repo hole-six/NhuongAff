@@ -224,7 +224,7 @@ export function CustomerWalletClient({
         {/* STAT CARDS */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-md">
           {/* Available (Orange Card) */}
-          <div className="relative overflow-hidden rounded-2xl bg-[#e86a33] p-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
+          <div className="relative overflow-hidden rounded-2xl bg-[#D13A6B] p-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-200">
             <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-white opacity-10" />
             <div className="relative z-10">
               <div className="flex items-center gap-sm text-white/90">
@@ -290,7 +290,7 @@ export function CustomerWalletClient({
                   <button
                     type="button"
                     onClick={openModal}
-                    className="flex items-center gap-[4px] text-[12px] font-bold text-[#e86a33] hover:text-[#d65d2a]"
+                    className="flex items-center gap-[4px] text-[12px] font-bold text-[#D13A6B] hover:text-[#B92E5B]"
                   >
                     <Edit2 size={12} strokeWidth={2.5} />
                     Chỉnh sửa
@@ -317,7 +317,7 @@ export function CustomerWalletClient({
                   type="button"
                   onClick={handleSubmitRequest}
                   disabled={!canRequest || submitting}
-                  className="flex h-12 w-full items-center justify-center gap-sm rounded-xl bg-[#e86a33] text-[15px] font-bold text-white transition-all hover:bg-[#d65d2a] active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
+                  className="flex h-12 w-full items-center justify-center gap-sm rounded-xl bg-[#D13A6B] text-[15px] font-bold text-white transition-all hover:bg-[#B92E5B] active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400"
                 >
                   {submitting ? (
                     <Loader2 size={18} className="animate-spin" />
@@ -402,7 +402,7 @@ export function CustomerWalletClient({
                 {/* Bank Section */}
                 <div>
                   <h4 className="mb-sm flex items-center gap-xs text-[14px] font-bold text-gray-900">
-                    <Building2 size={16} className="text-[#e86a33]" />
+                    <Building2 size={16} className="text-[#D13A6B]" />
                     Chuyển khoản Ngân hàng
                   </h4>
                   <div className="space-y-sm">
@@ -419,7 +419,7 @@ export function CustomerWalletClient({
                         onFocus={() => setShowBankOptions(true)}
                         onBlur={() => setTimeout(() => setShowBankOptions(false), 150)}
                         placeholder="Gõ để tìm ngân hàng..."
-                        className="h-11 w-full rounded-xl border border-gray-200 bg-white px-md text-[14px] font-medium text-gray-900 focus:border-[#e86a33] focus:outline-none focus:ring-1 focus:ring-[#e86a33]"
+                        className="h-11 w-full rounded-xl border border-gray-200 bg-white px-md text-[14px] font-medium text-gray-900 focus:border-[#D13A6B] focus:outline-none focus:ring-1 focus:ring-[#D13A6B]"
                       />
                       {showBankOptions && (
                         <div className="absolute z-10 mt-xs max-h-[220px] w-full overflow-y-auto rounded-xl border border-gray-200 bg-white shadow-lg">
@@ -431,8 +431,8 @@ export function CustomerWalletClient({
                                 key={b}
                                 type="button"
                                 onMouseDown={() => selectBank(b)}
-                                className={`block w-full px-md py-sm text-left text-[13px] font-medium transition-colors hover:bg-orange-50 ${
-                                  b === formBankName ? "bg-orange-50 text-[#e86a33]" : "text-gray-700"
+                                className={`block w-full px-md py-sm text-left text-[13px] font-medium transition-colors hover:bg-rose-50 ${
+                                  b === formBankName ? "bg-rose-50 text-[#D13A6B]" : "text-gray-700"
                                 }`}
                               >
                                 {b}
@@ -449,7 +449,7 @@ export function CustomerWalletClient({
                         value={formBankAccountNumber}
                         onChange={(e) => setFormBankAccountNumber(e.target.value)}
                         placeholder="VD: 1903..."
-                        className="h-11 w-full rounded-xl border border-gray-200 px-md text-[14px] font-medium focus:border-[#e86a33] focus:outline-none focus:ring-1 focus:ring-[#e86a33]"
+                        className="h-11 w-full rounded-xl border border-gray-200 px-md text-[14px] font-medium focus:border-[#D13A6B] focus:outline-none focus:ring-1 focus:ring-[#D13A6B]"
                       />
                     </div>
                     <div>
@@ -459,7 +459,7 @@ export function CustomerWalletClient({
                         value={formBankAccountName}
                         onChange={(e) => setFormBankAccountName(e.target.value)}
                         placeholder="VD: NGUYEN VAN A"
-                        className="h-11 w-full rounded-xl border border-gray-200 px-md text-[14px] font-medium uppercase focus:border-[#e86a33] focus:outline-none focus:ring-1 focus:ring-[#e86a33]"
+                        className="h-11 w-full rounded-xl border border-gray-200 px-md text-[14px] font-medium uppercase focus:border-[#D13A6B] focus:outline-none focus:ring-1 focus:ring-[#D13A6B]"
                       />
                     </div>
                   </div>
@@ -477,7 +477,7 @@ export function CustomerWalletClient({
                 <button
                   type="submit"
                   disabled={isSaving}
-                  className="flex h-12 flex-1 items-center justify-center gap-sm rounded-xl bg-[#e86a33] text-[14px] font-bold text-white transition-colors hover:bg-[#d65d2a] disabled:opacity-50"
+                  className="flex h-12 flex-1 items-center justify-center gap-sm rounded-xl bg-[#D13A6B] text-[14px] font-bold text-white transition-colors hover:bg-[#B92E5B] disabled:opacity-50"
                 >
                   {isSaving ? <Loader2 size={18} className="animate-spin" /> : "Lưu thay đổi"}
                 </button>

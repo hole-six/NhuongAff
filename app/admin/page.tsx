@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { formatCurrency } from "@/lib/format";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 export default async function AdminDashboardPage() {
   const [
@@ -43,10 +44,10 @@ export default async function AdminDashboardPage() {
 
       {/* ═══ HEADER ═══ */}
       <div className="relative overflow-hidden rounded-3xl p-xl sm:p-2xl"
-        style={{ background: "linear-gradient(135deg, #fff3ee 0%, #fde8d8 50%, #ffecd2 100%)" }}>
-        <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#ffcba4] opacity-30" />
-        <div className="pointer-events-none absolute -bottom-6 right-32 h-24 w-24 rounded-full bg-[#ffa07a] opacity-20" />
-        <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#ffe0cc] opacity-40" />
+        style={{ background: "linear-gradient(135deg, #FFF3F7 0%, #FDE3EB 50%, #FFE8F0 100%)" }}>
+        <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#FFC4D6] opacity-30" />
+        <div className="pointer-events-none absolute -bottom-6 right-32 h-24 w-24 rounded-full bg-[#F2809E] opacity-20" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#FFDCE7] opacity-40" />
 
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-lg flex-wrap">
           <div className="flex items-center gap-lg">
@@ -56,30 +57,33 @@ export default async function AdminDashboardPage() {
               className="h-20 w-20 sm:h-24 sm:w-24 object-contain drop-shadow-lg shrink-0"
             />
             <div>
-              <p className="text-[12px] font-bold uppercase tracking-widest text-[#e86a33]/60 mb-1">
+              <p className="text-[12px] font-bold uppercase tracking-widest text-[#D13A6B]/60 mb-1">
                 Bảng điều khiển
               </p>
-              <h1 className="text-[26px] sm:text-[32px] font-black leading-tight text-[#2d1f14]">
+              <h1 className="text-[26px] sm:text-[32px] font-black leading-tight text-[#2E1F26]">
                 Tổng quan hệ thống
               </h1>
-              <p className="mt-1 text-[13px] text-[#a0816a] leading-relaxed">
+              <p className="mt-1 text-[13px] text-[#9A8490] leading-relaxed">
                 Hiệu suất affiliate và số dư công nợ toàn hệ thống.
               </p>
             </div>
           </div>
           <div className="flex gap-sm flex-wrap items-center">
             <a href="/admin/orders/import">
-              <button className="flex items-center gap-xs rounded-2xl bg-white/80 border border-[#e86a33]/20 px-xl py-[10px] text-[13px] font-bold text-[#e86a33] shadow-sm transition-all hover:bg-white hover:shadow-md active:scale-[0.97]">
+              <button className="flex items-center gap-xs rounded-2xl bg-white/80 border border-[#D13A6B]/20 px-xl py-[10px] text-[13px] font-bold text-[#D13A6B] shadow-sm transition-all hover:bg-white hover:shadow-md active:scale-[0.97]">
                 Import đối soát
                 <ArrowUpRight size={14} strokeWidth={2.5} />
               </button>
             </a>
             <a href="/admin/payments">
-              <button className="flex items-center gap-xs rounded-2xl bg-[#e86a33] px-xl py-[10px] text-[13px] font-bold text-white shadow-md shadow-[#e86a33]/30 transition-all hover:bg-[#d65d2a] hover:shadow-lg active:scale-[0.97]">
+              <button className="sheen gloss flex items-center gap-xs rounded-2xl bg-[#D13A6B] px-xl py-[10px] text-[13px] font-bold text-white shadow-glow transition-all duration-200 ease-soft hover:bg-[#B92E5B] active:scale-[0.97]">
                 Thanh toán
                 <ArrowUpRight size={14} strokeWidth={2.5} />
               </button>
             </a>
+            <div className="hidden lg:grid h-[88px] w-[88px] place-items-center rounded-full bg-white/70 ring-2 ring-[#D13A6B]/12 shadow-cute">
+              <BunnyMascot size={72} />
+            </div>
           </div>
         </div>
       </div>
@@ -120,7 +124,7 @@ export default async function AdminDashboardPage() {
 
         {/* Đơn hàng */}
         <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-orange-50 opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-pink-50 opacity-60" />
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-100 transition-transform group-hover:scale-110">
@@ -159,8 +163,8 @@ export default async function AdminDashboardPage() {
           <div className="rounded-3xl bg-white shadow-sm ring-1 ring-black/[0.06] overflow-hidden">
             {/* Header */}
             <div className="relative overflow-hidden p-xl"
-              style={{ background: "linear-gradient(135deg, #fff3ee 0%, #fde8d8 100%)" }}>
-              <div className="pointer-events-none absolute -right-6 -top-6 h-28 w-28 rounded-full bg-[#e86a33] opacity-10" />
+              style={{ background: "linear-gradient(135deg, #FFF3F7 0%, #FDE3EB 100%)" }}>
+              <div className="pointer-events-none absolute -right-6 -top-6 h-28 w-28 rounded-full bg-[#D13A6B] opacity-10" />
               <div className="relative z-10 flex items-center gap-sm mb-xl">
                 <img src="/heongansach.png" alt="" className="h-10 w-10 object-contain" />
                 <div>
@@ -186,10 +190,10 @@ export default async function AdminDashboardPage() {
                     Hệ thống thực giữ
                   </div>
                   <div className="flex items-end gap-sm">
-                    <div className="text-[28px] sm:text-[36px] font-black tracking-tight text-[#e86a33] leading-none">
+                    <div className="text-[28px] sm:text-[36px] font-black tracking-tight text-[#D13A6B] leading-none">
                       {formatCurrency(profit)}
                     </div>
-                    <CircleDollarSign size={18} className="text-[#e86a33] mb-1" />
+                    <CircleDollarSign size={18} className="text-[#D13A6B] mb-1" />
                   </div>
                 </div>
               </div>
@@ -206,7 +210,7 @@ export default async function AdminDashboardPage() {
                 </div>
                 <div className="text-[26px] font-black text-gray-900 tabular-nums">{formatCurrency(debt)}</div>
                 <p className="text-[12px] text-gray-400 mt-1">Cần hoàn trả cho khách hàng</p>
-                <a href="/admin/payments" className="mt-md inline-flex items-center gap-xs text-[12px] font-bold text-[#e86a33] hover:text-[#d65d2a] transition-colors">
+                <a href="/admin/payments" className="mt-md inline-flex items-center gap-xs text-[12px] font-bold text-[#D13A6B] hover:text-[#B92E5B] transition-colors">
                   Xem chi tiết <ArrowUpRight size={12} strokeWidth={2.5} />
                 </a>
               </div>
@@ -219,7 +223,7 @@ export default async function AdminDashboardPage() {
                 </div>
                 <div className="text-[26px] font-black text-gray-900 tabular-nums">{formatCurrency(paid)}</div>
                 <p className="text-[12px] text-gray-400 mt-1">Đã chuyển khoản thành công</p>
-                <a href="/admin/reports" className="mt-md inline-flex items-center gap-xs text-[12px] font-bold text-[#e86a33] hover:text-[#d65d2a] transition-colors">
+                <a href="/admin/reports" className="mt-md inline-flex items-center gap-xs text-[12px] font-bold text-[#D13A6B] hover:text-[#B92E5B] transition-colors">
                   Xem báo cáo <ArrowUpRight size={12} strokeWidth={2.5} />
                 </a>
               </div>
@@ -241,7 +245,7 @@ export default async function AdminDashboardPage() {
               { href: "/admin/orders", icon: Package, label: "Đơn hàng", value: totalOrders, bg: "bg-amber-50", color: "text-amber-500" },
             ].map(({ href, icon: Icon, label, value, bg, color }) => (
               <a key={label} href={href}
-                className="group flex items-center justify-between rounded-2xl bg-gray-50/80 border border-gray-100 p-lg hover:bg-orange-50/50 hover:border-[#e86a33]/20 transition-all">
+                className="group flex items-center justify-between rounded-2xl bg-gray-50/80 border border-gray-100 p-lg hover:bg-rose-50/50 hover:border-[#D13A6B]/20 transition-all">
                 <div className="flex items-center gap-md">
                   <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${bg} transition-transform group-hover:scale-110`}>
                     <Icon size={18} className={color} strokeWidth={1.75} />
@@ -300,7 +304,7 @@ export default async function AdminDashboardPage() {
 // Helper inline component tránh import thêm
 function ChevronRightIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-gray-300 group-hover:text-[#e86a33] transition-colors">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-gray-300 group-hover:text-[#D13A6B] transition-colors">
       <polyline points="9 18 15 12 9 6" />
     </svg>
   );

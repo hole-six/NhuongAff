@@ -126,7 +126,7 @@ export default function PrivacyPolicyPage() {
       <MarketingHeader activePath="/chinh-sach-bao-mat" />
 
       <main className="pt-[80px]">
-        <section className="bg-gradient-to-b from-[#fff0e6] to-white py-3xl relative overflow-hidden">
+        <section className="bg-gradient-to-b from-[#FFF0F4] to-white py-3xl relative overflow-hidden">
           <div className="max-w-[800px] mx-auto px-lg relative z-10 text-center">
             <h1 className="text-[36px] md:text-[48px] font-black text-ink tracking-tight mb-md">
               Chính Sách <span className="text-primary">Bảo Mật</span>

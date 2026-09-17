@@ -18,7 +18,7 @@ const TYPE_STYLE: Record<string, { bg: string; ring: string }> = {
   order_approved: { bg: "bg-emerald-50", ring: "ring-emerald-100" },
   payment_paid: { bg: "bg-sky-50", ring: "ring-sky-100" },
   referral_bonus: { bg: "bg-purple-50", ring: "ring-purple-100" },
-  broadcast: { bg: "bg-[#fff0e6]", ring: "ring-[#e86a33]/20" },
+  broadcast: { bg: "bg-[#FFF0F4]", ring: "ring-[#D13A6B]/20" },
   system: { bg: "bg-gray-50", ring: "ring-gray-100" },
 };
 
@@ -76,7 +76,7 @@ export function NotificationsClient({
         <div className="text-[13px] text-gray-500">
           {unreadCount > 0 ? (
             <span>
-              Bạn có <span className="font-bold text-[#e86a33]">{unreadCount}</span> thông báo chưa đọc
+              Bạn có <span className="font-bold text-[#D13A6B]">{unreadCount}</span> thông báo chưa đọc
             </span>
           ) : (
             "Bạn đã xem hết thông báo"
@@ -109,7 +109,7 @@ export function NotificationsClient({
                   n.isRead ? "bg-white ring-black/5" : `${style.bg} ${style.ring}`
                 }`}
               >
-                {!n.isRead && <span className="mt-[6px] h-2 w-2 shrink-0 rounded-full bg-[#e86a33]" />}
+                {!n.isRead && <span className="mt-[6px] h-2 w-2 shrink-0 rounded-full bg-[#D13A6B]" />}
                 <div className={`min-w-0 flex-1 ${n.isRead ? "ml-[16px]" : ""}`}>
                   <div className="flex items-center justify-between gap-md">
                     <span className={`text-[14px] ${n.isRead ? "font-medium text-gray-700" : "font-bold text-gray-900"}`}>

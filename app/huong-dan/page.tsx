@@ -51,7 +51,7 @@ export default function HuongDanPage() {
 
       <main className="pt-[80px]">
         {/* Header Hero */}
-        <section className="bg-gradient-to-b from-[#fff0e6] to-white py-3xl relative overflow-hidden">
+        <section className="bg-gradient-to-b from-[#FFF0F4] to-white py-3xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-pale/30 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
           <div className="max-w-[1200px] mx-auto px-lg relative z-10 text-center">
             <h1 className="text-[40px] md:text-[56px] font-black text-ink tracking-tight mb-md">

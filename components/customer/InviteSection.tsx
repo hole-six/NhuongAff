@@ -99,7 +99,7 @@ export function InviteSection({
       ctx.font = "700 15px Arial, sans-serif";
       wrapCenteredText(ctx, inviteUrl, width / 2, 516, 300, 18);
 
-      ctx.fillStyle = "#e86a33";
+      ctx.fillStyle = "#D13A6B";
       ctx.font = "800 15px Arial, sans-serif";
       ctx.fillText(`Bạn nhận ${referralPercent}% hoa hồng`, width / 2, 575);
 
@@ -119,7 +119,7 @@ export function InviteSection({
         </div>
         <Link
           href="/app/referral"
-          className="flex shrink-0 items-center gap-[2px] text-[12px] font-bold text-[#e86a33] hover:underline"
+          className="flex shrink-0 items-center gap-[2px] text-[12px] font-bold text-[#D13A6B] hover:underline"
         >
           Xem chi tiết
           <ChevronRight size={14} strokeWidth={2.5} />
@@ -130,13 +130,13 @@ export function InviteSection({
         {isPartner ? (
           <>
             Bạn là <span className="font-bold text-emerald-600">🤝 Đối tác</span> — nhận{" "}
-            <span className="font-bold text-[#e86a33]">{referralPercent}% hoa hồng</span> trên{" "}
+            <span className="font-bold text-[#D13A6B]">{referralPercent}% hoa hồng</span> trên{" "}
             <strong>tất cả</strong> đơn hàng của mỗi người bạn mời, không giới hạn số đơn hay thời gian!
           </>
         ) : (
           <>
             Mời bạn bè tham gia và nhận{" "}
-            <span className="font-bold text-[#e86a33]">{referralPercent}% hoa hồng</span> từ{" "}
+            <span className="font-bold text-[#D13A6B]">{referralPercent}% hoa hồng</span> từ{" "}
             {maxReferralOrders} đơn hàng đầu tiên của mỗi người bạn mời!
           </>
         )}
@@ -154,7 +154,7 @@ export function InviteSection({
 
       {/* Link display */}
       {inviteUrl && (
-        <div className="mb-md flex items-center gap-sm rounded-2xl bg-orange-50 border border-orange-100 p-sm">
+        <div className="mb-md flex items-center gap-sm rounded-2xl bg-rose-50 border border-rose-100 p-sm">
           <span className="flex-1 truncate text-[12px] font-medium text-gray-500 px-sm">
             {inviteUrl}
           </span>
@@ -169,7 +169,7 @@ export function InviteSection({
           className={`flex flex-1 items-center justify-center gap-xs rounded-2xl py-[10px] text-[13px] font-bold transition-all active:scale-[0.97] ${
             copied
               ? "bg-emerald-500 text-white shadow-md"
-              : "bg-[#e86a33] text-white shadow-md shadow-[#e86a33]/30 hover:bg-[#d65d2a]"
+              : "bg-[#D13A6B] text-white shadow-md shadow-[#D13A6B]/30 hover:bg-[#B92E5B]"
           }`}
         >
           {copied ? (
@@ -188,7 +188,7 @@ export function InviteSection({
         {/* QR Code button */}
         <button
           onClick={() => setShowQR(true)}
-          className="flex items-center justify-center gap-xs rounded-2xl bg-orange-100 px-lg py-[10px] text-[13px] font-bold text-[#e86a33] hover:bg-orange-200 transition-all active:scale-[0.97]"
+          className="flex items-center justify-center gap-xs rounded-2xl bg-rose-100 px-lg py-[10px] text-[13px] font-bold text-[#D13A6B] hover:bg-rose-200 transition-all active:scale-[0.97]"
           title="Xem mã QR"
         >
           <QrCode size={17} strokeWidth={2} />
@@ -214,7 +214,7 @@ export function InviteSection({
               className="relative overflow-hidden p-xl text-center"
               style={{
                 background:
-                  "linear-gradient(135deg, #fff3ee 0%, #fde8d8 100%)",
+                  "linear-gradient(135deg, #FFF3F7 0%, #FDE3EB 100%)",
               }}
             >
               <button
@@ -275,7 +275,7 @@ export function InviteSection({
                 className={`w-full flex items-center justify-center gap-sm rounded-2xl py-[11px] text-[14px] font-bold transition-all ${
                   copied
                     ? "bg-emerald-500 text-white"
-                    : "bg-[#e86a33] text-white hover:bg-[#d65d2a]"
+                    : "bg-[#D13A6B] text-white hover:bg-[#B92E5B]"
                 }`}
               >
                 {copied ? (

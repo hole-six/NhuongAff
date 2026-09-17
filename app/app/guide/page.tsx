@@ -100,7 +100,7 @@ export default function CustomerGuidePage() {
 
       {/* CTA hỗ trợ */}
       <div className="flex flex-col sm:flex-row sm:items-center gap-md rounded-3xl p-lg shadow-sm ring-1 ring-black/5"
-        style={{ background: "linear-gradient(135deg,#fff3ee,#fde8d8)" }}>
+        style={{ background: "linear-gradient(135deg,#FFF3F7,#FDE3EB)" }}>
         <img src="/heoQA.png" alt="" className="h-14 w-14 object-contain shrink-0" />
         <div className="flex-1">
           <div className="font-bold text-gray-900">Vẫn còn thắc mắc?</div>
@@ -108,7 +108,7 @@ export default function CustomerGuidePage() {
         </div>
         <Link
           href="/app/notifications"
-          className="shrink-0 rounded-xl bg-[#e86a33] px-lg py-[10px] text-center text-[13px] font-bold text-white shadow-md shadow-[#e86a33]/25 transition-all hover:bg-[#d65d2a] active:scale-[0.97]"
+          className="shrink-0 rounded-xl bg-[#D13A6B] px-lg py-[10px] text-center text-[13px] font-bold text-white shadow-md shadow-[#D13A6B]/25 transition-all hover:bg-[#B92E5B] active:scale-[0.97]"
         >
           Xem thông báo &amp; hỗ trợ
         </Link>

@@ -138,8 +138,8 @@ function EditDealModal({ deal, onSave, onClose }: {
         {/* Header */}
         <div className="sticky top-0 z-10 flex items-center justify-between px-xl py-lg border-b border-gray-100 bg-white rounded-t-3xl">
           <div className="flex items-center gap-sm">
-            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#e86a33]/10">
-              <Pencil size={15} className="text-[#e86a33]" />
+            <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#D13A6B]/10">
+              <Pencil size={15} className="text-[#D13A6B]" />
             </div>
             <h3 className="text-[15px] font-bold text-gray-900">Chỉnh sửa Deal</h3>
           </div>
@@ -158,7 +158,7 @@ function EditDealModal({ deal, onSave, onClose }: {
               </div>
               <button
                 onClick={() => { navigator.clipboard.writeText(deal.shortUrl!); setCopied(true); setTimeout(() => setCopied(false), 2000); }}
-                className={`shrink-0 flex items-center gap-xs rounded-lg px-sm py-xs text-[12px] font-bold transition-all ${copied ? "bg-green-500 text-white" : "bg-[#e86a33] text-white hover:bg-[#d4602e]"}`}
+                className={`shrink-0 flex items-center gap-xs rounded-lg px-sm py-xs text-[12px] font-bold transition-all ${copied ? "bg-green-500 text-white" : "bg-[#D13A6B] text-white hover:bg-[#B92E5B]"}`}
               >
                 {copied ? <><Check size={12} /> Đã copy</> : <><Copy size={12} /> Copy</>}
               </button>
@@ -171,7 +171,7 @@ function EditDealModal({ deal, onSave, onClose }: {
               <div className="text-[12px] font-bold text-gray-600 uppercase tracking-wide mb-sm">Ảnh sản phẩm</div>
               <div
                 onClick={() => fileRef.current?.click()}
-                className="relative h-32 w-32 rounded-2xl overflow-hidden bg-gray-100 cursor-pointer border-2 border-dashed border-gray-200 hover:border-[#e86a33] transition-colors group"
+                className="relative h-32 w-32 rounded-2xl overflow-hidden bg-gray-100 cursor-pointer border-2 border-dashed border-gray-200 hover:border-[#D13A6B] transition-colors group"
               >
                 {displayImage ? (
                   <>
@@ -204,7 +204,7 @@ function EditDealModal({ deal, onSave, onClose }: {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   rows={2}
-                  className="w-full rounded-2xl bg-gray-50 px-md py-sm text-[14px] ring-1 ring-black/5 focus:outline-none focus:ring-2 focus:ring-[#e86a33]/50 resize-none"
+                  className="w-full rounded-2xl bg-gray-50 px-md py-sm text-[14px] ring-1 ring-black/5 focus:outline-none focus:ring-2 focus:ring-[#D13A6B]/50 resize-none"
                 />
               </div>
             </div>
@@ -217,8 +217,8 @@ function EditDealModal({ deal, onSave, onClose }: {
               <TextInput type="number" value={originalPrice} onChange={(e) => setOriginalPrice(e.target.value)} className="bg-gray-50" placeholder="500000" />
             </div>
             <div className="flex flex-col gap-xs">
-              <label className="text-[12px] font-bold text-[#e86a33] uppercase tracking-wide">Giá sale</label>
-              <TextInput type="number" value={salePrice} onChange={(e) => setSalePrice(e.target.value)} className="bg-orange-50" placeholder="250000" />
+              <label className="text-[12px] font-bold text-[#D13A6B] uppercase tracking-wide">Giá sale</label>
+              <TextInput type="number" value={salePrice} onChange={(e) => setSalePrice(e.target.value)} className="bg-rose-50" placeholder="250000" />
             </div>
             <div className="flex flex-col gap-xs">
               <label className="text-[12px] font-bold text-gray-600 uppercase tracking-wide">% Giảm</label>
@@ -237,11 +237,11 @@ function EditDealModal({ deal, onSave, onClose }: {
                   onClick={() => setLinkType(t.value)}
                   className={`rounded-2xl border-2 p-md text-left transition-all ${
                     linkType === t.value
-                      ? "border-[#e86a33] bg-orange-50"
+                      ? "border-[#D13A6B] bg-rose-50"
                       : "border-gray-100 bg-gray-50 hover:border-gray-200"
                   }`}
                 >
-                  <div className={`text-[13px] font-bold ${linkType === t.value ? "text-[#e86a33]" : "text-gray-700"}`}>
+                  <div className={`text-[13px] font-bold ${linkType === t.value ? "text-[#D13A6B]" : "text-gray-700"}`}>
                     {t.value === "product" ? "🎯" : "🏬"} {t.label}
                   </div>
                   <div className="text-[11px] text-gray-500 mt-1 leading-relaxed">{t.description}</div>
@@ -257,7 +257,7 @@ function EditDealModal({ deal, onSave, onClose }: {
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="h-11 w-full rounded-2xl bg-gray-50 px-md text-[14px] font-medium text-gray-900 ring-1 ring-black/5 focus:outline-none focus:ring-2 focus:ring-[#e86a33]/50 transition-all"
+                className="h-11 w-full rounded-2xl bg-gray-50 px-md text-[14px] font-medium text-gray-900 ring-1 ring-black/5 focus:outline-none focus:ring-2 focus:ring-[#D13A6B]/50 transition-all"
               >
                 <option value="">— Không chọn —</option>
                 {DEAL_CATEGORIES.map((c) => (
@@ -272,7 +272,7 @@ function EditDealModal({ deal, onSave, onClose }: {
                   <button
                     type="button"
                     onClick={() => setExpiresAt("")}
-                    className="text-[11px] font-bold text-[#e86a33] hover:underline"
+                    className="text-[11px] font-bold text-[#D13A6B] hover:underline"
                   >
                     Xoá — không hết hạn
                   </button>
@@ -282,7 +282,7 @@ function EditDealModal({ deal, onSave, onClose }: {
                 type="date"
                 value={expiresAt}
                 onChange={(e) => setExpiresAt(e.target.value)}
-                className="h-11 w-full rounded-2xl bg-gray-50 px-md text-[14px] font-medium text-gray-900 ring-1 ring-black/5 focus:outline-none focus:ring-2 focus:ring-[#e86a33]/50 transition-all"
+                className="h-11 w-full rounded-2xl bg-gray-50 px-md text-[14px] font-medium text-gray-900 ring-1 ring-black/5 focus:outline-none focus:ring-2 focus:ring-[#D13A6B]/50 transition-all"
               />
               {!expiresAt && (
                 <p className="text-[11px] text-gray-400">Để trống = deal không bao giờ hết hạn.</p>
@@ -353,8 +353,8 @@ export function AdminDealList({ initialDeals, totalPages, currentPage }: { initi
   if (deals.length === 0) {
     return (
       <div className="flex flex-col items-center py-3xl text-center">
-        <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-orange-50 mb-lg">
-          <Flame size={36} className="text-[#e86a33]/40" strokeWidth={1.5} />
+        <div className="flex h-20 w-20 items-center justify-center rounded-3xl bg-rose-50 mb-lg">
+          <Flame size={36} className="text-[#D13A6B]/40" strokeWidth={1.5} />
         </div>
         <p className="text-[15px] font-bold text-gray-400">Chưa có deal nào</p>
         <p className="text-[13px] text-gray-300 mt-xs">Bấm "Thêm Deal Mới" để bắt đầu</p>
@@ -440,7 +440,7 @@ export function AdminDealList({ initialDeals, totalPages, currentPage }: { initi
                   <td className="px-md py-sm text-right" data-label="Giá">
                     {deal.salePrice ? (
                       <div>
-                        <div className="font-black text-[#e86a33] text-[15px]">{formatCurrency(deal.salePrice)}</div>
+                        <div className="font-black text-[#D13A6B] text-[15px]">{formatCurrency(deal.salePrice)}</div>
                         {deal.originalPrice && (
                           <div className="text-[11px] text-gray-400 line-through">{formatCurrency(deal.originalPrice)}</div>
                         )}
@@ -475,7 +475,7 @@ export function AdminDealList({ initialDeals, totalPages, currentPage }: { initi
                       </a>
                       <button
                         onClick={() => setEditingDeal(deal)}
-                        className="h-8 w-8 flex items-center justify-center rounded-lg text-gray-400 hover:text-[#e86a33] hover:bg-orange-50 transition-colors"
+                        className="h-8 w-8 flex items-center justify-center rounded-lg text-gray-400 hover:text-[#D13A6B] hover:bg-rose-50 transition-colors"
                         title="Chỉnh sửa"
                       >
                         <Pencil size={15} />

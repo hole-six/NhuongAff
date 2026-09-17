@@ -22,7 +22,7 @@ export function MobileBottomNav() {
 
   return (
     <nav
-      className="fixed inset-x-0 bottom-0 z-40 flex md:hidden items-stretch bg-white/95 backdrop-blur-sm border-t border-ink/5 shadow-[0_-4px_20px_rgba(0,0,0,0.06)]"
+      className="fixed inset-x-0 bottom-0 z-40 flex md:hidden items-stretch glass border-t border-primary-pale/60 shadow-[0_-4px_20px_rgba(0,0,0,0.06)]"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       {TABS.map((tab) => {

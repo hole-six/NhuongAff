@@ -66,7 +66,7 @@ export function Pagination({ totalPages, currentPage }: PaginationProps) {
                 onClick={() => handleNavigate(page)}
                 className={`flex h-9 min-w-[36px] items-center justify-center rounded-xl text-[14px] font-bold transition-all ${
                   currentPage === page
-                    ? "bg-[#e86a33] text-white shadow-sm shadow-[#e86a33]/30"
+                    ? "bg-[#D13A6B] text-white shadow-sm shadow-[#D13A6B]/30"
                     : "text-gray-600 hover:bg-gray-100"
                 }`}
               >

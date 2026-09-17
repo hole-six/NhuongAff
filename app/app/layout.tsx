@@ -60,8 +60,8 @@ export default async function CustomerAppLayout({ children }: { children: React.
         <svg className="absolute h-full w-full opacity-60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <defs>
             <radialGradient id="bg-g1" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#ffede6" stopOpacity="1" />
-              <stop offset="100%" stopColor="#ffede6" stopOpacity="0" />
+              <stop offset="0%" stopColor="#FFEDF2" stopOpacity="1" />
+              <stop offset="100%" stopColor="#FFEDF2" stopOpacity="0" />
             </radialGradient>
             <radialGradient id="bg-g2" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stopColor="#eef4ff" stopOpacity="1" />

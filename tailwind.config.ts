@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-// Design tokens transcribed from design.md (Wise-inspired system).
+// Design tokens: hệ trắng–hồng lấy màu từ linh vật thỏ (xem globals.css).
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
@@ -41,6 +41,19 @@ const config: Config = {
           orange: "#ffc091",
           cyan: "#38c8ff",
         },
+        bunny: {
+          cream: "rgb(var(--bunny-cream) / <alpha-value>)",
+          blush: "rgb(var(--bunny-blush) / <alpha-value>)",
+          ear: "rgb(var(--bunny-ear) / <alpha-value>)",
+          star: "rgb(var(--bunny-star) / <alpha-value>)",
+        },
+      },
+      transitionTimingFunction: {
+        soft: "cubic-bezier(0.22, 0.61, 0.36, 1)",
+        spring: "cubic-bezier(0.34, 1.32, 0.64, 1)",
+      },
+      boxShadow: {
+        glow: "0 6px 24px rgba(209, 58, 107, 0.22), 0 2px 6px rgba(209, 58, 107, 0.12)",
       },
       borderRadius: {
         sm: "8px",

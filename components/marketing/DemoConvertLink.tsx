@@ -74,7 +74,7 @@ export function DemoConvertLink() {
         <button
           type="submit"
           disabled={loading || !url.trim()}
-          className="h-12 shrink-0 rounded-2xl bg-ink px-lg text-[13px] font-bold text-white transition-all hover:bg-ink/90 disabled:opacity-50 flex items-center justify-center gap-xs"
+          className="sheen gloss h-12 shrink-0 rounded-2xl bg-primary px-lg text-[13px] font-bold text-white transition-all duration-200 ease-soft hover:bg-primary-active hover:shadow-glow disabled:opacity-50 flex items-center justify-center gap-xs"
         >
           {loading ? <Loader2 size={15} className="animate-spin" /> : <Sparkles size={15} />}
           {loading ? "Đang xem..." : "Xem thử"}

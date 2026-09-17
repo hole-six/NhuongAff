@@ -80,7 +80,7 @@ export function CreatePaymentForCustomer({ customers }: { customers: ComboboxOpt
   return (
     <div className="rounded-3xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] flex flex-col gap-md">
       <div className="flex items-center gap-sm">
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#e86a33]/10 text-[#e86a33]">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#D13A6B]/10 text-[#D13A6B]">
           <UserSearch size={18} strokeWidth={2} />
         </div>
         <div>
@@ -116,7 +116,7 @@ export function CreatePaymentForCustomer({ customers }: { customers: ComboboxOpt
             <div className="text-right shrink-0">
               <div className="text-[11px] text-gray-400">{preview.orderCount} đơn khả dụng</div>
               <div className="flex items-center justify-end gap-xs">
-                <div className="text-[20px] font-black text-[#e86a33] tabular-nums">{formatCurrency(preview.available)}</div>
+                <div className="text-[20px] font-black text-[#D13A6B] tabular-nums">{formatCurrency(preview.available)}</div>
                 <CopyAmountBtn amount={preview.available} />
               </div>
             </div>
@@ -124,7 +124,7 @@ export function CreatePaymentForCustomer({ customers }: { customers: ComboboxOpt
 
           {preview.customer.bankAccountNumber ? (
             <div className="flex items-center gap-sm rounded-xl bg-white p-sm ring-1 ring-gray-100">
-              <CreditCard size={13} className="text-[#e86a33] shrink-0" />
+              <CreditCard size={13} className="text-[#D13A6B] shrink-0" />
               <div className="min-w-0 flex-1">
                 <div className="text-[11px] font-bold text-gray-800 truncate">{preview.customer.bankName}</div>
                 <div className="font-mono text-[11px] text-gray-500">

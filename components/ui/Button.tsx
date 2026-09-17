@@ -5,9 +5,9 @@ type Size = "sm" | "md" | "lg";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-primary text-white hover:bg-primary-active hover:shadow-md hover:shadow-primary/20 active:bg-primary-active focus-visible:ring-primary",
+    "sheen gloss bg-primary text-white hover:bg-primary-active hover:shadow-glow active:bg-primary-active focus-visible:ring-primary",
   secondary:
-    "bg-primary-pale text-primary hover:bg-primary-neutral active:bg-primary-neutral focus-visible:ring-primary-pale",
+    "sheen bg-primary-pale text-primary hover:bg-primary-neutral active:bg-primary-neutral focus-visible:ring-primary-pale",
   tertiary:
     "bg-canvas text-mute border border-ink/10 hover:border-primary hover:text-primary active:bg-canvas-soft focus-visible:ring-ink/20",
   danger:
@@ -30,7 +30,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
-        className={`inline-flex items-center justify-center font-bold rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.97] ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+        className={`inline-flex items-center justify-center font-bold rounded-xl transition-all duration-200 ease-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 active:scale-[0.97] ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
         {...props}
       />
     );

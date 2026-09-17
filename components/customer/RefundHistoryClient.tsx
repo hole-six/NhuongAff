@@ -195,7 +195,7 @@ export function RefundHistoryClient({
                     <p className="mt-[2px] truncate text-[14px] font-bold text-gray-900">
                       {l.productTitle ?? `Sản phẩm từ ${l.platform.name} (${l.shortCode})`}
                     </p>
-                    <a href={l.shortUrl ?? "#"} target="_blank" rel="noreferrer" className="mt-[2px] block truncate text-[12px] font-medium text-gray-400 transition-colors hover:text-[#e86a33]">
+                    <a href={l.shortUrl ?? "#"} target="_blank" rel="noreferrer" className="mt-[2px] block truncate text-[12px] font-medium text-gray-400 transition-colors hover:text-[#D13A6B]">
                       {l.shortUrl}
                     </a>
                   </div>

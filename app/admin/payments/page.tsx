@@ -132,20 +132,20 @@ export default async function AdminPaymentsPage() {
       {/* ── HERO BANNER ── */}
       <div
         className="relative overflow-hidden rounded-3xl p-xl sm:p-2xl"
-        style={{ background: "linear-gradient(135deg, #fff3ee 0%, #fde8d8 50%, #ffecd2 100%)" }}
+        style={{ background: "linear-gradient(135deg, #FFF3F7 0%, #FDE3EB 50%, #FFE8F0 100%)" }}
       >
-        <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#ffcba4] opacity-30" />
-        <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#ffe0cc] opacity-40" />
+        <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#FFC4D6] opacity-30" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#FFDCE7] opacity-40" />
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-lg flex-wrap">
           <div className="flex items-center gap-lg">
             <img src="/heovitien.png" alt="" className="h-20 w-20 object-contain drop-shadow-lg shrink-0" />
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-widest text-[#e86a33]/60 mb-1">Đối soát & Chi trả</p>
-              <h1 className="text-[26px] sm:text-[30px] font-black leading-tight text-[#2d1f14]">Thanh toán</h1>
-              <p className="mt-1 text-[13px] text-[#a0816a]">
-                <span className="font-bold text-[#e86a33]">{pendingList.length}</span> yêu cầu rút tiền •{" "}
+              <p className="text-[11px] font-bold uppercase tracking-widest text-[#D13A6B]/60 mb-1">Đối soát & Chi trả</p>
+              <h1 className="text-[26px] sm:text-[30px] font-black leading-tight text-[#2E1F26]">Thanh toán</h1>
+              <p className="mt-1 text-[13px] text-[#9A8490]">
+                <span className="font-bold text-[#D13A6B]">{pendingList.length}</span> yêu cầu rút tiền •{" "}
                 Tổng cần trả:{" "}
-                <span className="font-bold text-[#e86a33]">{formatCurrency(totalPendingAmount)}</span>
+                <span className="font-bold text-[#D13A6B]">{formatCurrency(totalPendingAmount)}</span>
               </p>
             </div>
           </div>
@@ -155,12 +155,12 @@ export default async function AdminPaymentsPage() {
       {/* ── STAT CARDS ── */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-md">
         <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] hover:-translate-y-1 hover:shadow-md transition-all">
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-orange-50 opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-pink-50 opacity-70" />
           <div className="relative flex items-center gap-md">
             <img src="/heochodoi.png" alt="" className="h-12 w-12 object-contain transition-transform group-hover:scale-110" />
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">Chờ trả</div>
-              <div className="text-[24px] font-black text-[#e86a33] tabular-nums leading-tight">{pendingList.length}</div>
+              <div className="text-[24px] font-black text-[#D13A6B] tabular-nums leading-tight">{pendingList.length}</div>
               <div className="text-[10px] text-gray-400">Khách đã yêu cầu rút</div>
             </div>
           </div>

@@ -37,9 +37,9 @@ export function QuickVoucherForm({ platforms }: { platforms: Option[] }) {
   }
 
   return (
-    <div className="rounded-3xl bg-[#fff0e6]/60 border border-[#e86a33]/20 p-lg">
+    <div className="rounded-3xl bg-[#FFF0F4]/60 border border-[#D13A6B]/20 p-lg">
       <div className="mb-md flex items-center gap-sm">
-        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#e86a33] text-white">
+        <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#D13A6B] text-white">
           <Zap size={16} strokeWidth={2} />
         </span>
         <div>
@@ -53,7 +53,7 @@ export function QuickVoucherForm({ platforms }: { platforms: Option[] }) {
         <select
           value={platformId}
           onChange={(e) => setPlatformId(e.target.value)}
-          className="h-11 shrink-0 rounded-xl border border-gray-200 bg-white px-md text-[14px] font-semibold text-gray-900 sm:w-[160px] focus:border-[#e86a33] focus:outline-none focus:ring-1 focus:ring-[#e86a33]"
+          className="h-11 shrink-0 rounded-xl border border-gray-200 bg-white px-md text-[14px] font-semibold text-gray-900 sm:w-[160px] focus:border-[#D13A6B] focus:outline-none focus:ring-1 focus:ring-[#D13A6B]"
         >
           {platforms.map((p) => (
             <option key={p.id} value={p.id}>
@@ -67,12 +67,12 @@ export function QuickVoucherForm({ platforms }: { platforms: Option[] }) {
           required
           value={voucherUrl}
           onChange={(e) => setVoucherUrl(e.target.value)}
-          className="h-11 flex-1 rounded-xl border border-gray-200 bg-white px-md text-[14px] font-medium text-gray-900 focus:border-[#e86a33] focus:outline-none focus:ring-1 focus:ring-[#e86a33]"
+          className="h-11 flex-1 rounded-xl border border-gray-200 bg-white px-md text-[14px] font-medium text-gray-900 focus:border-[#D13A6B] focus:outline-none focus:ring-1 focus:ring-[#D13A6B]"
         />
         <button
           type="submit"
           disabled={loading || !platformId}
-          className="h-11 shrink-0 rounded-xl bg-[#e86a33] px-xl text-[14px] font-bold text-white transition-all hover:bg-[#d65d2a] disabled:opacity-50"
+          className="h-11 shrink-0 rounded-xl bg-[#D13A6B] px-xl text-[14px] font-bold text-white transition-all hover:bg-[#B92E5B] disabled:opacity-50"
         >
           {loading ? "Đang đăng..." : "Đăng ngay"}
         </button>

@@ -145,7 +145,7 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
                   platform.code === "TIKTOK"
                     ? "bg-gray-900 text-white"
                     : platform.code === "SHOPEE"
-                    ? "bg-orange-50 text-[#e86a33]"
+                    ? "bg-rose-50 text-[#D13A6B]"
                     : platform.code === "LAZADA"
                     ? "bg-[#0f146d]/10 text-[#0f146d]"
                     : "bg-emerald-50 text-emerald-600"
@@ -162,7 +162,7 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
             </div>
             <div className="text-right">
               <div className="text-[11px] font-bold uppercase text-gray-400">Chưa trả</div>
-              <div className="mt-1 text-[14px] font-black text-[#e86a33]">{formatCurrency(platform.unpaidTotal)}</div>
+              <div className="mt-1 text-[14px] font-black text-[#D13A6B]">{formatCurrency(platform.unpaidTotal)}</div>
             </div>
           </button>
         ))}
@@ -281,8 +281,8 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
             </span>
           </div>
           <div className="flex flex-col">
-            <span className="text-[12px] font-bold text-[#e86a33] uppercase tracking-wider mb-1">Tổng hoàn khách (đang lọc)</span>
-            <span className="text-[20px] font-bold text-[#e86a33] leading-none">
+            <span className="text-[12px] font-bold text-[#D13A6B] uppercase tracking-wider mb-1">Tổng hoàn khách (đang lọc)</span>
+            <span className="text-[20px] font-bold text-[#D13A6B] leading-none">
               {formatCurrency(sums.customerRewardAmount)}
             </span>
           </div>
@@ -309,7 +309,7 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
                 <th className="px-md py-sm font-bold uppercase tracking-wider text-gray-500 text-[11px]">Ngày ĐH / HT</th>
                 <th className="px-md py-sm font-bold uppercase tracking-wider text-gray-500 text-[11px] text-right">Giá trị đơn</th>
                 <th className="px-md py-sm font-bold uppercase tracking-wider text-gray-500 text-[11px] text-right">HH trước thuế</th>
-                <th className="px-md py-sm font-bold uppercase tracking-wider text-[#e86a33] text-[11px] text-right">Tiền hoàn / Giữ lại</th>
+                <th className="px-md py-sm font-bold uppercase tracking-wider text-[#D13A6B] text-[11px] text-right">Tiền hoàn / Giữ lại</th>
                 <th className="px-md py-sm font-bold uppercase tracking-wider text-purple-600 text-[11px] text-right w-[110px]">🎁 Trích GT</th>
                 <th className="px-md py-sm font-bold uppercase tracking-wider text-gray-500 text-[11px] w-[150px]">Trạng thái</th>
                 <th className="px-md py-sm font-bold uppercase tracking-wider text-gray-500 text-[11px] w-[160px]">Thao tác</th>
@@ -327,7 +327,7 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
                 </tr>
               ) : (
                 orders.map((o) => (
-                  <tr key={o.id} className={`border-b border-gray-50 transition-colors ${o.orderStatus === "clawback" ? "bg-red-50/40" : o.sourceType === "referral" ? "bg-purple-50/30" : o.clawbackWarning ? "bg-amber-50/40" : "hover:bg-[#fff0e6]/20"}`}>
+                  <tr key={o.id} className={`border-b border-gray-50 transition-colors ${o.orderStatus === "clawback" ? "bg-red-50/40" : o.sourceType === "referral" ? "bg-purple-50/30" : o.clawbackWarning ? "bg-amber-50/40" : "hover:bg-[#FFF0F4]/20"}`}>
                     {/* Order Info */}
                     <td className="px-md py-sm" data-label="Đơn hàng / Tracking">
                       <div className="font-mono font-bold text-gray-900 flex items-center gap-1">
@@ -386,7 +386,7 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
 
                     {/* Commissions */}
                     <td className="px-md py-sm text-right" data-label="Tiền hoàn / Giữ lại">
-                      <div className={`font-bold text-[14px] ${o.customerRewardAmount < 0 ? "text-red-600" : "text-[#e86a33]"}`}>
+                      <div className={`font-bold text-[14px] ${o.customerRewardAmount < 0 ? "text-red-600" : "text-[#D13A6B]"}`}>
                         {formatCurrency(o.customerRewardAmount)}
                       </div>
                       <div className="text-[11px] font-medium text-gray-400 mt-[2px]">

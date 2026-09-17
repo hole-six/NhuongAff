@@ -97,7 +97,7 @@ export function CommunityChat({
   return (
     <div className="flex flex-col rounded-3xl bg-white shadow-sm ring-1 ring-black/5 overflow-hidden h-[560px]">
       {/* Header */}
-      <div className="flex items-center gap-sm border-b border-gray-100 px-lg py-md bg-gradient-to-r from-[#fff3ee] to-[#fde8d8]">
+      <div className="flex items-center gap-sm border-b border-gray-100 px-lg py-md bg-gradient-to-r from-[#FFF3F7] to-[#FDE3EB]">
         <img src="/heochaomung.png" alt="" className="h-9 w-9 object-contain" />
         <div className="flex-1 min-w-0">
           <div className="font-bold text-gray-900 text-[14px]">Cộng đồng iviback</div>
@@ -122,7 +122,7 @@ export function CommunityChat({
               <div key={m.id} className={`group flex items-end gap-sm ${isMine ? "flex-row-reverse" : ""}`}>
                 <div
                   className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white ${
-                    isMsgAdmin ? "bg-gradient-to-br from-[#e86a33] to-[#d65d2a]" : "bg-gradient-to-br from-gray-400 to-gray-500"
+                    isMsgAdmin ? "bg-gradient-to-br from-[#D13A6B] to-[#B92E5B]" : "bg-gradient-to-br from-gray-400 to-gray-500"
                   }`}
                 >
                   {isMsgAdmin ? "🐷" : initialsOf(m.user?.fullName ?? "?")}
@@ -138,9 +138,9 @@ export function CommunityChat({
                     <div
                       className={`rounded-2xl px-md py-[8px] text-[13px] leading-relaxed break-words ${
                         isMsgAdmin
-                          ? "bg-[#fff0e6] text-[#8a4a25] ring-1 ring-[#e86a33]/20"
+                          ? "bg-[#FFF0F4] text-[#8a4a25] ring-1 ring-[#D13A6B]/20"
                           : isMine
-                          ? "bg-[#e86a33] text-white"
+                          ? "bg-[#D13A6B] text-white"
                           : "bg-gray-100 text-gray-800"
                       }`}
                     >
@@ -177,12 +177,12 @@ export function CommunityChat({
           }}
           placeholder="Nhắn gì đó với cộng đồng..."
           maxLength={1000}
-          className="h-11 flex-1 rounded-2xl bg-gray-50 px-lg text-[14px] font-medium text-gray-900 ring-1 ring-gray-100 focus:outline-none focus:ring-2 focus:ring-[#e86a33]/30 transition-all"
+          className="h-11 flex-1 rounded-2xl bg-gray-50 px-lg text-[14px] font-medium text-gray-900 ring-1 ring-gray-100 focus:outline-none focus:ring-2 focus:ring-[#D13A6B]/30 transition-all"
         />
         <button
           onClick={send}
           disabled={!input.trim() || sending}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#e86a33] text-white shadow-md shadow-[#e86a33]/25 transition-all hover:bg-[#d65d2a] active:scale-[0.94] disabled:opacity-40 disabled:cursor-not-allowed"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#D13A6B] text-white shadow-md shadow-[#D13A6B]/25 transition-all hover:bg-[#B92E5B] active:scale-[0.94] disabled:opacity-40 disabled:cursor-not-allowed"
         >
           <Send size={16} strokeWidth={2.5} />
         </button>

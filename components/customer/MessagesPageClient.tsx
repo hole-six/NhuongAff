@@ -61,7 +61,7 @@ export function MessagesPageClient({ initialMessages }: { initialMessages: Suppo
           <div key={m.id} className={`flex ${m.senderRole === "customer" ? "justify-end" : "justify-start"}`}>
             <div
               className={`max-w-[80%] rounded-2xl px-md py-sm text-[13px] ${
-                m.senderRole === "customer" ? "bg-[#e86a33] text-white" : "bg-gray-100 text-gray-800"
+                m.senderRole === "customer" ? "bg-[#D13A6B] text-white" : "bg-gray-100 text-gray-800"
               }`}
             >
               <p className="whitespace-pre-wrap break-words">{m.message}</p>
@@ -88,12 +88,12 @@ export function MessagesPageClient({ initialMessages }: { initialMessages: Suppo
             }
           }}
           placeholder="Trả lời Admin..."
-          className="h-11 flex-1 rounded-2xl border border-gray-200 bg-gray-50 px-md text-[14px] font-medium text-gray-900 placeholder:text-gray-300 focus:border-[#e86a33] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#e86a33]/20 transition-all"
+          className="h-11 flex-1 rounded-2xl border border-gray-200 bg-gray-50 px-md text-[14px] font-medium text-gray-900 placeholder:text-gray-300 focus:border-[#D13A6B] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#D13A6B]/20 transition-all"
         />
         <button
           onClick={send}
           disabled={sending || !draft.trim()}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#e86a33] text-white shadow-md shadow-[#e86a33]/25 hover:bg-[#d65d2a] transition-all disabled:opacity-50 active:scale-95"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#D13A6B] text-white shadow-md shadow-[#D13A6B]/25 hover:bg-[#B92E5B] transition-all disabled:opacity-50 active:scale-95"
         >
           {sending ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} strokeWidth={2.25} />}
         </button>

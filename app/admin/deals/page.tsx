@@ -92,12 +92,12 @@ export default async function AdminDealsPage({ searchParams }: { searchParams: {
       {/* ── STAT CARDS ── */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-md">
         <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] hover:-translate-y-1 hover:shadow-md transition-all">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-amber-50 opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-pink-50 opacity-70" />
           <div className="relative flex items-center gap-md">
             <img src="/heogiamgia.png" alt="" className="h-12 w-12 object-contain transition-transform group-hover:scale-110" />
             <div>
               <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">Tổng deal</div>
-              <div className="text-[26px] font-black text-[#e86a33] tabular-nums leading-tight">{allDealsCount}</div>
+              <div className="text-[26px] font-black text-[#D13A6B] tabular-nums leading-tight">{allDealsCount}</div>
             </div>
           </div>
         </div>

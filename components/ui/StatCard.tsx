@@ -2,9 +2,9 @@ import { LucideIcon } from "lucide-react";
 
 const toneConfig = {
   default: {
-    iconBg: "bg-slate-100 text-slate-600",
-    gradient: "from-slate-50/80 to-white",
-    accent: "#64748b",
+    iconBg: "bg-primary-pale text-primary",
+    gradient: "from-primary-neutral/80 to-white",
+    accent: "#D13A6B",
   },
   positive: {
     iconBg: "bg-emerald-50 text-emerald-600",
@@ -40,7 +40,7 @@ export function StatCard({
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-2xl bg-gradient-to-br ${cfg.gradient} p-lg shadow-sm ring-1 ring-black/[0.06] transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/8`}
+      className={`group gloss lift relative overflow-hidden rounded-2xl bg-gradient-to-br ${cfg.gradient} p-lg shadow-cute ring-1 ring-primary/[0.07]`}
     >
       {/* Top accent line animated on hover */}
       <div

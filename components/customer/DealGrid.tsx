@@ -59,7 +59,7 @@ function DealCard({ deal }: { deal: Deal }) {
   return (
     <div
       onClick={handleClick}
-      className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-100 hover:ring-[#e86a33]/20 active:scale-[0.98]"
+      className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:shadow-rose-100 hover:ring-[#D13A6B]/20 active:scale-[0.98]"
     >
       {/* Image */}
       <div className="relative aspect-square overflow-hidden bg-gray-100">
@@ -70,8 +70,8 @@ function DealCard({ deal }: { deal: Deal }) {
             className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-orange-50 to-orange-100">
-            <Flame size={40} className="text-[#e86a33]/30" strokeWidth={1.5} />
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-rose-50 to-rose-100">
+            <Flame size={40} className="text-[#D13A6B]/30" strokeWidth={1.5} />
           </div>
         )}
 
@@ -105,8 +105,8 @@ function DealCard({ deal }: { deal: Deal }) {
 
         {/* Click overlay */}
         {clicked && (
-          <div className="absolute inset-0 bg-[#e86a33]/20 flex items-center justify-center animate-in fade-in zoom-in-95 duration-150 p-sm text-center">
-            <div className="rounded-2xl bg-white/95 px-md py-sm text-[12px] font-bold text-[#e86a33] shadow-lg leading-snug">
+          <div className="absolute inset-0 bg-[#D13A6B]/20 flex items-center justify-center animate-in fade-in zoom-in-95 duration-150 p-sm text-center">
+            <div className="rounded-2xl bg-white/95 px-md py-sm text-[12px] font-bold text-[#D13A6B] shadow-lg leading-snug">
               {isShop ? "Đang mở Shop... 🏬 Chọn SP rồi tạo link riêng ở mục Hoàn tiền nhé!" : `Đang mở ${platformName}...`}
             </div>
           </div>
@@ -138,7 +138,7 @@ function DealCard({ deal }: { deal: Deal }) {
               )}
             </div>
           ) : (
-            <span className="text-[13px] font-bold text-[#e86a33]">Xem giá trên {platformName}</span>
+            <span className="text-[13px] font-bold text-[#D13A6B]">Xem giá trên {platformName}</span>
           )}
         </div>
 
@@ -191,7 +191,7 @@ function LinkTypeTabs({ counts }: { counts: { product: number; shop: number } })
           onClick={() => select(t.value)}
           className={`flex h-10 items-center gap-xs whitespace-nowrap rounded-full px-lg text-[13px] font-bold transition-all ${
             active === t.value
-              ? "bg-[#e86a33] text-white shadow-md shadow-[#e86a33]/25"
+              ? "bg-[#D13A6B] text-white shadow-md shadow-[#D13A6B]/25"
               : "bg-white text-gray-500 ring-1 ring-black/[0.08] hover:bg-gray-50 hover:text-gray-900"
           }`}
         >
@@ -227,7 +227,7 @@ function FilterBar() {
   }
 
   const selectClass =
-    "h-10 rounded-xl bg-gray-50 px-md text-[13px] font-medium text-gray-900 ring-1 ring-black/5 focus:outline-none focus:ring-2 focus:ring-[#e86a33]/50 transition-all";
+    "h-10 rounded-xl bg-gray-50 px-md text-[13px] font-medium text-gray-900 ring-1 ring-black/5 focus:outline-none focus:ring-2 focus:ring-[#D13A6B]/50 transition-all";
 
   return (
     <div className="mb-lg flex flex-wrap items-center gap-sm">
@@ -321,7 +321,7 @@ export function DealGrid({
 
           {/* Footer note */}
           <div className="mt-xl flex items-center justify-center gap-sm text-[12px] text-gray-400 text-center">
-            <Flame size={13} className="text-[#e86a33] shrink-0" />
+            <Flame size={13} className="text-[#D13A6B] shrink-0" />
             <span>
               {activeLinkType === "shop"
                 ? "Chọn sản phẩm rồi tạo link riêng ở mục Hoàn tiền trước khi mua để nhận hoàn tiền"

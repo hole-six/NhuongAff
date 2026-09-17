@@ -70,7 +70,7 @@ export default async function CustomerDealsPage({ searchParams }: { searchParams
   return (
     <div className="flex flex-col gap-xl fade-in">
       {/* Banner Header */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#ff4500] via-[#e86a33] to-[#ff8c42] p-xl sm:p-2xl">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#ff4500] via-[#D13A6B] to-[#ff8c42] p-xl sm:p-2xl">
         <div
           className="absolute inset-0 opacity-10"
           style={{ backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)", backgroundSize: "20px 20px" }}

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { LoginForm } from "./LoginForm";
 import { ArrowLeft } from "lucide-react";
 import { TrustBadgesCard } from "@/components/marketing/TrustBadgesCard";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 export const metadata: Metadata = {
   title: "Đăng Nhập Tài Khoản — iviback Hoàn Tiền Shopee, TikTok Shop, Lazada",
@@ -34,7 +35,7 @@ export default function LoginPage({
             alt="Hoàn tiền mua sắm"
             className="h-full w-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#2E1F26]/90 via-primary/25 to-transparent"></div>
         </div>
         
         <div className="relative z-10 flex h-full flex-col justify-end p-3xl">
@@ -53,7 +54,10 @@ export default function LoginPage({
       <div className="flex w-full flex-col items-center justify-center p-lg lg:w-1/2 relative">
         <div className="w-full max-w-[420px] fade-in">
           {/* Logo & Brand */}
-          <div className="mb-xl text-center">
+          <div className="mb-xl flex flex-col items-center text-center">
+            <div className="mb-md grid h-[112px] w-[112px] place-items-center rounded-full bg-primary-neutral ring-2 ring-primary/15 shadow-cute">
+              <BunnyMascot size={92} />
+            </div>
             <h2 className="text-[28px] font-black text-ink tracking-tight">Chào mừng trở lại</h2>
             <p className="mt-xs text-[15px] text-mute">Đăng nhập vào tài khoản của bạn để tiếp tục</p>
           </div>
