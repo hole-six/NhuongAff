@@ -46,10 +46,10 @@ const jsonLd = {
       name: "BunnyHoanTien",
       url: "https://hoahuongaff.click",
       logo: "https://hoahuongaff.click/icontitle.png",
-      telephone: "+84965965439",
+      telephone: "+84336487534",
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+84965965439",
+        telephone: "+84336487534",
         contactType: "customer service",
         areaServed: "VN",
         availableLanguage: "Vietnamese",

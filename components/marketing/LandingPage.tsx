@@ -41,7 +41,7 @@ const FLOATING_ICONS = [
 /* ─── Feature cards dùng trực tiếp icon Plasticine từ Icons8 CDN ─── */
 const BUNNY_FEATURES = [
   {
-    iconSrc: `${I8_PLASTICINE}/flash-on.png`,
+    iconSrc: `${I8_PLASTICINE}/flash.png`,
     color: "from-[#FFF0F4] to-white",
     border: "border-[#FFDFE8]",
     dot: "bg-primary",

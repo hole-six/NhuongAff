@@ -114,7 +114,7 @@ const SECTIONS = [
   {
     title: "11. Liên hệ",
     body: [
-      "Nếu bạn có bất kỳ câu hỏi nào về cách BunnyHoanTien thu thập, sử dụng hoặc bảo vệ thông tin cá nhân, vui lòng liên hệ qua hotline 0965.965.439 hoặc các kênh mạng xã hội chính thức tại chân trang website.",
+      "Nếu bạn có bất kỳ câu hỏi nào về cách BunnyHoanTien thu thập, sử dụng hoặc bảo vệ thông tin cá nhân, vui lòng liên hệ qua hotline 033.648.7534 hoặc các kênh mạng xã hội chính thức tại chân trang website.",
     ],
   },
 ];

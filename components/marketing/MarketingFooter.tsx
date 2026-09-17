@@ -83,11 +83,11 @@ export function MarketingFooter() {
 
             <div className="mt-lg flex flex-col gap-sm">
               <a
-                href="tel:0965965439"
+                href="tel:0336487534"
                 className="inline-flex min-h-[44px] w-fit items-center gap-sm rounded-pill border border-primary-pale bg-white px-lg text-[13px] font-bold text-ink transition-colors duration-200 hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
                 <Phone size={15} strokeWidth={2.5} className="text-primary" aria-hidden="true" />
-                0965.965.439
+                033.648.7534
               </a>
               <a
                 href="mailto:hoadt122@gmail.com"

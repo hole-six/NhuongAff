@@ -122,7 +122,7 @@ const SECTIONS = [
   {
     title: "12. Liên hệ",
     body: [
-      "Nếu có bất kỳ thắc mắc nào về Điều khoản sử dụng, vui lòng liên hệ đội ngũ BunnyHoanTien qua hotline 0965.965.439 hoặc các kênh mạng xã hội chính thức tại chân trang website.",
+      "Nếu có bất kỳ thắc mắc nào về Điều khoản sử dụng, vui lòng liên hệ đội ngũ BunnyHoanTien qua hotline 033.648.7534 hoặc các kênh mạng xã hội chính thức tại chân trang website.",
     ],
   },
 ];

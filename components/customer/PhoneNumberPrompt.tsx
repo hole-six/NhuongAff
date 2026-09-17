@@ -20,7 +20,7 @@ export function PhoneNumberPrompt() {
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     if (!PHONE_PATTERN.test(phone)) {
-      setError("Số điện thoại không hợp lệ (VD: 0901234567)");
+      setError("Số điện thoại không hợp lệ (VD: 0336487534)");
       return;
     }
     setLoading(true);
@@ -64,7 +64,7 @@ export function PhoneNumberPrompt() {
             <div className="flex-1 sm:max-w-[220px]">
               <TextInput
                 type="tel"
-                placeholder="0901234567"
+                placeholder="0336487534"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 className="h-11 bg-white border-gray-200 focus:border-[#25d366] focus:ring-[#25d366]/20"

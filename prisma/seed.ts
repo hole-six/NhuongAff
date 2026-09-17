@@ -44,7 +44,7 @@ async function main() {
     create: {
       customerCode: "C0001",
       fullName: "Hòa Lê",
-      phone: "0901234567",
+      phone: "0336487534",
       zaloUserId: "zalo-demo-0001",
       zaloDisplayName: "Hòa Lê",
     },

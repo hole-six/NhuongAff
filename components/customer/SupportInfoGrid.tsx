@@ -11,8 +11,8 @@ import {
   ThreadsIcon,
 } from "@/components/icons/PlatformIcons";
 
-const PHONE_DISPLAY = "0965.965.439";
-const PHONE_RAW = "0965965439";
+const PHONE_DISPLAY = "033.648.7534";
+const PHONE_RAW = "0336487534";
 
 const CHANNELS = [
   {

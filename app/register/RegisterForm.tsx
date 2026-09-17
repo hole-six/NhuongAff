@@ -63,7 +63,7 @@ export function RegisterForm() {
       case "phone":
         return PHONE_RE.test(normalizePhone(v))
           ? null
-          : "Số điện thoại chưa hợp lệ, ví dụ: 0901234567.";
+          : "Số điện thoại chưa hợp lệ, ví dụ: 0336487534.";
       case "email":
         return EMAIL_RE.test(v.trim()) ? null : "Email chưa đúng định dạng, ví dụ: ban@gmail.com";
       case "password":

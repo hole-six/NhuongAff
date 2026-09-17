@@ -99,7 +99,7 @@ export function CreateCustomerForm() {
           <div className="flex flex-col gap-xs">
             <label className="text-[12px] font-bold text-gray-700 uppercase tracking-wide">Số điện thoại</label>
             <TextInput
-              placeholder="VD: 0912345678"
+              placeholder="VD: 0336487534"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               className="bg-white"

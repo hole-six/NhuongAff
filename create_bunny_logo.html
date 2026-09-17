@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Logo PWA Thỏ - BunnyHoanTien</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #FFF0F4 0%, #FFDFE8 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(209, 58, 107, 0.15);
+        }
+        
+        h1 {
+            color: #D13A6B;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #9A8490;
+            margin-bottom: 30px;
+        }
+        
+        .upload-area {
+            border: 2px dashed #FFDFE8;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            background: #FFF9FB;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: #D13A6B;
+            background: #FFF0F4;
+        }
+        
+        .upload-area.dragover {
+            border-color: #D13A6B;
+            background: #FFDFE8;
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+        
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #E8558A 0%, #D13A6B 100%);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(209, 58, 107, 0.3);
+        }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .preview-area {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: #FFF9FB;
+            border-radius: 16px;
+        }
+        
+        .preview-area.active {
+            display: block;
+        }
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .preview-item {
+            text-align: center;
+        }
+        
+        .preview-item canvas {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: auto;
+        }
+        
+        .preview-item p {
+            margin-top: 10px;
+            color: #5C4652;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .instructions {
+            background: #E3F5EA;
+            border-left: 4px solid #22C55E;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #2E1F26;
+        }
+        
+        .mascot-suggestions {
+            background: #F0ECFB;
+            border-left: 4px solid #A78BFA;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .mascot-suggestions strong {
+            color: #7C3AED;
+        }
+        
+        .mascot-list {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐰 Tạo Logo PWA Thỏ</h1>
+        <p class="subtitle">Tạo icon PWA cho BunnyHoanTien từ mascot thỏ</p>
+        
+        <div class="mascot-suggestions">
+            <strong>💡 Mascot thỏ khuyến nghị:</strong>
+            <div class="mascot-list">
+                • <code>bunny-delighted.webp</code> - Vui vẻ (Khuyến nghị nhất)<br>
+                • <code>bunny-sparkle.webp</code> - Năng động<br>
+                • <code>bunny-wink.webp</code> - Dễ thương<br>
+            </div>
+        </div>
+        
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📤</div>
+            <p><strong>Kéo thả file mascot thỏ vào đây</strong></p>
+            <p style="color: #9A8490; font-size: 14px; margin-top: 5px;">
+                hoặc click để chọn file (.webp, .png)
+            </p>
+            <input type="file" id="fileInput" accept=".webp,.png,.jpg,.jpeg">
+        </div>
+        
+        <button id="generateBtn" disabled>Tạo tất cả icon PWA</button>
+        
+        <div class="preview-area" id="previewArea">
+            <h3 style="color: #D13A6B; margin-bottom: 15px;">📦 Preview các icon</h3>
+            <div class="preview-grid" id="previewGrid"></div>
+            
+            <div class="instructions">
+                <strong>✅ Các bước tiếp theo:</strong><br>
+                1. Click chuột phải vào mỗi icon bên dưới → "Save image as..."<br>
+                2. Lưu với tên đúng: <code>icon-192.png</code>, <code>icon-512.png</code>, <code>apple-touch-icon.png</code>, <code>icontitle.png</code><br>
+                3. Thay thế các file trong thư mục <code>public/</code><br>
+                4. Clear browser cache (Ctrl + Shift + Delete)<br>
+                5. Reload trang web (Ctrl + Shift + R)
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const generateBtn = document.getElementById('generateBtn');
+        const previewArea = document.getElementById('previewArea');
+        const previewGrid = document.getElementById('previewGrid');
+        
+        let selectedImage = null;
+        
+        // Upload area click
+        uploadArea.addEventListener('click', () => fileInput.click());
+        
+        // Drag & drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file) handleFile(file);
+        });
+        
+        // File input change
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handleFile(file);
+        });
+        
+        // Handle file
+        function handleFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    selectedImage = img;
+                    generateBtn.disabled = false;
+                    uploadArea.innerHTML = `
+                        <div class="upload-icon">✅</div>
+                        <p><strong>Đã chọn: ${file.name}</strong></p>
+                        <p style="color: #22C55E; font-size: 14px; margin-top: 5px;">
+                            Click "Tạo tất cả icon PWA" để tiếp tục
+                        </p>
+                    `;
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        // Generate icons
+        generateBtn.addEventListener('click', generateIcons);
+        
+        function generateIcons() {
+            if (!selectedImage) return;
+            
+            previewGrid.innerHTML = '';
+            previewArea.classList.add('active');
+            
+            const sizes = [
+                { name: 'icon-192.png', size: 192, scale: 0.75 },
+                { name: 'icon-512.png', size: 512, scale: 0.75 },
+                { name: 'apple-touch-icon.png', size: 180, scale: 0.75 },
+                { name: 'icontitle.png', size: 64, scale: 0.85 }
+            ];
+            
+            sizes.forEach(config => {
+                const canvas = createIcon(selectedImage, config.size, config.scale);
+                const previewItem = document.createElement('div');
+                previewItem.className = 'preview-item';
+                previewItem.innerHTML = `
+                    <canvas width="${config.size}" height="${config.size}"></canvas>
+                    <p>${config.name}<br>${config.size}×${config.size}px</p>
+                `;
+                
+                const displayCanvas = previewItem.querySelector('canvas');
+                displayCanvas.getContext('2d').drawImage(canvas, 0, 0);
+                
+                previewGrid.appendChild(previewItem);
+            });
+            
+            generateBtn.textContent = '✅ Đã tạo xong! Lưu các icon bên dưới';
+        }
+        
+        function createIcon(img, size, scale = 0.75) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Tạo gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 0, size);
+            gradient.addColorStop(0, '#FFF0F4');
+            gradient.addColorStop(1, '#FFDFE8');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Vẽ mascot thỏ
+            const mascotSize = size * scale;
+            const x = (size - mascotSize) / 2;
+            const y = (size - mascotSize) / 2;
+            
+            ctx.drawImage(img, x, y, mascotSize, mascotSize);
+            
+            return canvas;
+        }
+    </script>
+</body>
+</html>
