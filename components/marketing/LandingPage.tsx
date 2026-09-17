@@ -242,16 +242,16 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
                           grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[calc(90vh-64px)]">
 
             {/* LEFT — copy */}
-            <div className="space-y-7 fade-in">
+            <div className="space-y-5 md:space-y-7 fade-in">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-[#E8558A]
-                              text-white px-5 py-2 rounded-full shadow-md badge-glow text-[13px] font-bold">
+                              text-white px-4 md:px-5 py-2 rounded-full shadow-md badge-glow text-[12px] md:text-[13px] font-bold">
                 <Gift size={15} strokeWidth={2} />
                 Trả bạn 80% hoa hồng · Mời bạn thêm 5%
               </div>
 
               {/* Headline */}
-              <h1 className="text-balance text-[42px] md:text-[60px] font-black leading-[1.08] tracking-[-0.025em] text-ink">
+              <h1 className="text-balance text-[36px] md:text-[60px] font-black leading-[1.1] md:leading-[1.08] tracking-[-0.025em] text-ink">
                 Tung tăng mua,{" "}
                 <span
                   className="text-transparent bg-clip-text"
@@ -262,19 +262,17 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
                 🐰
               </h1>
 
-              <p className="text-[18px] text-body leading-relaxed max-w-lg">
+              <p className="text-[16px] md:text-[18px] text-body leading-relaxed max-w-lg">
                 Vẫn cái giỏ hàng đó, vẫn cái giá đó — chỉ khác là mua qua đây thì{" "}
-                <span className="font-bold text-ink">80% hoa hồng</span> sàn trả về túi bạn, không
-                phải túi ai khác. Rút từ <span className="font-bold text-ink">10.000đ</span>, miễn
-                phí trọn đời.
+                <span className="font-bold text-ink">80% hoa hồng</span> sàn trả về túi bạn. Rút từ <span className="font-bold text-ink">10.000đ</span>, miễn phí trọn đời.
               </p>
 
               {/* Ví dụ bằng số thật — nói 80% suông thì khó hình dung */}
-              <div className="flex flex-wrap items-center gap-sm rounded-2xl border border-primary-pale bg-white/80 px-lg py-md text-[14px] shadow-cute">
+              <div className="flex flex-wrap items-center gap-2 md:gap-sm rounded-2xl border border-primary-pale bg-white/80 px-4 md:px-lg py-3 md:py-md text-[13px] md:text-[14px] shadow-cute">
                 <span className="font-bold text-ink">Đơn 1.000.000đ</span>
-                <span className="text-mute">→ sàn trả hoa hồng ~80.000đ</span>
+                <span className="text-mute">→ sàn trả ~80.000đ</span>
                 <span className="text-mute">→</span>
-                <span className="rounded-pill bg-primary-neutral px-md py-[3px] font-black text-primary">
+                <span className="rounded-pill bg-primary-neutral px-3 md:px-md py-[3px] font-black text-primary">
                   bạn nhận ~57.000đ
                 </span>
               </div>
@@ -324,10 +322,10 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
             </div>
 
             {/* RIGHT — Bunny mascot lớn + platform badges */}
-            <div className="flex flex-col items-center justify-center gap-8 relative">
+            <div className="flex flex-col items-center justify-center gap-6 md:gap-8 relative mt-8 md:mt-0">
               {/* Vòng tròn nền hồng glowing */}
               <div
-                className="absolute w-[320px] h-[320px] md:w-[400px] md:h-[400px] rounded-full pointer-events-none"
+                className="absolute w-[240px] h-[240px] md:w-[400px] md:h-[400px] rounded-full pointer-events-none"
                 style={{
                   background:
                     "radial-gradient(circle, #FFDFE8 0%, #FFF0F4 50%, transparent 75%)",
@@ -335,9 +333,14 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
                 }}
               />
 
-              {/* Bunny mascot */}
+              {/* Bunny mascot - Responsive size */}
               <div className="relative z-10 bunny-pop wiggle">
-                <BunnyMascot size={260} label="Linh vật thỏ BunnyHoanTien" />
+                <div className="block md:hidden">
+                  <BunnyMascot size={180} label="Linh vật thỏ BunnyHoanTien" />
+                </div>
+                <div className="hidden md:block">
+                  <BunnyMascot size={260} label="Linh vật thỏ BunnyHoanTien" />
+                </div>
               </div>
 
               {/* Platform badges bên dưới bunny — Icons8 CDN */}

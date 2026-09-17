@@ -123,20 +123,32 @@ export default async function CustomerRefundsPage({ searchParams }: { searchPara
           </div>
         </div>
 
-      {/* Trái: chọn nền tảng & tạo link — Phải: 6 điều lưu ý (trước đây là ảnh) */}
-      <div className="grid grid-cols-1 gap-2xl lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:items-start">
-        <CustomerLinkForm platforms={sortPlatformsForDisplay(platforms).map((p) => ({ id: p.id, code: p.code, label: p.name }))} />
-        <RefundNotes />
-      </div>
+      {/* Layout: Mobile - Form trước, History giữa, Notes cuối | Desktop - Form + Notes cạnh nhau, History dưới */}
+      <div className="flex flex-col gap-2xl">
+        {/* Form tạo link */}
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:gap-2xl lg:items-start">
+          <CustomerLinkForm platforms={sortPlatformsForDisplay(platforms).map((p) => ({ id: p.id, code: p.code, label: p.name }))} />
+          
+          {/* Notes - Ẩn trên mobile, hiện trên desktop ở bên phải */}
+          <div className="hidden lg:block">
+            <RefundNotes />
+          </div>
+        </div>
 
-      {/* HISTORY CARD */}
-      <RefundHistoryClient
-        links={formattedLinks}
-        totalPages={totalPages}
-        currentPage={page}
-        totalCount={totalCount}
-        counts={{ all: allCount, favorite: favoriteCount }}
-      />
+        {/* HISTORY CARD - Hiện sau form trên mobile */}
+        <RefundHistoryClient
+          links={formattedLinks}
+          totalPages={totalPages}
+          currentPage={page}
+          totalCount={totalCount}
+          counts={{ all: allCount, favorite: favoriteCount }}
+        />
+
+        {/* Notes - Hiện sau history trên mobile, ẩn trên desktop */}
+        <div className="block lg:hidden">
+          <RefundNotes />
+        </div>
+      </div>
       </div>
     </div>
   );

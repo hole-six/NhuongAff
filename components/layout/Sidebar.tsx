@@ -49,20 +49,28 @@ export function Sidebar({
 
   return (
     <>
-      {/* Mobile Top Bar */}
-      <div className="md:hidden flex items-center justify-between bg-white border-b border-pink-100 px-4 py-3 sticky top-0 z-30 shadow-sm">
-        <div className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-full bg-pink-100 border border-pink-200 p-1 flex items-center justify-center shadow-sm">
-            <BunnyMascot size={26} />
-          </div>
-          <div className="font-extrabold text-sm text-slate-800 truncate max-w-[200px]">{brandName}</div>
-        </div>
+      {/* Mobile Top Bar - Redesigned: Menu trái, Tên phải */}
+      <div className="md:hidden flex items-center justify-between bg-gradient-to-r from-white via-pink-50/30 to-white border-b border-pink-200/60 px-4 py-3 sticky top-0 z-30 shadow-md backdrop-blur-md">
+        {/* Menu Button - Trái */}
         <button
           onClick={() => setIsOpen(true)}
-          className="p-2 text-slate-500 hover:text-slate-800 hover:bg-pink-50 rounded-xl transition-colors"
+          className="group relative p-2.5 text-slate-600 hover:text-primary rounded-2xl transition-all duration-200 hover:bg-pink-100/50 active:scale-95 shadow-sm hover:shadow-md"
         >
-          <Menu size={22} />
+          <Menu size={24} strokeWidth={2.5} className="group-hover:rotate-180 transition-transform duration-300" />
+          <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-pink-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         </button>
+
+        {/* User Info - Phải */}
+        <div className="flex items-center gap-3">
+          <div className="text-right">
+            <div className="font-black text-sm text-slate-900 truncate max-w-[160px]">{brandName}</div>
+            <div className="text-[10px] font-bold text-primary uppercase tracking-wider">VIP Member</div>
+          </div>
+          <div className="relative h-10 w-10 rounded-full bg-gradient-to-br from-pink-100 to-pink-200 border-2 border-white p-1 flex items-center justify-center shadow-lg ring-2 ring-pink-200/50">
+            <BunnyMascot size={28} />
+            <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full bg-emerald-500 border-2 border-white shadow-sm animate-pulse" />
+          </div>
+        </div>
       </div>
 
       {/* Mobile Backdrop */}
