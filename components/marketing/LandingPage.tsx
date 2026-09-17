@@ -190,12 +190,40 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
           />
 
           {/* Lớp icon TikTok/Shopee/Lazada bay tứ tung — Icons8 CDN */}
+          {/* Desktop - Nhiều icon bay tứ tung */}
           <div className="absolute inset-0 pointer-events-none z-0 hidden md:block">
             {FLOATING_ICONS.map(({ src, alt, size, cls, style }, i) => (
               <div
                 key={i}
                 className={`absolute ${cls}`}
                 style={{ ...style, opacity: 0.78 }}
+              >
+                <img
+                  src={src}
+                  alt={alt}
+                  width={size}
+                  height={size}
+                  loading="lazy"
+                  style={{ width: size, height: size, objectFit: "contain" }}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile - Ít icon bay nhẹ hơn */}
+          <div className="absolute inset-0 pointer-events-none z-0 block md:hidden">
+            {[
+              { src: `${I8_PLASTICINE}/shopee.png`,  alt: "Shopee",  size: 32, cls: "float-icon-1 sparkle-1", style: { top: "5%",   left: "5%"    } },
+              { src: `${I8_PLASTICINE}/tiktok.png`,  alt: "TikTok",  size: 28, cls: "float-icon-2 sparkle-2", style: { top: "8%",   right: "8%"   } },
+              { src: `${I8_PLASTICINE}/lazada.png`,  alt: "Lazada",  size: 30, cls: "float-icon-3 sparkle-3", style: { top: "35%",  left: "3%"    } },
+              { src: `${I8_PLASTICINE}/shopee.png`,  alt: "Shopee",  size: 26, cls: "float-icon-4 sparkle-1", style: { bottom: "25%", right: "5%"   } },
+              { src: `${I8_PLASTICINE}/tiktok.png`,  alt: "TikTok",  size: 28, cls: "float-icon-5 sparkle-2", style: { bottom: "15%", left: "7%"  } },
+              { src: `${I8_PLASTICINE}/lazada.png`,  alt: "Lazada",  size: 32, cls: "float-icon-6 sparkle-3", style: { top: "55%",   right: "4%"   } },
+            ].map(({ src, alt, size, cls, style }, i) => (
+              <div
+                key={i}
+                className={`absolute ${cls}`}
+                style={{ ...style, opacity: 0.65 }}
               >
                 <img
                   src={src}

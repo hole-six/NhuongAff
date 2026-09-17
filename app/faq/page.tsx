@@ -218,10 +218,10 @@ export default function FaqPage() {
           </div>
 
           {/* Bottom floating bunnies */}
-          <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 hidden md:flex gap-8 opacity-70 bunny-pop" style={{ animationDelay: '1s' }}>
-            <img src="/mascots/icons/bunny-surprised.webp" alt="" className="h-16 w-16 object-contain float" style={{ animationDelay: '0.5s' }} />
-            <img src="/mascots/icons/bunny-wink.webp" alt="" className="h-16 w-16 object-contain float" style={{ animationDelay: '1.5s' }} />
-            <img src="/mascots/icons/bunny-delighted.webp" alt="" className="h-16 w-16 object-contain float" style={{ animationDelay: '2.5s' }} />
+          <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 flex gap-4 md:gap-8 opacity-70 bunny-pop" style={{ animationDelay: '1s' }}>
+            <img src="/mascots/icons/bunny-surprised.webp" alt="" className="h-12 w-12 md:h-16 md:w-16 object-contain float" style={{ animationDelay: '0.5s' }} />
+            <img src="/mascots/icons/bunny-wink.webp" alt="" className="h-12 w-12 md:h-16 md:w-16 object-contain float" style={{ animationDelay: '1.5s' }} />
+            <img src="/mascots/icons/bunny-delighted.webp" alt="" className="h-12 w-12 md:h-16 md:w-16 object-contain float" style={{ animationDelay: '2.5s' }} />
           </div>
         </section>
 
