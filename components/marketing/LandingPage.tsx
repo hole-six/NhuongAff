@@ -38,11 +38,11 @@ const FLOATING_ICONS = [
   { src: `${I8_PLASTICINE}/lazada.png`,  alt: "Lazada",  size: 38, cls: "float-icon-1 sparkle-3", style: { top: "14%",   right: "4%"   } },
 ];
 
-/* ─── Feature cards - Dùng Lucide React icon cho "Tạo link tức thì" vì Icons8 không có ─── */
+/* ─── Feature cards - Dùng Icons8 Dusk style cho icon đẹp hơn ─── */
 const BUNNY_FEATURES = [
   {
-    iconSrc: null, // Dùng Lucide Zap icon thay vì Icons8
-    useLucideIcon: true,
+    iconSrc: "https://img.icons8.com/dusk/64/link--v1.png",
+    useLucideIcon: false,
     color: "from-[#FFF0F4] to-white",
     border: "border-[#FFDFE8]",
     dot: "bg-primary",
