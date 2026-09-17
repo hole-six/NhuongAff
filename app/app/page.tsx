@@ -18,6 +18,7 @@ import { formatCurrency, formatDate } from "@/lib/format";
 import { InviteSection } from "@/components/customer/InviteSection";
 import { PhoneNumberPrompt } from "@/components/customer/PhoneNumberPrompt";
 import { BunnyMascot } from "@/components/ui/BunnyMascot";
+import { BunnyFace } from "@/components/ui/BunnyFace";
 
 // Platform color map để hiển thị ảnh placeholder
 const PLATFORM_STYLE: Record<string, { color: string }> = {
@@ -109,11 +110,7 @@ export default async function CustomerHomePage() {
 
         <div className="relative z-10 flex items-center justify-between gap-lg flex-wrap">
           <div className="flex items-center gap-lg">
-            <img
-              src="/heochaomung.png"
-              alt="Heo chào mừng"
-              className="h-20 w-20 sm:h-24 sm:w-24 object-contain drop-shadow-lg shrink-0"
-            />
+            <BunnyFace mood="sparkle" size={88} className="drop-shadow-md shrink-0" />
             <div>
               <p className="text-[12px] font-bold uppercase tracking-widest text-[#D13A6B]/60 mb-1">
                 Chào mừng trở lại
@@ -124,7 +121,7 @@ export default async function CustomerHomePage() {
               <p className="mt-1 text-[13px] text-[#9A8490] leading-relaxed">
                 {allOrders.length === 0
                   ? "Chưa có đơn nào — hãy chia sẻ link để bắt đầu hoàn tiền!"
-                  : `Bạn có ${allOrders.length} đơn đã ghi nhận. Tiếp tục kiếm tiền nhé! 🐷`}
+                  : `Bạn có ${allOrders.length} đơn đã ghi nhận. Tiếp tục kiếm tiền nhé! 🐰`}
               </p>
             </div>
           </div>
@@ -150,7 +147,7 @@ export default async function CustomerHomePage() {
           <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-pink-50 opacity-60" />
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
-              <img src="/heochodoi.png" alt="" className="h-11 w-11 object-contain transition-transform group-hover:scale-110" />
+              <BunnyFace mood="wink" size={44} className="transition-transform group-hover:scale-110" />
               <span className="rounded-full bg-amber-100 px-sm py-[3px] text-[10px] font-bold text-amber-600">Đang xử lý</span>
             </div>
             <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1">Chờ duyệt</div>
@@ -169,7 +166,7 @@ export default async function CustomerHomePage() {
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
               <div className="relative">
-                <img src="/heovitien.png" alt="" className="h-11 w-11 object-contain transition-transform group-hover:scale-110" />
+                <BunnyFace mood="delighted" size={44} className="transition-transform group-hover:scale-110" />
                 <div className="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 shadow-sm">
                   <span className="text-[9px] font-black text-white">✓</span>
                 </div>
@@ -189,7 +186,7 @@ export default async function CustomerHomePage() {
           <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-rose-50 opacity-50" />
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
-              <img src="/heongansach.png" alt="" className="h-11 w-11 object-contain transition-transform group-hover:scale-110" />
+              <BunnyFace mood="heart" size={44} className="transition-transform group-hover:scale-110" />
               <span className="rounded-full bg-rose-100 px-sm py-[3px] text-[10px] font-bold text-rose-600">Đã nhận</span>
             </div>
             <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1">Đã rút</div>
@@ -207,7 +204,7 @@ export default async function CustomerHomePage() {
         >
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
-              <img src="/heoquatang.png" alt="" className="h-11 w-11 object-contain transition-transform group-hover:scale-110" />
+              <BunnyFace mood="bashful" size={44} className="transition-transform group-hover:scale-110" />
               <span className="rounded-full bg-purple-100 px-sm py-[3px] text-[10px] font-bold text-purple-600">Tổng cộng</span>
             </div>
             <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1">Tổng tích luỹ</div>
@@ -224,7 +221,7 @@ export default async function CustomerHomePage() {
         <div className="rounded-3xl bg-white p-md sm:p-xl shadow-sm ring-1 ring-black/[0.06] overflow-hidden">
           <div className="mb-lg flex items-center justify-between border-b border-gray-100 pb-md">
             <h2 className="flex items-center gap-sm text-[15px] font-bold text-gray-900">
-              <img src="/heothongbao.png" alt="" className="h-8 w-8 object-contain" />
+              <BunnyFace mood="sparkle" size={32} />
               Lịch sử đơn hàng
             </h2>
             <a
@@ -238,7 +235,7 @@ export default async function CustomerHomePage() {
 
           {recentOrders.length === 0 ? (
             <div className="flex flex-col items-center py-2xl text-center">
-              <img src="/heochodoi.png" alt="" className="mb-lg h-20 w-20 object-contain" />
+              <BunnyFace mood="sleepy" size={72} className="mb-lg" />
               <div className="text-[14px] font-semibold text-gray-700">Chưa có đơn hàng nào</div>
               <div className="mt-xs text-[12px] text-gray-400">Chia sẻ link để bắt đầu kiếm tiền hoàn!</div>
             </div>
@@ -327,22 +324,22 @@ export default async function CustomerHomePage() {
           {/* Truy cập nhanh */}
           <div className="rounded-3xl bg-white p-xl shadow-sm ring-1 ring-black/[0.06]">
             <h2 className="mb-md flex items-center gap-sm text-[14px] font-bold text-gray-700">
-              <img src="/heodashboard.png" alt="" className="h-7 w-7 object-contain" />
+              <BunnyFace mood="sparkle" size={28} />
               Truy cập nhanh
             </h2>
             <div className="grid grid-cols-2 gap-sm">
               {[
-                { href: "/app/wallet", label: "Rút tiền", img: "/heovitien.png", bg: "bg-emerald-50", text: "text-emerald-600" },
-                { href: "/app/refunds", label: "Hoàn tiền", img: "/heogiamgia.png", bg: "bg-rose-50", text: "text-rose-600" },
-                { href: "/app/orders", label: "Đơn hàng", img: "/heongansach.png", bg: "bg-blue-50", text: "text-blue-600" },
-                { href: "/app/deals", label: "Ưu đãi hot", img: "/heoqua.png", bg: "bg-purple-50", text: "text-purple-600" },
-              ].map(({ href, label, img, bg, text }) => (
+                { href: "/app/wallet", label: "Rút tiền", mood: "delighted" as const, bg: "bg-emerald-50", text: "text-emerald-600" },
+                { href: "/app/refunds", label: "Hoàn tiền", mood: "heart" as const, bg: "bg-rose-50", text: "text-rose-600" },
+                { href: "/app/orders", label: "Đơn hàng", mood: "sparkle" as const, bg: "bg-blue-50", text: "text-blue-600" },
+                { href: "/app/deals", label: "Ưu đãi hot", mood: "wink" as const, bg: "bg-purple-50", text: "text-purple-600" },
+              ].map(({ href, label, mood, bg, text }) => (
                 <a
                   key={href}
                   href={href}
                   className={`flex flex-col items-center gap-xs rounded-2xl ${bg} p-md transition-all hover:-translate-y-0.5 hover:shadow-sm`}
                 >
-                  <img src={img} alt="" className="h-9 w-9 object-contain" />
+                  <BunnyFace mood={mood} size={36} />
                   <span className={`text-[12px] font-bold ${text}`}>{label}</span>
                 </a>
               ))}

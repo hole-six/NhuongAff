@@ -278,72 +278,68 @@
     to   { transform: translateX(-50%); }
   }
 
-  /* ── Floating platform icons (TikTok/Shopee/Lazada bay tứ tung) ── */
-  .float-icon-1 {
-    animation: floatIcon1 6s ease-in-out infinite;
+  /* ── Floating platform icons (TikTok/Shopee/Lazada bay quanh màn hình) ──
+     Quãng đường tính bằng vw/vh nên icon thực sự dạo quanh khung nhìn thay vì
+     chỉ rung tại chỗ; mỗi icon một quỹ đạo và chu kỳ lệch nhau để không bao
+     giờ trùng nhịp. Chỉ animate transform nên không gây reflow. */
+  .float-icon-1, .float-icon-2, .float-icon-3, .float-icon-4,
+  .float-icon-5, .float-icon-6, .float-icon-7, .float-icon-8 {
+    will-change: transform;
+    pointer-events: none;
   }
-  .float-icon-2 {
-    animation: floatIcon2 7.5s ease-in-out infinite;
-  }
-  .float-icon-3 {
-    animation: floatIcon3 5.5s ease-in-out infinite;
-  }
-  .float-icon-4 {
-    animation: floatIcon4 8s ease-in-out infinite;
-  }
-  .float-icon-5 {
-    animation: floatIcon5 6.8s ease-in-out infinite;
-  }
-  .float-icon-6 {
-    animation: floatIcon6 7.2s ease-in-out infinite;
-  }
-  .float-icon-7 {
-    animation: floatIcon7 5.8s ease-in-out infinite;
-  }
-  .float-icon-8 {
-    animation: floatIcon8 9s ease-in-out infinite;
-  }
+  .float-icon-1 { animation: floatIcon1 34s ease-in-out infinite; }
+  .float-icon-2 { animation: floatIcon2 41s ease-in-out infinite; }
+  .float-icon-3 { animation: floatIcon3 29s ease-in-out infinite; }
+  .float-icon-4 { animation: floatIcon4 46s ease-in-out infinite; }
+  .float-icon-5 { animation: floatIcon5 37s ease-in-out infinite; }
+  .float-icon-6 { animation: floatIcon6 43s ease-in-out infinite; }
+  .float-icon-7 { animation: floatIcon7 31s ease-in-out infinite; }
+  .float-icon-8 { animation: floatIcon8 50s ease-in-out infinite; }
 
   @keyframes floatIcon1 {
-    0%, 100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-    25%      { transform: translate(25px, -35px) rotate(12deg) scale(1.08); }
-    50%      { transform: translate(-15px, -50px) rotate(-8deg) scale(0.95); }
-    75%      { transform: translate(-30px, -20px) rotate(6deg) scale(1.05); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    25%      { transform: translate(34vw, 12vh) rotate(90deg) scale(1.1); }
+    50%      { transform: translate(52vw, -8vh) rotate(180deg) scale(0.9); }
+    75%      { transform: translate(18vw, -20vh) rotate(270deg) scale(1.05); }
   }
   @keyframes floatIcon2 {
-    0%, 100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-    33%      { transform: translate(-30px, -45px) rotate(-14deg) scale(1.12); }
-    66%      { transform: translate(20px, -25px) rotate(10deg) scale(0.92); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    30%      { transform: translate(-28vw, 18vh) rotate(-80deg) scale(1.12); }
+    60%      { transform: translate(-46vw, -14vh) rotate(-170deg) scale(0.92); }
+    85%      { transform: translate(-12vw, -26vh) rotate(-250deg) scale(1.04); }
   }
   @keyframes floatIcon3 {
-    0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
-    20%      { transform: translate(35px, -20px) rotate(8deg); }
-    50%      { transform: translate(-25px, -40px) rotate(-10deg); }
-    80%      { transform: translate(15px, -15px) rotate(4deg); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    33%      { transform: translate(22vw, -22vh) rotate(120deg) scale(0.88); }
+    66%      { transform: translate(44vw, 16vh) rotate(240deg) scale(1.14); }
   }
   @keyframes floatIcon4 {
-    0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
-    30%      { transform: translate(-40px, -30px) rotate(15deg); }
-    70%      { transform: translate(25px, -45px) rotate(-12deg); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    20%      { transform: translate(-18vw, -16vh) rotate(-60deg) scale(1.08); }
+    45%      { transform: translate(-40vw, 10vh) rotate(-140deg) scale(0.9); }
+    70%      { transform: translate(-24vw, 28vh) rotate(-220deg) scale(1.1); }
   }
   @keyframes floatIcon5 {
-    0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
-    25%      { transform: translate(30px, -40px) rotate(-10deg); }
-    75%      { transform: translate(-35px, -20px) rotate(12deg); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    28%      { transform: translate(30vw, 22vh) rotate(100deg) scale(0.94); }
+    55%      { transform: translate(8vw, 38vh) rotate(200deg) scale(1.12); }
+    80%      { transform: translate(-16vw, 14vh) rotate(300deg) scale(1); }
   }
   @keyframes floatIcon6 {
-    0%, 100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-    40%      { transform: translate(-25px, -50px) rotate(-16deg) scale(1.15); }
-    80%      { transform: translate(35px, -20px) rotate(8deg) scale(0.92); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    35%      { transform: translate(-32vw, -20vh) rotate(-110deg) scale(1.1); }
+    70%      { transform: translate(14vw, -34vh) rotate(-230deg) scale(0.92); }
   }
   @keyframes floatIcon7 {
-    0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
-    35%      { transform: translate(-35px, -25px) rotate(-12deg); }
-    70%      { transform: translate(20px, -45px) rotate(10deg); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    25%      { transform: translate(26vw, 26vh) rotate(85deg) scale(1.06); }
+    50%      { transform: translate(-20vw, 34vh) rotate(175deg) scale(0.9); }
+    75%      { transform: translate(-38vw, 6vh) rotate(265deg) scale(1.12); }
   }
   @keyframes floatIcon8 {
-    0%, 100% { transform: translate(0px, 0px) rotate(0deg); }
-    50%      { transform: translate(45px, -40px) rotate(18deg); }
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    40%      { transform: translate(42vw, -18vh) rotate(140deg) scale(0.86); }
+    75%      { transform: translate(20vw, 30vh) rotate(280deg) scale(1.16); }
   }
 
   /* ── Sparkle nhấp nháy cho icon nền ── */
@@ -351,9 +347,22 @@
   .sparkle-2 { animation: sparkleAnim 4.5s ease-in-out infinite 1.2s; }
   .sparkle-3 { animation: sparkleAnim 3.8s ease-in-out infinite 0.7s; }
   @keyframes sparkleAnim {
-    0%, 100% { opacity: 0.55; transform: scale(1); }
-    50%      { opacity: 1; transform: scale(1.15); }
+    0%, 100% { opacity: 0.55; }
+    50%      { opacity: 1; }
   }
+
+  /* Icon vừa mang .float-icon-N vừa mang .sparkle-N: hai class cùng khai báo
+     thuộc tính `animation` nên class đứng sau sẽ ghi đè class trước, khiến icon
+     chỉ nhấp nháy mà đứng yên. Các luật dưới đây có độ ưu tiên cao hơn và khai
+     báo cả hai animation trong một danh sách để chúng chạy song song. */
+  .float-icon-1[class*="sparkle-"] { animation: floatIcon1 34s ease-in-out infinite, sparkleAnim 3.2s ease-in-out infinite; }
+  .float-icon-2[class*="sparkle-"] { animation: floatIcon2 41s ease-in-out infinite, sparkleAnim 4.1s ease-in-out infinite; }
+  .float-icon-3[class*="sparkle-"] { animation: floatIcon3 29s ease-in-out infinite, sparkleAnim 3.6s ease-in-out infinite; }
+  .float-icon-4[class*="sparkle-"] { animation: floatIcon4 46s ease-in-out infinite, sparkleAnim 4.4s ease-in-out infinite; }
+  .float-icon-5[class*="sparkle-"] { animation: floatIcon5 37s ease-in-out infinite, sparkleAnim 3.9s ease-in-out infinite; }
+  .float-icon-6[class*="sparkle-"] { animation: floatIcon6 43s ease-in-out infinite, sparkleAnim 3.4s ease-in-out infinite; }
+  .float-icon-7[class*="sparkle-"] { animation: floatIcon7 31s ease-in-out infinite, sparkleAnim 4.2s ease-in-out infinite; }
+  .float-icon-8[class*="sparkle-"] { animation: floatIcon8 50s ease-in-out infinite, sparkleAnim 3.7s ease-in-out infinite; }
 
   /* ── Bunny pop entrance ── */
   .bunny-pop {

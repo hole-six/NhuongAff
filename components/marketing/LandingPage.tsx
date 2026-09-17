@@ -38,10 +38,10 @@ const FLOATING_ICONS = [
   { src: `${I8_PLASTICINE}/lazada.png`,  alt: "Lazada",  size: 38, cls: "float-icon-1 sparkle-3", style: { top: "14%",   right: "4%"   } },
 ];
 
-/* ─── Feature cards (thay PIG_FEATURES) ─── */
+/* ─── Feature cards dùng trực tiếp icon Plasticine từ Icons8 CDN ─── */
 const BUNNY_FEATURES = [
   {
-    emoji: "⚡",
+    iconSrc: `${I8_PLASTICINE}/flash-on.png`,
     color: "from-[#FFF0F4] to-white",
     border: "border-[#FFDFE8]",
     dot: "bg-primary",
@@ -49,7 +49,7 @@ const BUNNY_FEATURES = [
     description: "Tạo link Shopee, TikTok Shop hoặc Lazada nhanh chóng chỉ với 1 click. Mua gì cũng hoàn, không bỏ lỡ ưu đãi.",
   },
   {
-    emoji: "📊",
+    iconSrc: `${I8_PLASTICINE}/combo-chart.png`,
     color: "from-[#E3F5EA] to-white",
     border: "border-[#B7E4C7]",
     dot: "bg-green-500",
@@ -57,7 +57,7 @@ const BUNNY_FEATURES = [
     description: "Theo dõi đơn hàng, tiền hoàn theo thời gian thực. Mọi thông tin rõ ràng, đáng tin cậy.",
   },
   {
-    emoji: "💸",
+    iconSrc: `${I8_PLASTICINE}/cash-in-hand.png`,
     color: "from-[#FFF6EF] to-white",
     border: "border-[#FFDCC2]",
     dot: "bg-orange-400",
@@ -65,7 +65,7 @@ const BUNNY_FEATURES = [
     description: "Rút tiền linh hoạt chỉ từ 10.000đ. Về ví nhanh chóng, không cần chờ lâu.",
   },
   {
-    emoji: "🎁",
+    iconSrc: `${I8_PLASTICINE}/gift.png`,
     color: "from-[#F0ECFB] to-white",
     border: "border-[#D8CCF5]",
     dot: "bg-purple-400",
@@ -121,21 +121,21 @@ const FEATURES = [
 
 const STEPS = [
   {
-    emoji: "🐰",
+    iconSrc: `${I8_PLASTICINE}/add-user-male.png`,
     color: "from-[#FFF0F4] to-[#FFDFE8]",
     numberColor: "text-primary",
     title: "Đăng ký tài khoản",
     description: "Tạo tài khoản miễn phí trong chưa đầy 1 phút, không cần thẻ thanh toán.",
   },
   {
-    emoji: "🔗",
+    iconSrc: `${I8_PLASTICINE}/link.png`,
     color: "from-[#EEF5FF] to-[#DBEAFE]",
     numberColor: "text-blue-500",
     title: "Dán link sản phẩm",
     description: "Copy link Shopee, TikTok Shop hoặc Lazada bạn muốn mua, dán vào hệ thống để lấy link hoàn tiền.",
   },
   {
-    emoji: "💰",
+    iconSrc: `${I8_PLASTICINE}/shopping-bag.png`,
     color: "from-[#FFF6EF] to-[#FFE5CC]",
     numberColor: "text-orange-500",
     title: "Mua sắm & nhận hoàn tiền",
@@ -320,43 +320,40 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
               </div>
             </div>
           </div>
-
-          {/* Mobile: floating icons — Icons8 CDN */}
-          <div className="md:hidden absolute top-8 right-4 opacity-55 pointer-events-none flex flex-col gap-6">
-            <img src={`${I8}/shopee.png`} alt="Shopee" width={28} height={28}
-                 className="float-icon-1" style={{ width: 28, height: 28, objectFit: "contain" }} />
-            <img src={`${I8}/tiktok.png`} alt="TikTok" width={24} height={24}
-                 className="float-icon-3" style={{ width: 24, height: 24, objectFit: "contain" }} />
-            <img src={`${I8}/lazada.png`} alt="Lazada" width={26} height={26}
-                 className="float-icon-5" style={{ width: 26, height: 26, objectFit: "contain" }} />
-          </div>
         </section>
 
-        {/* ═══ FEATURE CARDS (thay PIG_FEATURES) ═══ */}
+        {/* ═══ FEATURE CARDS (dùng Icons8 Plasticine CDN) ═══ */}
         <section className="py-16 bg-white border-y border-[#FFDFE8]/60">
           <div className="max-w-[1200px] mx-auto px-6 md:px-12">
             <Reveal>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {BUNNY_FEATURES.map((f) => (
                   <div
                     key={f.title}
-                    className={`group flex items-start gap-5 rounded-3xl bg-gradient-to-br ${f.color}
+                    className={`group flex items-start gap-4 rounded-3xl bg-gradient-to-br ${f.color}
                                 border ${f.border} p-6 shadow-sm hover:shadow-lg
                                 hover:-translate-y-1 transition-all duration-300`}
                   >
                     {/* Icon container */}
                     <div
-                      className="shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center
-                                 text-[28px] shadow-sm bg-white/80 border border-white"
+                      className="shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center
+                                 shadow-sm bg-white border border-white p-2"
                     >
-                      {f.emoji}
+                      <img
+                        src={f.iconSrc}
+                        alt={f.title}
+                        width={36}
+                        height={36}
+                        loading="lazy"
+                        className="w-9 h-9 object-contain group-hover:scale-110 transition-transform duration-200"
+                      />
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-1.5">
                         <div className={`w-2 h-2 rounded-full ${f.dot}`} />
-                        <h2 className="font-black text-[17px] text-ink">{f.title}</h2>
+                        <h2 className="font-black text-[16px] text-ink">{f.title}</h2>
                       </div>
-                      <p className="text-mute text-[14px] leading-relaxed">{f.description}</p>
+                      <p className="text-mute text-[13px] leading-relaxed">{f.description}</p>
                     </div>
                   </div>
                 ))}
@@ -438,11 +435,18 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
                       {i + 1}
                     </div>
 
-                    {/* Emoji + step number */}
+                    {/* Icon + step number */}
                     <div className="relative z-10 flex items-center gap-3 mb-5">
                       <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center
-                                      shadow-sm text-[24px]">
-                        {step.emoji}
+                                      shadow-sm p-2">
+                        <img
+                          src={step.iconSrc}
+                          alt={step.title}
+                          width={36}
+                          height={36}
+                          loading="lazy"
+                          className="w-9 h-9 object-contain group-hover:scale-110 transition-transform duration-200"
+                        />
                       </div>
                       <span className={`text-[13px] font-black uppercase tracking-wide ${step.numberColor}`}>
                         Bước {i + 1}
@@ -482,131 +486,131 @@ export function LandingPage({ totalPaidOut, totalCustomers }: { totalPaidOut: nu
               </div>
             </Reveal>
 
-            {/* Main bento grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {/* Main bento grid — 3 cột chuẩn trên desktop, tall card bên trái span 2 dòng */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
 
-              {/* Hero bento — chiếm 2 cột */}
-              <Reveal>
-                <div className="md:col-span-2 bg-gradient-to-br from-primary to-[#E8558A] rounded-[40px] p-10
-                                flex flex-col md:flex-row items-center gap-8
-                                shadow-xl shadow-primary/20 overflow-hidden relative">
+              {/* Hero bento — cao 2 dòng bên trái */}
+              <Reveal className="lg:row-span-2 h-full">
+                <div className="h-full bg-gradient-to-br from-primary to-[#E8558A] rounded-[40px] p-8 md:p-10
+                                flex flex-col justify-between
+                                shadow-xl shadow-primary/20 overflow-hidden relative min-h-[420px]">
                   {/* Decorative circle */}
                   <div className="absolute -right-12 -bottom-12 w-64 h-64 rounded-full
                                   bg-white/10 pointer-events-none" />
                   <div className="absolute -left-8 -top-8 w-40 h-40 rounded-full
                                   bg-white/5 pointer-events-none" />
 
-                  <div className="relative z-10 flex-1 space-y-4">
-                    <h3 className="font-black text-[28px] md:text-[36px] text-white leading-tight tracking-tight">
+                  <div className="relative z-10 space-y-5">
+                    <h3 className="font-black text-[28px] md:text-[34px] text-white leading-tight tracking-tight">
                       Tỉ lệ hoàn tiền<br/>cao nhất thị trường
                     </h3>
-                    <p className="text-white/85 text-[15px] leading-relaxed max-w-sm">
+                    <p className="text-white/85 text-[15px] leading-relaxed">
                       Hàng ngàn người dùng đã tiết kiệm hàng chục triệu đồng mỗi năm nhờ cơ chế hoàn tiền thông minh.
                     </p>
-                    <ul className="space-y-2 pt-2">
+                    <ul className="space-y-3 pt-2">
                       {[
                         "Hoàn lên đến 80% hoa hồng affiliate",
                         "Cập nhật trạng thái đơn thời gian thực",
                         "Hàng ngàn mã giảm giá độc quyền",
                       ].map((item, i) => (
-                        <li key={i}
-                            className="flex items-center gap-2 text-white text-[14px] font-semibold">
-                          <BadgeCheck size={16} className="shrink-0 text-white" />
+                        <li key={i} className="flex items-center gap-2.5 text-white text-[14px] font-semibold">
+                          <BadgeCheck size={18} className="shrink-0 text-white" />
                           {item}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  {/* Bunny nhỏ trang trí */}
-                  <div className="relative z-10 shrink-0 opacity-90">
-                    <BunnyMascot size={140} label="" />
+                  {/* Bunny mascot nhỏ phía dưới */}
+                  <div className="relative z-10 flex justify-end pt-6 opacity-95">
+                    <BunnyMascot size={130} label="" />
                   </div>
                 </div>
               </Reveal>
 
-              {/* Bento phụ — rút tiền */}
+              {/* Bento phụ 1 — Rút tiền siêu tốc */}
               <Reveal>
-                <div className="bg-white rounded-[40px] p-8 border border-[#FFDFE8] shadow-md
-                                hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col gap-5">
-                  <div className="w-14 h-14 bg-[#FFF6EF] rounded-2xl flex items-center justify-center text-[28px]">
-                    💸
+                <div className="h-full bg-white rounded-[36px] p-7 border border-[#FFDFE8] shadow-md
+                                hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between gap-5">
+                  <div className="w-14 h-14 bg-[#FFF6EF] rounded-2xl flex items-center justify-center p-2.5 border border-[#FFDCC2]/60 shadow-sm">
+                    <img src={`${I8_PLASTICINE}/cash-in-hand.png`} alt="Rút tiền" width={40} height={40} loading="lazy" className="w-10 h-10 object-contain" />
                   </div>
                   <div>
-                    <h4 className="font-black text-[22px] text-ink mb-2">Rút tiền siêu tốc</h4>
+                    <h4 className="font-black text-[20px] text-ink mb-2">Rút tiền siêu tốc</h4>
                     <p className="text-mute text-[14px] leading-relaxed">
                       Tiền hoàn về thẳng tài khoản ngân hàng trong 24h. Mức tối thiểu cực thấp: chỉ từ{" "}
                       <span className="font-black text-ink">10.000đ</span>.
                     </p>
                   </div>
-                  <div className="mt-auto flex items-center gap-2">
+                  <div className="flex items-center gap-2 pt-2 border-t border-gray-100">
                     <Zap size={14} className="text-orange-400" />
                     <span className="text-[12px] font-bold text-orange-400">Xử lý siêu nhanh</span>
                   </div>
                 </div>
               </Reveal>
 
-              {/* Bento phụ — Bot Telegram */}
+              {/* Bento phụ 2 — Bot Telegram */}
               <Reveal>
-                <div className="bg-white rounded-[40px] p-8 border border-[#DBEAFE] shadow-md
-                                hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col gap-5">
-                  <div className="w-14 h-14 bg-[#EEF5FF] rounded-2xl flex items-center justify-center text-[28px]">
-                    🤖
+                <div className="h-full bg-white rounded-[36px] p-7 border border-[#DBEAFE] shadow-md
+                                hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between gap-5">
+                  <div className="w-14 h-14 bg-[#EEF5FF] rounded-2xl flex items-center justify-center p-2.5 border border-[#BFDBFE]/60 shadow-sm">
+                    <img src={`${I8_PLASTICINE}/telegram-app.png`} alt="Bot Telegram" width={40} height={40} loading="lazy" className="w-10 h-10 object-contain" />
                   </div>
                   <div>
-                    <h4 className="font-black text-[22px] text-ink mb-2">Bot Telegram</h4>
+                    <h4 className="font-black text-[20px] text-ink mb-2">Bot Telegram</h4>
                     <p className="text-mute text-[14px] leading-relaxed">
                       Theo dõi đơn hàng tự động thông minh. Gửi link vào bot — nhận kết quả ngay lập tức không cần mở app.
                     </p>
                   </div>
-                  <div className="mt-auto flex items-center gap-2">
+                  <div className="flex items-center gap-2 pt-2 border-t border-gray-100">
                     <Send size={14} className="text-blue-400" />
                     <span className="text-[12px] font-bold text-blue-400">Hoạt động 24/7</span>
                   </div>
                 </div>
               </Reveal>
 
-              {/* Bento phụ — Voucher */}
+              {/* Bento phụ 3 — Mã giảm giá */}
               <Reveal>
-                <div className="bg-gradient-to-br from-[#F0ECFB] to-white rounded-[40px] p-8
+                <div className="h-full bg-gradient-to-br from-[#F0ECFB] to-white rounded-[36px] p-7
                                 border border-[#D8CCF5] shadow-md
-                                hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col gap-5">
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-[28px] shadow-sm">
-                    🎫
+                                hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between gap-5">
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center p-2.5 border border-[#D8CCF5]/60 shadow-sm">
+                    <img src={`${I8_PLASTICINE}/ticket.png`} alt="Voucher" width={40} height={40} loading="lazy" className="w-10 h-10 object-contain" />
                   </div>
                   <div>
-                    <h4 className="font-black text-[22px] text-ink mb-2">Mã giảm giá</h4>
+                    <h4 className="font-black text-[20px] text-ink mb-2">Mã giảm giá</h4>
                     <p className="text-mute text-[14px] leading-relaxed">
                       Kho voucher độc quyền Freeship và giảm sâu lên tới 50% cập nhật hàng ngày.
                     </p>
                   </div>
-                  <div className="mt-auto flex items-center gap-2">
+                  <div className="flex items-center gap-2 pt-2 border-t border-purple-100/60">
                     <TicketPercent size={14} className="text-purple-400" />
                     <span className="text-[12px] font-bold text-purple-400">Cập nhật liên tục</span>
                   </div>
                 </div>
               </Reveal>
 
-              {/* Bento phụ — Mời bạn */}
+              {/* Bento phụ 4 — Mời bạn */}
               <Reveal>
-                <div className="bg-gradient-to-br from-[#FFF0F4] to-white rounded-[40px] p-8
+                <div className="h-full bg-gradient-to-br from-[#FFF0F4] to-white rounded-[36px] p-7
                                 border border-[#FFDFE8] shadow-md
-                                hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col gap-5">
-                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-[28px] shadow-sm">
-                    👥
+                                hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col justify-between gap-5">
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center p-2.5 border border-[#FFDFE8]/60 shadow-sm">
+                    <img src={`${I8_PLASTICINE}/gift.png`} alt="Mời bạn" width={40} height={40} loading="lazy" className="w-10 h-10 object-contain" />
                   </div>
                   <div>
-                    <h4 className="font-black text-[22px] text-ink mb-2">Mời bạn +5%</h4>
+                    <h4 className="font-black text-[20px] text-ink mb-2">Mời bạn +5%</h4>
                     <p className="text-mute text-[14px] leading-relaxed">
                       Chia sẻ link giới thiệu — nhận thêm 5% trên tiền hoàn của bạn bè mỗi khi họ mua hàng.
                     </p>
                   </div>
-                  <div className="mt-auto flex items-center gap-2">
+                  <div className="flex items-center gap-2 pt-2 border-t border-pink-100/60">
                     <Gift size={14} className="text-primary" />
                     <span className="text-[12px] font-bold text-primary">Không giới hạn bạn bè</span>
                   </div>
                 </div>
               </Reveal>
+
             </div>
           </div>
         </section>
