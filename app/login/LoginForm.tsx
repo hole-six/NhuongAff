@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Mail, Lock, Eye, EyeOff, ArrowRight, Loader2 } from "lucide-react";
-import { GoogleIcon } from "@/components/icons/PlatformIcons";
+import { Mail, Lock, ArrowRight, Loader2 } from "lucide-react";
+import { AuthField } from "@/components/auth/AuthField";
+import { GoogleButton } from "@/components/auth/GoogleButton";
 
 const GOOGLE_ERROR_MESSAGES: Record<string, string> = {
   google_state_mismatch: "Phiên đăng nhập Google đã hết hạn, vui lòng thử lại.",
@@ -14,30 +15,47 @@ const GOOGLE_ERROR_MESSAGES: Record<string, string> = {
   account_inactive: "Tài khoản của bạn đã bị khoá.",
 };
 
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validateEmail(v: string) {
+  if (!v.trim()) return "Bạn chưa nhập email.";
+  if (!EMAIL_RE.test(v)) return "Email chưa đúng định dạng, ví dụ: ban@gmail.com";
+  return null;
+}
+
+function validatePassword(v: string) {
+  if (!v) return "Bạn chưa nhập mật khẩu.";
+  if (v.length < 6) return "Mật khẩu phải có ít nhất 6 ký tự.";
+  return null;
+}
+
 export function LoginForm({ next }: { next?: string }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const googleError = searchParams.get("error");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState<string | null>(
+  const [fieldErrors, setFieldErrors] = useState<{ email?: string | null; password?: string | null }>({});
+  const [formError, setFormError] = useState<string | null>(
     googleError ? GOOGLE_ERROR_MESSAGES[googleError] ?? "Đăng nhập Google thất bại." : null
   );
   const [loading, setLoading] = useState(false);
 
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setError(null);
+    setFormError(null);
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setError("Email không đúng định dạng.");
-      return;
-    }
+    const emailError = validateEmail(email);
+    const passwordError = validatePassword(password);
+    setFieldErrors({ email: emailError, password: passwordError });
 
-    if (password.length < 6) {
-      setError("Mật khẩu phải có ít nhất 6 ký tự.");
+    // Đưa con trỏ về ô sai đầu tiên để người dùng sửa được ngay.
+    if (emailError || passwordError) {
+      (emailError ? emailRef : passwordRef).current?.focus();
       return;
     }
 
@@ -53,7 +71,7 @@ export function LoginForm({ next }: { next?: string }) {
 
     if (!res.ok) {
       const data = await res.json().catch(() => ({}));
-      setError(data.error ?? "Đăng nhập thất bại");
+      setFormError(data.error ?? "Đăng nhập thất bại");
       return;
     }
 
@@ -64,88 +82,75 @@ export function LoginForm({ next }: { next?: string }) {
 
   return (
     <div className="flex flex-col gap-lg">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-lg">
-      <div className="flex flex-col gap-sm">
-        <label className="text-[13px] font-bold text-ink">Email</label>
-        <div className="relative">
-          <Mail size={18} strokeWidth={2} className="pointer-events-none absolute left-lg top-1/2 -translate-y-1/2 text-mute" />
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="iviback@gmail.com"
-            autoComplete="email"
-            className="h-14 w-full rounded-2xl border border-ink/10 bg-canvas-soft/60 pl-[52px] pr-lg text-[15px] font-medium text-ink placeholder:text-mute/70 transition-all focus:border-primary focus:bg-canvas focus:outline-none focus:ring-4 focus:ring-primary/15"
-          />
-        </div>
-      </div>
+      <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-lg">
+        <AuthField
+          ref={emailRef}
+          icon={Mail}
+          label="Email"
+          type="email"
+          inputMode="email"
+          autoComplete="email"
+          value={email}
+          error={fieldErrors.email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            if (fieldErrors.email) setFieldErrors((s) => ({ ...s, email: null }));
+          }}
+          onBlur={(e) => setFieldErrors((s) => ({ ...s, email: validateEmail(e.target.value) }))}
+        />
 
-      <div className="flex flex-col gap-sm">
-        <div className="flex items-center justify-between">
-          <label className="text-[13px] font-bold text-ink">Mật khẩu</label>
-          <a href="/forgot-password" className="text-[13px] font-bold text-primary hover:text-primary-active hover:underline transition-colors">
+        <div className="flex flex-col gap-xs">
+          <AuthField
+            ref={passwordRef}
+            icon={Lock}
+            label="Mật khẩu"
+            revealable
+            autoComplete="current-password"
+            value={password}
+            error={fieldErrors.password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              if (fieldErrors.password) setFieldErrors((s) => ({ ...s, password: null }));
+            }}
+            onBlur={(e) => setFieldErrors((s) => ({ ...s, password: validatePassword(e.target.value) }))}
+          />
+          <a
+            href="/forgot-password"
+            className="self-end rounded-md px-xs py-[2px] text-[13px] font-bold text-primary transition-colors hover:text-primary-active hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          >
             Quên mật khẩu?
           </a>
         </div>
-        <div className="relative">
-          <Lock size={18} strokeWidth={2} className="pointer-events-none absolute left-lg top-1/2 -translate-y-1/2 text-mute" />
-          <input
-            type={showPassword ? "text" : "password"}
-            required
-            minLength={6}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="••••••••"
-            autoComplete="current-password"
-            className="h-14 w-full rounded-2xl border border-ink/10 bg-canvas-soft/60 pl-[52px] pr-[52px] text-[15px] font-medium text-ink placeholder:text-mute/70 transition-all focus:border-primary focus:bg-canvas focus:outline-none focus:ring-4 focus:ring-primary/15"
-          />
-          <button
-            type="button"
-            onClick={() => setShowPassword((v) => !v)}
-            className="absolute right-lg top-1/2 -translate-y-1/2 text-mute hover:text-ink transition-colors"
-            tabIndex={-1}
+
+        {formError && (
+          <p
+            role="alert"
+            className="rounded-2xl border border-negative/20 bg-negative/10 px-lg py-md text-[13px] font-semibold text-negative-darkest"
           >
-            {showPassword ? <EyeOff size={18} strokeWidth={2} /> : <Eye size={18} strokeWidth={2} />}
-          </button>
-        </div>
-      </div>
-
-      {error && (
-        <div className="rounded-xl bg-negative/10 border border-negative/20 px-lg py-md text-[13px] font-semibold text-negative-darkest">
-          {error}
-        </div>
-      )}
-
-      <button
-        type="submit"
-        disabled={loading}
-        className="mt-sm flex h-14 w-full items-center justify-center gap-sm rounded-2xl bg-gradient-to-r from-primary to-primary-active text-[15px] font-black text-white shadow-lg shadow-primary/30 transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/40 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
-      >
-        {loading ? (
-          <Loader2 size={18} className="animate-spin" />
-        ) : (
-          <>
-            Đăng nhập
-            <ArrowRight size={18} strokeWidth={2.5} />
-          </>
+            {formError}
+          </p>
         )}
-      </button>
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="sheen gloss flex h-[56px] w-full items-center justify-center gap-sm rounded-2xl bg-gradient-to-r from-primary to-primary-active text-[15px] font-black text-white shadow-glow transition-all duration-200 ease-soft hover:-translate-y-[2px] active:translate-y-0 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+        >
+          {loading ? (
+            <>
+              <Loader2 size={18} className="animate-spin" aria-hidden="true" />
+              Đang đăng nhập…
+            </>
+          ) : (
+            <>
+              Đăng nhập
+              <ArrowRight size={18} strokeWidth={2.5} aria-hidden="true" />
+            </>
+          )}
+        </button>
       </form>
 
-      <div className="flex items-center gap-md">
-        <div className="h-px flex-1 bg-ink/10" />
-        <span className="text-[12px] font-medium text-mute">hoặc</span>
-        <div className="h-px flex-1 bg-ink/10" />
-      </div>
-
-      <a
-        href="/api/auth/google"
-        className="flex h-14 w-full items-center justify-center gap-sm rounded-2xl border border-ink/10 bg-canvas text-[15px] font-bold text-ink transition-all hover:border-ink/20 hover:bg-canvas-soft"
-      >
-        <GoogleIcon size={20} />
-        Tiếp tục với Google
-      </a>
+      <GoogleButton label="Tiếp tục với Google" />
     </div>
   );
 }

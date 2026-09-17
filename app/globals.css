@@ -236,12 +236,155 @@
     transform: translateY(-1px);
   }
 
+  /* ── Nền aurora cho trang đăng nhập/đăng ký ──
+     Chỉ animate transform để chạy trên GPU, không gây reflow. */
+  .aurora-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(64px);
+    will-change: transform;
+  }
+  .aurora-1 { animation: auroraDrift1 26s ease-in-out infinite; }
+  .aurora-2 { animation: auroraDrift2 32s ease-in-out infinite; }
+  .aurora-3 { animation: auroraDrift3 38s ease-in-out infinite; }
+  @keyframes auroraDrift1 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%      { transform: translate3d(6%, -8%, 0) scale(1.12); }
+  }
+  @keyframes auroraDrift2 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+    50%      { transform: translate3d(-7%, 6%, 0) scale(0.92); }
+  }
+  @keyframes auroraDrift3 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(0.95); }
+    50%      { transform: translate3d(4%, 7%, 0) scale(1.1); }
+  }
+
+  /* Xuất hiện theo trình tự — độ trễ truyền qua biến --d ở từng phần tử */
+  .rise-in {
+    animation: riseIn 520ms var(--ease-out-soft) both;
+    animation-delay: var(--d, 0ms);
+  }
+  @keyframes riseIn {
+    from { opacity: 0; transform: translate3d(0, 14px, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+  }
+
   /* ── Marquee ── */
   .marquee-track { animation: marquee 18s linear infinite; }
   .marquee-track:hover { animation-play-state: paused; }
   @keyframes marquee {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
+  }
+
+  /* ── Floating platform icons (TikTok/Shopee/Lazada bay tứ tung) ── */
+  .float-icon-1 {
+    animation: floatIcon1 6s ease-in-out infinite;
+  }
+  .float-icon-2 {
+    animation: floatIcon2 7.5s ease-in-out infinite;
+  }
+  .float-icon-3 {
+    animation: floatIcon3 5.5s ease-in-out infinite;
+  }
+  .float-icon-4 {
+    animation: floatIcon4 8s ease-in-out infinite;
+  }
+  .float-icon-5 {
+    animation: floatIcon5 6.8s ease-in-out infinite;
+  }
+  .float-icon-6 {
+    animation: floatIcon6 7.2s ease-in-out infinite;
+  }
+  .float-icon-7 {
+    animation: floatIcon7 5.8s ease-in-out infinite;
+  }
+  .float-icon-8 {
+    animation: floatIcon8 9s ease-in-out infinite;
+  }
+
+  @keyframes floatIcon1 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33%      { transform: translateY(-18px) rotate(6deg); }
+    66%      { transform: translateY(-8px) rotate(-4deg); }
+  }
+  @keyframes floatIcon2 {
+    0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+    50%      { transform: translateY(-22px) rotate(-8deg) scale(1.08); }
+  }
+  @keyframes floatIcon3 {
+    0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+    25%      { transform: translateY(-12px) translateX(8px) rotate(5deg); }
+    75%      { transform: translateY(-20px) translateX(-6px) rotate(-3deg); }
+  }
+  @keyframes floatIcon4 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    40%      { transform: translateY(-16px) rotate(10deg); }
+    80%      { transform: translateY(-6px) rotate(-5deg); }
+  }
+  @keyframes floatIcon5 {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    30%      { transform: translateY(-24px) translateX(10px); }
+    70%      { transform: translateY(-10px) translateX(-8px); }
+  }
+  @keyframes floatIcon6 {
+    0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+    45%      { transform: translateY(-20px) rotate(-12deg) scale(1.1); }
+    90%      { transform: translateY(-5px) rotate(6deg) scale(0.95); }
+  }
+  @keyframes floatIcon7 {
+    0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+    35%      { transform: translateY(-14px) translateX(-10px) rotate(-8deg); }
+    65%      { transform: translateY(-22px) translateX(6px) rotate(4deg); }
+  }
+  @keyframes floatIcon8 {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%      { transform: translateY(-28px) rotate(15deg); }
+  }
+
+  /* ── Sparkle nhấp nháy cho icon nền ── */
+  .sparkle-1 { animation: sparkleAnim 3s ease-in-out infinite; }
+  .sparkle-2 { animation: sparkleAnim 4.5s ease-in-out infinite 1.2s; }
+  .sparkle-3 { animation: sparkleAnim 3.8s ease-in-out infinite 0.7s; }
+  @keyframes sparkleAnim {
+    0%, 100% { opacity: 0.55; transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.15); }
+  }
+
+  /* ── Bunny pop entrance ── */
+  .bunny-pop {
+    animation: bunnyPop 0.7s var(--ease-spring) both;
+  }
+  @keyframes bunnyPop {
+    from { opacity: 0; transform: scale(0.6) translateY(20px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  /* ── Wiggle nhẹ cho bunny mascot ── */
+  .wiggle {
+    animation: wiggle 3s ease-in-out infinite 1.5s;
+  }
+  @keyframes wiggle {
+    0%, 85%, 100% { transform: rotate(0deg); }
+    88%           { transform: rotate(-5deg); }
+    91%           { transform: rotate(5deg); }
+    94%           { transform: rotate(-3deg); }
+    97%           { transform: rotate(2deg); }
+  }
+
+  /* ── Hero gradient pastel trắng hồng ── */
+  .gradient-hero-bunny {
+    background: radial-gradient(ellipse 80% 60% at 70% 40%, #FFDFE8 0%, #FFF0F4 35%, #FFFFFF 70%);
+  }
+
+  /* ── Badge pill animated border ── */
+  .badge-glow {
+    animation: badgeGlow 2.5s ease-in-out infinite;
+  }
+  @keyframes badgeGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(209,58,107,0.25), 0 4px 16px rgba(209,58,107,0.15); }
+    50%      { box-shadow: 0 0 0 6px rgba(209,58,107,0), 0 6px 24px rgba(209,58,107,0.25); }
   }
 
   /* ── Shimmer skeleton ── */
