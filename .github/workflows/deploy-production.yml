@@ -46,7 +46,7 @@ jobs:
             --exclude='storage/imports/*' \
             --exclude='storage/bills/*' \
             --exclude='public/uploads/*' \
-            -czf /tmp/affiliate-hoantien-source.tar.gz .
+            -czf /tmp/nhuongaff-source.tar.gz .
 
       - name: Upload source
         env:
@@ -55,7 +55,7 @@ jobs:
           VPS_USER: ${{ secrets.VPS_USER }}
         run: |
           set -euo pipefail
-          scp -P "$VPS_PORT" -i ~/.ssh/deploy_key /tmp/affiliate-hoantien-source.tar.gz "$VPS_USER@$VPS_HOST:/tmp/affiliate-hoantien-source.tar.gz"
+          scp -P "$VPS_PORT" -i ~/.ssh/deploy_key /tmp/nhuongaff-source.tar.gz "$VPS_USER@$VPS_HOST:/tmp/nhuongaff-source.tar.gz"
 
       - name: Build and restart on VPS
         env:
@@ -66,11 +66,11 @@ jobs:
           set -euo pipefail
           ssh -p "$VPS_PORT" -i ~/.ssh/deploy_key "$VPS_USER@$VPS_HOST" <<'SSH'
             set -euo pipefail
-            cd /var/www/affiliate-hoantien
-            tar -xzf /tmp/affiliate-hoantien-source.tar.gz
+            cd /var/www/nhuongaff
+            tar -xzf /tmp/nhuongaff-source.tar.gz
             npm install
             npx prisma db push
             npm run build
-            pm2 restart affiliate-hoantien --update-env
+            pm2 restart nhuongaff --update-env
             pm2 save
           SSH
