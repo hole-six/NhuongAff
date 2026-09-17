@@ -22,6 +22,7 @@ import {
   Store,
   type LucideIcon,
 } from "lucide-react";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 type Option = { id: string; label: string };
 
@@ -195,7 +196,9 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
       {/* INFO BOX theo từng tab — giải thích rõ ý nghĩa để đỡ nhầm giữa "tiền sàn trả mình" và "mình trả khách" */}
       {currentTab === "pending" && (
         <div className="flex items-start gap-sm bg-gray-50 border border-gray-200 rounded-2xl px-lg py-md">
-          <img src="/heoQA.png" alt="" className="h-[26px] w-[26px] object-contain shrink-0 -mt-[2px]" />
+          <div className="h-6 w-6 rounded-full bg-pink-100 p-0.5 flex items-center justify-center shrink-0">
+            <BunnyMascot size={18} />
+          </div>
           <p className="text-[13px] text-gray-600 font-medium leading-relaxed">
             Sàn <strong>chưa xác nhận</strong> sản phẩm nào trong đơn là "Hoàn thành" hay "Đã huỷ" — số tiền hiển thị chỉ là ước tính.
             Shopee cập nhật qua CSV import; TikTok Shop cập nhật qua webhook/sync RioHub; Lazada cập nhật qua Conversion Report API.
@@ -204,7 +207,9 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
       )}
       {currentTab === "cancelled" && (
         <div className="flex items-start gap-sm bg-red-50 border border-red-200 rounded-2xl px-lg py-md">
-          <img src="/heoQA.png" alt="" className="h-[26px] w-[26px] object-contain shrink-0 -mt-[2px]" />
+          <div className="h-6 w-6 rounded-full bg-pink-100 p-0.5 flex items-center justify-center shrink-0">
+            <BunnyMascot size={18} />
+          </div>
           <p className="text-[13px] text-red-700 font-medium leading-relaxed">
             Sàn báo <strong>tất cả sản phẩm trong đơn đều bị huỷ</strong> (khách huỷ đơn hoặc trả hàng trước khi được duyệt) — không tính hoa hồng.
             Đơn đã duyệt rồi mới bị huỷ nằm ở tab <strong>⚠️ Clawback</strong> riêng, không nằm ở đây.
@@ -213,7 +218,9 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
       )}
       {currentTab === "completed" && (
         <div className="flex items-start gap-sm bg-blue-50 border border-blue-200 rounded-2xl px-lg py-md">
-          <img src="/heothongbao.png" alt="" className="h-[26px] w-[26px] object-contain shrink-0 -mt-[2px]" />
+          <div className="h-6 w-6 rounded-full bg-pink-100 p-0.5 flex items-center justify-center shrink-0">
+            <BunnyMascot size={18} />
+          </div>
           <p className="text-[13px] text-blue-700 font-medium leading-relaxed">
             Đây là đơn được import <strong>trước khi hệ thống sửa lại logic đọc CSV</strong> nên còn kẹt ở trạng thái cũ, không phản ánh đúng thực tế.
             <strong> Import lại đúng file CSV đã dùng cho các đơn này</strong> — hệ thống sẽ tự phân loại lại chính xác thành "💰 Tiền đã về" hoặc "Đã huỷ" theo đúng trạng thái sản phẩm liên kết thật.
@@ -222,7 +229,9 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
       )}
       {currentTab === "processing" && (
         <div className="flex items-start gap-sm bg-amber-50 border border-amber-200 rounded-2xl px-lg py-md">
-          <img src="/heochodoi.png" alt="" className="h-[26px] w-[26px] object-contain shrink-0 -mt-[2px]" />
+          <div className="h-6 w-6 rounded-full bg-pink-100 p-0.5 flex items-center justify-center shrink-0">
+            <BunnyMascot size={18} />
+          </div>
           <p className="text-[13px] text-amber-700 font-medium leading-relaxed">
             Sàn đã báo <strong>"Hoàn thành"</strong> nhưng hoa hồng còn trong thời gian đối soát — hệ thống chỉ tính là
             <strong> "💰 Tiền đã về"</strong> (và cho khách rút) sau <strong>15 ngày kể từ ngày hoàn thành</strong>.
@@ -232,7 +241,9 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
       )}
       {currentTab === "money_in" && (
         <div className="flex items-start gap-sm bg-emerald-50 border border-emerald-200 rounded-2xl px-lg py-md">
-          <img src="/heovitien.png" alt="" className="h-[26px] w-[26px] object-contain shrink-0 -mt-[2px]" />
+          <div className="h-6 w-6 rounded-full bg-pink-100 p-0.5 flex items-center justify-center shrink-0">
+            <BunnyMascot size={18} />
+          </div>
           <p className="text-[13px] text-emerald-700 font-medium leading-relaxed">
             Toàn bộ đơn ở đây <strong>sàn đã duyệt và trả hoa hồng thật cho bạn</strong> — không phân biệt đã trả tiền cho khách hay chưa.
             Muốn xem riêng phần <strong>chưa trả khách</strong> hay <strong>đã trả khách</strong>, bấm 2 tab kế bên.
@@ -241,7 +252,9 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
       )}
       {currentTab === "unpaid" && (
         <div className="flex items-start gap-sm bg-amber-50 border border-amber-200 rounded-2xl px-lg py-md">
-          <img src="/heochodoi.png" alt="" className="h-[26px] w-[26px] object-contain shrink-0 -mt-[2px]" />
+          <div className="h-6 w-6 rounded-full bg-pink-100 p-0.5 flex items-center justify-center shrink-0">
+            <BunnyMascot size={18} />
+          </div>
           <p className="text-[13px] text-amber-700 font-medium leading-relaxed">
             Tiền sàn đã về (approved) nhưng <strong>bạn chưa chuyển cho khách</strong>. Vào trang <strong>Thanh toán</strong> để tạo phiếu chi cho khách.
           </p>
@@ -320,7 +333,9 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
                 <tr>
                   <td colSpan={9} className="py-2xl text-center">
                     <div className="flex flex-col items-center gap-sm">
-                      <img src="/heochodoi.png" alt="" className="h-16 w-16 object-contain opacity-70" />
+                      <div className="p-2 bg-pink-50 rounded-full border border-pink-100">
+                        <BunnyMascot size={48} />
+                      </div>
                       <span className="text-[14px] font-bold text-gray-400">Không tìm thấy đơn hàng nào phù hợp</span>
                     </div>
                   </td>
@@ -333,7 +348,7 @@ export function AdminOrdersClient({ orders, customers, totalPages, currentPage, 
                       <div className="font-mono font-bold text-gray-900 flex items-center gap-1">
                         {o.clawbackWarning && (
                           <span title="Quá thời gian đối soát — kiểm tra sàn đã thanh toán chưa">
-                            <img src="/heothongbao.png" alt="" className="h-4 w-4 object-contain shrink-0" />
+                            <AlertTriangle className="h-4 w-4 text-amber-500 shrink-0 inline" />
                           </span>
                         )}
                         {o.orderExternalId}

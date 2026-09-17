@@ -14,6 +14,7 @@ import { CreatePaymentForCustomer } from "@/components/admin/CreatePaymentForCus
 import { MarkPaidForm } from "@/components/admin/MarkPaidForm";
 import { CustomerMessageButton } from "@/components/admin/CustomerMessageButton";
 import type { ComboboxOption } from "@/components/ui/SearchableSelect";
+import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 type CustomerPending = {
   id: string; name: string; code: string; amount: number; count: number;
@@ -106,7 +107,9 @@ function BatchDetailModal({ batchId, onClose }: { batchId: string; onClose: () =
         <div className="sticky top-0 z-10 flex items-center justify-between px-xl py-lg border-b border-gray-100 bg-white rounded-t-3xl"
           style={{ background: "linear-gradient(135deg,#FFF3F7,#FDE3EB)" }}>
           <div className="flex items-center gap-sm">
-            <img src="/heovitien.png" alt="" className="h-10 w-10 object-contain" />
+            <div className="h-9 w-9 rounded-full bg-pink-100 p-0.5 flex items-center justify-center shrink-0">
+              <BunnyMascot size={26} />
+            </div>
             <div>
               <h3 className="text-[16px] font-black text-gray-900">Chi tiết phiếu thanh toán</h3>
               {batch && <p className="text-[12px] font-mono text-gray-500">{batch.paymentCode}</p>}
@@ -121,7 +124,9 @@ function BatchDetailModal({ batchId, onClose }: { batchId: string; onClose: () =
         <div className="p-xl flex flex-col gap-lg">
           {loading ? (
             <div className="flex flex-col items-center py-2xl gap-md">
-              <img src="/heochodoi.png" alt="" className="h-16 w-16 object-contain animate-bounce" />
+              <div className="p-2 bg-pink-50 rounded-full border border-pink-100">
+                <BunnyMascot size={48} />
+              </div>
               <p className="text-[13px] text-gray-400 font-medium">Đang tải dữ liệu...</p>
             </div>
           ) : !batch ? (
@@ -375,7 +380,9 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
         </div>
         {activeTab === "pending" && pendingList.length > 0 && (
           <div className="flex items-center gap-md rounded-2xl bg-white px-lg py-sm shadow-sm ring-1 ring-black/[0.06] shrink-0">
-            <img src="/heovitien.png" alt="" className="h-10 w-10 object-contain" />
+            <div className="h-9 w-9 rounded-full bg-pink-100 p-0.5 flex items-center justify-center shrink-0">
+              <BunnyMascot size={26} />
+            </div>
             <div>
               <div className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">{pendingList.length} khách chờ thanh toán</div>
               <div className="text-[16px] font-black text-[#D13A6B]">{formatCurrency(todayTotal)}</div>
@@ -384,7 +391,9 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
         )}
         {activeTab === "history" && (
           <div className="flex items-center gap-md rounded-2xl bg-white px-lg py-sm shadow-sm ring-1 ring-black/[0.06] shrink-0">
-            <img src="/heongansach.png" alt="" className="h-10 w-10 object-contain" />
+            <div className="h-9 w-9 rounded-full bg-pink-100 p-0.5 flex items-center justify-center shrink-0">
+              <BunnyMascot size={26} />
+            </div>
             <div>
               <div className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Đã thanh toán</div>
               <div className="text-[16px] font-black text-emerald-600">{paidBatches.length} phiếu</div>
@@ -397,7 +406,9 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
       {activeTab === "pending" && (
         filteredPending.length === 0 ? (
           <div className="flex flex-col items-center gap-sm rounded-3xl bg-white py-3xl shadow-sm ring-1 ring-black/[0.06]">
-            <img src="/heochodoi.png" alt="" className="h-16 w-16 object-contain opacity-70" />
+            <div className="p-2 bg-pink-50 rounded-full border border-pink-100">
+              <BunnyMascot size={48} />
+            </div>
             <span className="text-[14px] font-bold text-gray-400">Chưa có khách nào yêu cầu rút tiền 🎉</span>
           </div>
         ) : (
@@ -478,14 +489,18 @@ export function AdminPaymentsClient({ pendingList, batches, waitingList, custome
       {activeTab === "waiting" && (
         filteredWaiting.length === 0 ? (
           <div className="flex flex-col items-center gap-sm rounded-3xl bg-white py-3xl shadow-sm ring-1 ring-black/[0.06]">
-            <img src="/heochaomung.png" alt="" className="h-16 w-16 object-contain opacity-70" />
+            <div className="p-2 bg-pink-50 rounded-full border border-pink-100">
+              <BunnyMascot size={48} />
+            </div>
             <span className="text-[14px] font-bold text-gray-400">Không có đơn nào đang chờ sàn duyệt 🎉</span>
           </div>
         ) : (
           <div className="flex flex-col gap-lg">
             {/* Info box */}
             <div className="flex items-start gap-sm rounded-2xl bg-blue-50 border border-blue-200 px-lg py-md">
-              <img src="/heochodoi.png" alt="" className="h-7 w-7 object-contain shrink-0 mt-[1px]" />
+              <div className="h-6 w-6 rounded-full bg-pink-100 p-0.5 flex items-center justify-center shrink-0 mt-[1px]">
+                <BunnyMascot size={18} />
+              </div>
               <p className="text-[13px] text-blue-700 font-medium leading-relaxed">
                 Các đơn bên dưới có <strong>tiếp thị liên kết chưa hoàn thành</strong> (sàn chưa xác nhận hoa hồng).
                 Shopee cập nhật qua CSV import; TikTok Shop cập nhật tự động qua webhook/sync RioHub; Lazada cập nhật tự động qua Conversion Report API. Khi sàn duyệt, đơn sẽ tự chuyển sang <strong>"Sẵn sàng thanh toán"</strong>.

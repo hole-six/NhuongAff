@@ -25,6 +25,7 @@ import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 /* ─── Icon bay tứ tung — dùng plasticine CDN từ Icons8 (Shopee, TikTok, Lazada) ─── */
 const I8_PLASTICINE = "https://img.icons8.com/plasticine/100";
+const I8 = I8_PLASTICINE;
 const FLOATING_ICONS = [
   { src: `${I8_PLASTICINE}/shopee.png`,  alt: "Shopee",  size: 46, cls: "float-icon-1 sparkle-1", style: { top: "8%",   left: "3%"    } },
   { src: `${I8_PLASTICINE}/tiktok.png`,  alt: "TikTok",  size: 40, cls: "float-icon-2 sparkle-2", style: { top: "5%",    left: "21%"   } },
