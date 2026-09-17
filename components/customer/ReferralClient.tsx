@@ -2,10 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { formatCurrency, formatDate } from "@/lib/format";
-import { Users, TrendingUp, CheckCircle2 } from "lucide-react";
+import { Users, TrendingUp, CheckCircle2, Copy, Share2, Gift, Sparkles, Heart, Crown, Clock, Award, Info } from "lucide-react";
 import { useModal } from "@/components/ui/ModalProvider";
 import { Button } from "@/components/ui/Button";
-import { BunnyMascot } from "@/components/ui/BunnyMascot";
 
 type Friend = {
   id: string;
@@ -42,10 +41,10 @@ interface Props {
 }
 
 const ORDER_STATUS_LABEL: Record<string, { text: string; className: string }> = {
-  approved: { text: "Đã hoàn tất", className: "bg-green-50 text-green-600" },
-  pending: { text: "Chờ xác nhận", className: "bg-amber-50 text-amber-600" },
-  processing: { text: "Đang đối soát", className: "bg-blue-50 text-blue-600" },
-  clawback: { text: "Đã thu hồi", className: "bg-red-50 text-red-500" },
+  approved: { text: "Đã hoàn tất", className: "bg-green-50 text-green-600 border-green-200" },
+  pending: { text: "Chờ xác nhận", className: "bg-amber-50 text-amber-600 border-amber-200" },
+  processing: { text: "Đang đối soát", className: "bg-blue-50 text-blue-600 border-blue-200" },
+  clawback: { text: "Đã thu hồi", className: "bg-red-50 text-red-500 border-red-200" },
 };
 
 const BONUS_STATE_LABEL: Record<FriendOrderTimelineEntry["bonusState"], { text: string; className: string }> = {
@@ -59,6 +58,7 @@ const BONUS_STATE_LABEL: Record<FriendOrderTimelineEntry["bonusState"], { text: 
 export function ReferralClient({ customerCode, totalFriends, totalCommission, referralRate, maxReferralOrders, referralValidityMonths, isPartner, friends, friendOrderTimeline }: Props) {
   const modal = useModal();
   const [referralLink, setReferralLink] = useState("");
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     setReferralLink(`${window.location.origin}/register?ref=${customerCode}`);
@@ -67,6 +67,8 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
   const handleCopy = () => {
     if (!referralLink) return;
     navigator.clipboard.writeText(referralLink);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
     modal.alert({
       title: "Thành công",
       message: "Đã copy link giới thiệu! Hãy gửi cho bạn bè của bạn.",
@@ -75,104 +77,294 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
   };
 
   return (
-    <div className="flex flex-col gap-2xl fade-in max-w-4xl mx-auto">
-      {/* Header */}
-      <div>
-        <h1 className="text-[28px] font-black text-gray-900 tracking-tight">Mời bạn bè</h1>
-        <p className="mt-xs text-[14px] text-gray-500 font-medium">Chia sẻ niềm vui mua sắm và nhận hoa hồng thụ động</p>
+    <div className="relative min-h-screen pb-2xl">
+      {/* Decorative floating bunnies */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" style={{ opacity: 0.35 }}>
+        <img src="/mascots/icons/bunny-heart.webp" alt="" className="absolute top-[5%] left-[4%] w-16 h-16 opacity-30 float" />
+        <img src="/mascots/icons/bunny-delighted.webp" alt="" className="absolute top-[15%] right-[6%] w-14 h-14 opacity-25 float" style={{ animationDelay: '1s' }} />
+        <img src="/mascots/icons/bunny-wink.webp" alt="" className="absolute top-[40%] left-[2%] w-12 h-12 opacity-20 float" style={{ animationDelay: '2.5s' }} />
+        <img src="/mascots/icons/bunny-sparkle.webp" alt="" className="absolute bottom-[35%] right-[5%] w-16 h-16 opacity-30 float" style={{ animationDelay: '0.5s' }} />
+        <img src="/mascots/icons/bunny-blink.webp" alt="" className="absolute bottom-[12%] left-[8%] w-10 h-10 opacity-25 float" style={{ animationDelay: '1.8s' }} />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-xl">
-        {/* Left Column */}
-        <div className="lg:col-span-3 flex flex-col gap-xl">
-          {/* Link Section */}
-          <div className="rounded-3xl bg-white p-xl shadow-sm ring-1 ring-black/5 relative overflow-hidden">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-rose-50 rounded-full blur-3xl opacity-60"></div>
+      <div className="relative z-10 flex flex-col gap-3xl fade-in max-w-6xl mx-auto">
+        {/* Hero Header with Gradient */}
+        <div className="relative overflow-hidden rounded-[32px] p-2xl gradient-hero-bunny shadow-cute-lg border border-primary/10">
+          <div className="absolute top-4 right-4">
+            <img src="/mascots/icons/bunny-heart.webp" alt="" className="w-24 h-24 opacity-40 bounce-in" />
+          </div>
+          <div className="absolute bottom-4 left-4">
+            <img src="/mascots/icons/bunny-delighted.webp" alt="" className="w-20 h-20 opacity-35 float" />
+          </div>
+          
+          <div className="relative z-10 max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-lg py-sm rounded-full bg-white/80 backdrop-blur-sm border border-primary/20 mb-lg shadow-sm">
+              <Gift size={16} className="text-primary" />
+              <span className="text-[13px] font-bold text-primary">Chương trình giới thiệu</span>
+            </div>
+            <h1 className="display-md mb-md bg-gradient-to-r from-[#D13A6B] via-[#E8558A] to-[#D13A6B] bg-clip-text text-transparent">
+              Mời bạn bè — Nhận quà liền tay
+            </h1>
+            <p className="body-lg text-body max-w-2xl">
+              Chia sẻ niềm vui mua sắp và nhận thêm <span className="font-black text-primary">{referralRate * 100}% hoa hồng</span> từ mọi đơn hàng của bạn bè. Càng nhiều bạn, càng nhiều tiền!
+            </p>
+          </div>
+        </div>
+
+        {/* Stats Cards với Animation */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
+          {/* Total Friends Card */}
+          <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 p-xl shadow-cute-lg border border-blue-200/50 lift">
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-300/20 rounded-full blur-2xl" />
+            <div className="absolute top-3 right-3 opacity-40 group-hover:opacity-60 transition-opacity duration-300">
+              <img src="/mascots/icons/bunny-delighted.webp" alt="" className="w-16 h-16 object-contain wiggle" />
+            </div>
+            
             <div className="relative">
-              <div className="flex items-center gap-sm mb-lg">
-                <div className="h-10 w-10 rounded-full bg-pink-100 p-1 flex items-center justify-center">
-                  <BunnyMascot size={28} />
+              <div className="flex items-center gap-md mb-lg">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-500 shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Users size={28} className="text-white" strokeWidth={2.5} />
                 </div>
-                <h2 className="text-[16px] font-bold text-gray-900">Link giới thiệu của bạn</h2>
+                <div>
+                  <h3 className="text-[13px] font-bold uppercase tracking-wider text-blue-700">Tổng bạn bè</h3>
+                  <p className="text-[11px] text-blue-600">Đã mời thành công</p>
+                </div>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-sm mb-md">
-                <input 
-                  type="text" 
-                  value={referralLink} 
-                  readOnly 
-                  className="flex-1 h-12 rounded-2xl bg-gray-50 px-md text-[14px] font-medium text-gray-900 ring-1 ring-black/5 focus:outline-none"
-                />
-                <Button onClick={handleCopy} className="h-12 px-xl shrink-0">
-                  Sao chép
-                </Button>
+              <div className="text-[48px] font-black text-blue-900 leading-none mb-sm">
+                {totalFriends}
               </div>
-              
-              <p className="text-[13px] text-gray-400 flex items-center gap-2">
-                <span className="flex h-4 w-4 items-center justify-center rounded-full border border-gray-300 text-[10px]">i</span>
-                Gửi link này cho bạn bè. Họ đăng ký tài khoản, bạn sẽ nhận được hoa hồng.
+              <p className="text-[13px] text-blue-700 font-medium">
+                {totalFriends === 0 ? "Chưa có ai" : totalFriends === 1 ? "người bạn" : "người bạn"}
               </p>
             </div>
           </div>
 
-          {/* Stats Section */}
-          <div className="grid grid-cols-2 gap-md">
-            <div className="rounded-3xl bg-white p-lg shadow-sm ring-1 ring-black/5 flex flex-col justify-between h-[140px]">
-              <div className="flex items-center gap-sm">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-500">
-                  <Users size={20} strokeWidth={2} />
-                </div>
-                <span className="text-[12px] font-bold text-gray-500 uppercase tracking-wider">Bạn bè</span>
-              </div>
-              <div className="text-[32px] font-black text-gray-900">{totalFriends}</div>
+          {/* Total Commission Card */}
+          <div className="group relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-100 p-xl shadow-cute-lg border border-emerald-200/50 lift">
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-emerald-300/20 rounded-full blur-2xl" />
+            <div className="absolute top-3 right-3 opacity-40 group-hover:opacity-60 transition-opacity duration-300">
+              <img src="/mascots/icons/bunny-sparkle.webp" alt="" className="w-16 h-16 object-contain bounce-in" />
             </div>
-
-            <div className="rounded-3xl bg-white p-lg shadow-sm ring-1 ring-black/5 flex flex-col justify-between h-[140px]">
-              <div className="flex items-center gap-sm">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-50 text-green-500">
-                  <TrendingUp size={20} strokeWidth={2} />
+            
+            <div className="relative">
+              <div className="flex items-center gap-md mb-lg">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-green-500 shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <TrendingUp size={28} className="text-white" strokeWidth={2.5} />
                 </div>
-                <span className="text-[12px] font-bold text-gray-500 uppercase tracking-wider">Hoa hồng</span>
+                <div>
+                  <h3 className="text-[13px] font-bold uppercase tracking-wider text-emerald-700">Tổng hoa hồng</h3>
+                  <p className="text-[11px] text-emerald-600">Đã nhận được</p>
+                </div>
               </div>
-              <div className="text-[32px] font-black text-green-600">{formatCurrency(totalCommission)}</div>
+              
+              <div className="text-[48px] font-black text-emerald-900 leading-none mb-sm">
+                {formatCurrency(totalCommission)}
+              </div>
+              <p className="text-[13px] text-emerald-700 font-medium">
+                Từ {friends.reduce((sum, f) => sum + f.bonusOrderCount, 0)} đơn hàng
+              </p>
             </div>
           </div>
+        </div>
+
+        {/* Referral Link Box - Super Eye-catching */}
+        <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-rose-100 via-pink-100 to-purple-100 p-2xl shadow-cute-lg border-2 border-rose-200">
+          <div className="absolute top-0 right-0 w-40 h-40 bg-rose-300/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-40 h-40 bg-purple-300/30 rounded-full blur-3xl" />
+          <div className="absolute top-4 right-4">
+            <img src="/mascots/icons/bunny-wink.webp" alt="" className="w-20 h-20 opacity-50 float" />
+          </div>
           
-          {/* Danh sách TOÀN BỘ bạn bè đã mời — kể cả người chưa mua gì, khác
-              với lịch sử hoa hồng bên dưới chỉ có giao dịch đã phát sinh. */}
-          {friends.length > 0 && (
-            <div className="rounded-3xl bg-white p-xl shadow-sm ring-1 ring-black/5">
-              <div className="mb-md flex items-center justify-between">
-                <h2 className="text-[16px] font-bold text-gray-900">Danh sách bạn bè đã mời</h2>
-                <span className="rounded-full bg-gray-100 px-2 py-[2px] text-[11px] font-bold text-gray-500">{friends.length}</span>
+          <div className="relative">
+            <div className="flex items-center gap-md mb-lg">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-400 to-pink-500 shadow-glow flex items-center justify-center">
+                <Share2 size={28} className="text-white" strokeWidth={2.5} />
               </div>
-              <div className="mb-lg flex items-start gap-xs rounded-xl bg-blue-50 px-md py-sm">
-                <span className="mt-[1px] flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-blue-200 text-[10px] font-bold text-blue-700">i</span>
-                <p className="text-[12px] text-blue-700 leading-relaxed">
-                  Số đơn và hoa hồng chỉ cập nhật khi đơn của bạn bè đã <strong>"Đã hoàn tất"</strong> (sau khoảng 15 ngày đối soát). Đơn đang <strong>"Chờ xác nhận"</strong> hoặc <strong>"Đang đối soát"</strong> là bình thường — hoa hồng chưa được tạo nên chưa hiện ở đây, không phải lỗi.
+              <div>
+                <h2 className="text-[20px] font-black text-rose-900">Link giới thiệu của bạn</h2>
+                <p className="text-[13px] text-rose-700">Chia sẻ ngay để nhận quà</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-md mb-lg">
+              <div className="flex-1 relative group">
+                <input 
+                  type="text" 
+                  value={referralLink} 
+                  readOnly 
+                  className="w-full h-14 rounded-2xl bg-white/80 backdrop-blur-sm px-lg text-[15px] font-mono font-bold text-gray-900 border-2 border-rose-300/50 focus:outline-none focus:border-rose-400 shadow-sm"
+                />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+              </div>
+              <button
+                onClick={handleCopy}
+                className="group relative overflow-hidden h-14 px-2xl rounded-2xl bg-gradient-to-r from-[#D13A6B] to-[#B92E5B] text-white font-bold shadow-glow hover:shadow-xl transition-all hover:scale-105 active:scale-100"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  {copied ? (
+                    <>
+                      <CheckCircle2 size={20} />
+                      Đã copy!
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={20} />
+                      Sao chép
+                    </>
+                  )}
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/25 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              </button>
+            </div>
+
+            <div className="flex items-start gap-md rounded-2xl bg-white/60 backdrop-blur-sm p-lg border border-rose-200/50">
+              <div className="w-8 h-8 rounded-full bg-rose-200 flex items-center justify-center shrink-0">
+                <Sparkles size={16} className="text-rose-600" />
+              </div>
+              <p className="text-[14px] text-rose-800 leading-relaxed">
+                <strong>Mẹo:</strong> Gửi link này cho bạn bè qua Zalo, Facebook, Telegram. Khi họ đăng ký và mua hàng, bạn tự động nhận hoa hồng!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Benefits Section */}
+        <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 p-2xl shadow-cute-lg border border-amber-200">
+          <div className="absolute top-4 left-4">
+            <img src="/mascots/icons/bunny-surprised.webp" alt="" className="w-16 h-16 opacity-40 bounce-in" />
+          </div>
+
+          <div className="relative">
+            <h2 className="display-xs text-amber-900 mb-xl">🎁 Phần thưởng của bạn</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-lg">
+              <div className="flex items-start gap-md rounded-2xl bg-white/70 backdrop-blur-sm p-lg border border-amber-200/50">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shrink-0">
+                  <Award size={20} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-[15px] font-bold text-amber-900 mb-1">Nhận thêm {referralRate * 100}% hoa hồng</h3>
+                  <p className="text-[13px] text-amber-700 leading-relaxed">
+                    Bạn nhận thêm {referralRate * 100}% trên số tiền hoàn mà bạn bè nhận được — cộng trực tiếp vào ví.
+                  </p>
+                </div>
+              </div>
+
+              {isPartner ? (
+                <div className="flex items-start gap-md rounded-2xl bg-gradient-to-br from-emerald-100 to-green-100 p-lg border border-emerald-300/50">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center shrink-0">
+                    <Crown size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-[15px] font-bold text-emerald-900 mb-1">🤝 Đối tác — không giới hạn</h3>
+                    <p className="text-[13px] text-emerald-700 leading-relaxed">
+                      Nhận hoa hồng trên <strong>tất cả</strong> đơn hàng, không giới hạn số đơn và thời gian.
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div className="flex items-start gap-md rounded-2xl bg-white/70 backdrop-blur-sm p-lg border border-amber-200/50">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center shrink-0">
+                      <CheckCircle2 size={20} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-[15px] font-bold text-amber-900 mb-1">{maxReferralOrders} đơn đầu tiên/người</h3>
+                      <p className="text-[13px] text-amber-700 leading-relaxed">
+                        Áp dụng cho {maxReferralOrders} đơn hàng đầu tiên của mỗi người bạn.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-md rounded-2xl bg-white/70 backdrop-blur-sm p-lg border border-amber-200/50">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center shrink-0">
+                      <Clock size={20} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-[15px] font-bold text-amber-900 mb-1">Thời hạn {referralValidityMonths} tháng</h3>
+                      <p className="text-[13px] text-amber-700 leading-relaxed">
+                        Đơn phải phát sinh trong {referralValidityMonths} tháng kể từ lúc đăng ký.
+                      </p>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              <div className="flex items-start gap-md rounded-2xl bg-white/70 backdrop-blur-sm p-lg border border-amber-200/50">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center shrink-0">
+                  <Heart size={20} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-[15px] font-bold text-amber-900 mb-1">Bạn bè không bị ảnh hưởng</h3>
+                  <p className="text-[13px] text-amber-700 leading-relaxed">
+                    Người được mời vẫn nhận đủ 100% tiền hoàn như bình thường.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Friends List */}
+        {friends.length > 0 && (
+          <div className="relative overflow-hidden rounded-[32px] bg-white p-2xl shadow-cute-lg border border-primary/10">
+            <div className="absolute -top-6 -right-6">
+              <img src="/mascots/icons/bunny-bashful.webp" alt="" className="w-20 h-20 opacity-30 float" />
+            </div>
+
+            <div className="relative">
+              <div className="flex items-center justify-between mb-xl">
+                <div className="flex items-center gap-md">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-500 shadow-lg flex items-center justify-center">
+                    <Users size={24} className="text-white" strokeWidth={2.5} />
+                  </div>
+                  <div>
+                    <h2 className="text-[20px] font-black text-gray-900">Danh sách bạn bè</h2>
+                    <p className="text-[13px] text-gray-500">Những người bạn đã mời thành công</p>
+                  </div>
+                </div>
+                <span className="rounded-full bg-blue-100 px-lg py-sm text-[14px] font-bold text-blue-600">
+                  {friends.length} người
+                </span>
+              </div>
+
+              <div className="mb-lg flex items-start gap-md rounded-2xl bg-blue-50 px-lg py-md border border-blue-200">
+                <Info size={18} className="text-blue-600 shrink-0 mt-0.5" />
+                <p className="text-[13px] text-blue-700 leading-relaxed">
+                  Số đơn và hoa hồng chỉ cập nhật khi đơn của bạn bè đã <strong>"Đã hoàn tất"</strong> (sau khoảng 15 ngày đối soát). Đơn đang <strong>"Chờ xác nhận"</strong> hoặc <strong>"Đang đối soát"</strong> là bình thường.
                 </p>
               </div>
-              <div className="flex flex-col gap-sm max-h-[420px] overflow-y-auto">
-                {friends.map((f) => (
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-md max-h-[500px] overflow-y-auto pr-sm">
+                {friends.map((f, idx) => (
                   <div
                     key={f.id}
-                    className="flex items-center gap-md rounded-2xl bg-gray-50 p-md ring-1 ring-black/5"
+                    className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 p-lg border border-gray-200 hover:border-primary/30 hover:shadow-md transition-all"
+                    style={{ animationDelay: `${idx * 50}ms` }}
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-600 text-[14px] font-black">
-                      {f.fullName.charAt(0).toUpperCase()}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="truncate text-[14px] font-bold text-gray-900">
-                        {f.fullName} <span className="font-mono text-[11px] font-medium text-gray-400">({f.customerCode})</span>
+                    <div className="flex items-center gap-md">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-cyan-500 shadow-md flex items-center justify-center text-white text-[16px] font-black shrink-0 group-hover:scale-110 transition-transform">
+                        {f.fullName.charAt(0).toUpperCase()}
                       </div>
-                      <div className="truncate text-[12px] text-gray-400">
-                        Tham gia {formatDate(f.joinedAt)}
-                        {!isPartner && ` · ${f.bonusOrderCount}/${maxReferralOrders} đơn đã dùng`}
-                        {isPartner && f.bonusOrderCount > 0 && ` · ${f.bonusOrderCount} đơn đã tạo hoa hồng`}
+                      <div className="min-w-0 flex-1">
+                        <div className="truncate text-[15px] font-bold text-gray-900">
+                          {f.fullName}
+                        </div>
+                        <div className="flex items-center gap-2 text-[12px] text-gray-500">
+                          <span className="font-mono">{f.customerCode}</span>
+                          <span>·</span>
+                          <span>{formatDate(f.joinedAt)}</span>
+                        </div>
                       </div>
                     </div>
-                    <div className="shrink-0 text-right">
-                      <div className={`text-[14px] font-black ${f.totalEarned > 0 ? "text-green-600" : "text-gray-300"}`}>
+
+                    <div className="mt-md pt-md border-t border-gray-200 flex items-center justify-between">
+                      <div className="text-[12px] text-gray-600">
+                        {!isPartner && `${f.bonusOrderCount}/${maxReferralOrders} đơn`}
+                        {isPartner && `${f.bonusOrderCount} đơn`}
+                      </div>
+                      <div className={`text-[15px] font-black ${f.totalEarned > 0 ? "text-green-600" : "text-gray-300"}`}>
                         {f.totalEarned > 0 ? `+${formatCurrency(f.totalEarned)}` : "Chưa có"}
                       </div>
                     </div>
@@ -180,86 +372,118 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
                 ))}
               </div>
             </div>
-          )}
+          </div>
+        )}
 
-          {/* Đơn hàng của bạn bè — hiện cả tiến trình (chờ xác nhận/đối soát),
-              không chỉ đơn đã xong, để người giới thiệu theo dõi được ngay
-              từ lúc bạn mình phát sinh đơn. */}
-          {friendOrderTimeline.length === 0 ? (
-            <div className="rounded-3xl bg-gray-50 p-xl ring-1 ring-black/5 border border-gray-100 flex flex-col items-center justify-center h-[200px] text-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gray-200 text-gray-400 mb-md">
-                <Users size={32} />
-              </div>
-              {totalFriends === 0 ? (
-                <>
-                  <h3 className="text-[15px] font-bold text-gray-700">Chưa có ai đăng ký</h3>
-                  <p className="text-[13px] text-gray-500 mt-1">Gửi link cho bạn bè ngay để nhận quà!</p>
-                </>
-              ) : (
-                <>
-                  <h3 className="text-[15px] font-bold text-gray-700">Bạn đã mời được {totalFriends} người bạn</h3>
-                  <p className="text-[13px] text-gray-500 mt-1 max-w-[320px]">
-                    Chưa thấy đơn nào của bạn bè. Ngay khi họ mua hàng qua link đã đăng ký, đơn sẽ hiện ở đây — kể cả lúc còn đang chờ duyệt.
-                  </p>
-                </>
-              )}
+        {/* Friend Orders Timeline */}
+        {friendOrderTimeline.length === 0 ? (
+          <div className="rounded-[32px] bg-gradient-to-br from-gray-50 to-gray-100 p-3xl text-center border-2 border-dashed border-gray-300">
+            <img src="/mascots/icons/bunny-sleepy.webp" alt="" className="w-24 h-24 mx-auto mb-lg opacity-60" />
+            {totalFriends === 0 ? (
+              <>
+                <h3 className="text-[20px] font-black text-gray-700 mb-sm">Chưa có ai đăng ký</h3>
+                <p className="text-[14px] text-gray-500 mb-xl max-w-md mx-auto">
+                  Gửi link cho bạn bè ngay để nhận quà! Mỗi người đăng ký và mua hàng, bạn đều được hưởng hoa hồng.
+                </p>
+                <button
+                  onClick={handleCopy}
+                  className="inline-flex items-center gap-2 px-xl py-md rounded-2xl bg-gradient-to-r from-[#D13A6B] to-[#B92E5B] text-white font-bold shadow-glow hover:shadow-xl transition-all hover:scale-105"
+                >
+                  <Copy size={18} />
+                  Copy link ngay
+                </button>
+              </>
+            ) : (
+              <>
+                <h3 className="text-[20px] font-black text-gray-700 mb-sm">Bạn đã mời được {totalFriends} người</h3>
+                <p className="text-[14px] text-gray-500 max-w-md mx-auto">
+                  Chưa thấy đơn nào của bạn bè. Ngay khi họ mua hàng qua link đã đăng ký, đơn sẽ hiện ở đây.
+                </p>
+              </>
+            )}
+          </div>
+        ) : (
+          <div className="relative overflow-hidden rounded-[32px] bg-white p-2xl shadow-cute-lg border border-primary/10">
+            <div className="absolute -top-6 -left-6">
+              <img src="/mascots/icons/bunny-blink.webp" alt="" className="w-20 h-20 opacity-30 float" />
             </div>
-          ) : (
-            <div className="rounded-3xl bg-white p-xl shadow-sm ring-1 ring-black/5">
-              <div className="mb-lg flex items-center justify-between gap-md flex-wrap">
-                <h2 className="text-[16px] font-bold text-gray-900">Đơn hàng của bạn bè</h2>
-                <span className="text-[11px] text-gray-400">
-                  Số tiền ở đơn chưa xong là <strong>dự kiến</strong> — chỉ chốt khi đơn "Đã hoàn tất"
+
+            <div className="relative">
+              <div className="flex items-center justify-between mb-xl flex-wrap gap-md">
+                <div className="flex items-center gap-md">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-400 to-green-500 shadow-lg flex items-center justify-center">
+                    <TrendingUp size={24} className="text-white" strokeWidth={2.5} />
+                  </div>
+                  <div>
+                    <h2 className="text-[20px] font-black text-gray-900">Đơn hàng của bạn bè</h2>
+                    <p className="text-[13px] text-gray-500">Theo dõi tiến trình hoa hồng</p>
+                  </div>
+                </div>
+                <span className="text-[12px] text-blue-500 font-bold">
+                  💡 Số tiền ở đơn chưa xong là dự kiến
                 </span>
               </div>
-              <div className="max-h-[420px] overflow-auto -mx-xl px-xl">
-                <table className="w-full min-w-[600px] text-left text-[13px]">
-                  <thead>
-                    <tr className="border-b border-gray-100 text-[11px] font-bold uppercase tracking-wider text-gray-400">
-                      <th className="pb-sm pr-md">Bạn bè</th>
-                      <th className="pb-sm pr-md">Tên đơn</th>
-                      <th className="pb-sm pr-md">Ngày</th>
-                      <th className="pb-sm pr-md">Trạng thái đơn</th>
-                      <th className="pb-sm pl-md text-right">Hoa hồng</th>
+
+              <div className="max-h-[500px] overflow-auto">
+                <table className="w-full min-w-[800px] text-left">
+                  <thead className="sticky top-0 bg-gray-50 z-10">
+                    <tr className="border-b-2 border-gray-200">
+                      <th className="pb-md pr-md text-[12px] font-bold uppercase tracking-wider text-gray-500">Bạn bè</th>
+                      <th className="pb-md pr-md text-[12px] font-bold uppercase tracking-wider text-gray-500">Sản phẩm</th>
+                      <th className="pb-md pr-md text-[12px] font-bold uppercase tracking-wider text-gray-500">Ngày</th>
+                      <th className="pb-md pr-md text-[12px] font-bold uppercase tracking-wider text-gray-500">Trạng thái</th>
+                      <th className="pb-md pl-md text-right text-[12px] font-bold uppercase tracking-wider text-gray-500">Hoa hồng</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {friendOrderTimeline.map((entry) => {
-                      const orderStatus = ORDER_STATUS_LABEL[entry.orderStatus] ?? { text: entry.orderStatus, className: "bg-gray-100 text-gray-500" };
+                    {friendOrderTimeline.map((entry, idx) => {
+                      const orderStatus = ORDER_STATUS_LABEL[entry.orderStatus] ?? { text: entry.orderStatus, className: "bg-gray-100 text-gray-500 border-gray-200" };
                       const bonus = BONUS_STATE_LABEL[entry.bonusState];
                       const showAmount = entry.bonusState === "received" || entry.bonusState === "clawed_back" || entry.bonusState === "pending_eligible";
+                      
                       return (
-                        <tr key={entry.id} className="border-b border-gray-50 last:border-0">
-                          <td className="py-sm pr-md align-top">
-                            <div className="font-bold text-gray-900">{entry.friendName}</div>
+                        <tr 
+                          key={entry.id} 
+                          className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
+                          style={{ animationDelay: `${idx * 30}ms` }}
+                        >
+                          <td className="py-lg pr-md align-top">
+                            <div className="font-bold text-[14px] text-gray-900">{entry.friendName}</div>
                             {entry.friendCode && (
                               <div className="font-mono text-[11px] text-gray-400">{entry.friendCode}</div>
                             )}
                           </td>
-                          <td className="py-sm pr-md align-top max-w-[200px]">
-                            <div className="truncate font-bold text-gray-900" title={entry.itemName ?? undefined}>
+                          <td className="py-lg pr-md align-top max-w-[250px]">
+                            <div className="truncate font-bold text-[14px] text-gray-900" title={entry.itemName ?? undefined}>
                               {entry.itemName ?? `Đơn ${entry.orderExternalId}`}
                             </div>
-                            <div className="truncate text-[11px] text-gray-400">
-                              {entry.shopName}
-                              {entry.shopName ? " · " : ""}
+                            <div className="truncate text-[12px] text-gray-400">
+                              {entry.shopName && `${entry.shopName} · `}
                               <span className="font-mono">{entry.orderExternalId}</span>
                             </div>
                           </td>
-                          <td className="py-sm pr-md align-top text-gray-500 whitespace-nowrap">{formatDate(entry.createdAt)}</td>
-                          <td className="py-sm pr-md align-top">
-                            <span className={`inline-block whitespace-nowrap rounded-full px-2 py-[2px] text-[10px] font-bold ${orderStatus.className}`}>
+                          <td className="py-lg pr-md align-top text-[13px] text-gray-500 whitespace-nowrap">
+                            {formatDate(entry.createdAt)}
+                          </td>
+                          <td className="py-lg pr-md align-top">
+                            <span className={`inline-block whitespace-nowrap rounded-xl px-md py-sm text-[11px] font-bold border ${orderStatus.className}`}>
                               {orderStatus.text}
                             </span>
                           </td>
-                          <td className="py-sm pl-md align-top text-right whitespace-nowrap">
+                          <td className="py-lg pl-md align-top text-right whitespace-nowrap">
                             {showAmount && (
-                              <div className={`font-black ${entry.bonusState === "clawed_back" ? "text-red-500 line-through" : entry.bonusState === "received" ? "text-green-600" : "text-blue-500"}`}>
+                              <div className={`text-[15px] font-black mb-1 ${
+                                entry.bonusState === "clawed_back" ? "text-red-500 line-through" : 
+                                entry.bonusState === "received" ? "text-green-600" : 
+                                "text-blue-500"
+                              }`}>
                                 {entry.bonusState === "pending_eligible" ? "~" : "+"}
                                 {formatCurrency(entry.bonusAmount)}
                               </div>
                             )}
-                            <div className={`text-[10px] font-bold ${bonus.className}`}>{bonus.text}</div>
+                            <div className={`text-[11px] font-bold ${bonus.className}`}>
+                              {bonus.text}
+                            </div>
                           </td>
                         </tr>
                       );
@@ -268,103 +492,58 @@ export function ReferralClient({ customerCode, totalFriends, totalCommission, re
                 </table>
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
 
-        {/* Right Column */}
-        <div className="lg:col-span-2 flex flex-col gap-xl">
-          {/* Rewards Box */}
-          <div className="rounded-3xl bg-white p-xl shadow-sm ring-1 ring-black/5 relative overflow-hidden">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-rose-50 rounded-full blur-3xl opacity-60"></div>
-            <div className="relative">
-              <div className="flex items-center gap-sm mb-xl">
-                <div className="h-10 w-10 rounded-full bg-pink-100 p-1 flex items-center justify-center">
-                  <BunnyMascot size={28} />
+        {/* How it Works */}
+        <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 p-2xl shadow-cute-lg border border-purple-200">
+          <div className="absolute top-4 right-4">
+            <img src="/mascots/icons/bunny-surprised.webp" alt="" className="w-20 h-20 opacity-40 wiggle" />
+          </div>
+
+          <div className="relative">
+            <h2 className="display-xs text-purple-900 mb-xl">🚀 Cách thức hoạt động</h2>
+            
+            <div className="relative ml-6 border-l-4 border-primary/30 pl-xl py-md space-y-2xl">
+              <div className="relative">
+                <div className="absolute -left-[38px] top-1 w-7 h-7 rounded-full bg-gradient-to-br from-[#D13A6B] to-[#B92E5B] shadow-glow flex items-center justify-center text-white text-[13px] font-black">
+                  1
                 </div>
-                <h2 className="text-[18px] font-black text-gray-900">Phần thưởng của bạn</h2>
-              </div>
-
-              <div className="flex flex-col gap-lg">
-                <div className="flex gap-md">
-                  <CheckCircle2 className="text-[#D13A6B] shrink-0 mt-0.5" size={20} />
-                  <div className="w-full">
-                    <h3 className="text-[14px] font-bold text-gray-900">Nhận thêm {referralRate * 100}% hoa hồng</h3>
-                    <p className="text-[13px] text-gray-500 mt-1">Bạn nhận thêm {referralRate * 100}% trên số tiền hoàn mà bạn bè nhận được ở mỗi đơn hàng thành công — cộng trực tiếp vào ví của bạn.</p>
-                  </div>
-                </div>
-
-                {isPartner ? (
-                  <div className="flex gap-md">
-                    <CheckCircle2 className="text-emerald-500 shrink-0 mt-0.5" size={20} />
-                    <div>
-                      <h3 className="text-[14px] font-bold text-gray-900">🤝 Đối tác — không giới hạn, vĩnh viễn</h3>
-                      <p className="text-[13px] text-gray-500 mt-1">
-                        Bạn là đối tác của hệ thống — nhận hoa hồng trên <strong>tất cả</strong> đơn hàng của mỗi người bạn mời,
-                        không giới hạn số đơn và không có hạn thời gian.
-                      </p>
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    <div className="flex gap-md">
-                      <CheckCircle2 className="text-[#D13A6B] shrink-0 mt-0.5" size={20} />
-                      <div>
-                        <h3 className="text-[14px] font-bold text-gray-900">Áp dụng cho {maxReferralOrders} đơn đầu tiên mỗi người bạn</h3>
-                        <p className="text-[13px] text-gray-500 mt-1">{maxReferralOrders} đơn hàng đầu tiên tính riêng cho từng người bạn bạn mời — mời càng nhiều bạn, càng được nhiều hoa hồng.</p>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-md">
-                      <CheckCircle2 className="text-[#D13A6B] shrink-0 mt-0.5" size={20} />
-                      <div>
-                        <h3 className="text-[14px] font-bold text-gray-900">Thời hạn {referralValidityMonths} tháng</h3>
-                        <p className="text-[13px] text-gray-500 mt-1">Các đơn hàng phải phát sinh trong vòng {referralValidityMonths} tháng kể từ lúc bạn bè đăng ký tài khoản.</p>
-                      </div>
-                    </div>
-                  </>
-                )}
-
-                <div className="flex gap-md">
-                  <CheckCircle2 className="text-[#D13A6B] shrink-0 mt-0.5" size={20} />
-                  <div>
-                    <h3 className="text-[14px] font-bold text-gray-900">Bạn bè không bị ảnh hưởng</h3>
-                    <p className="text-[13px] text-gray-500 mt-1">Người được mời vẫn nhận đủ % hoàn tiền như bình thường — khoản hoa hồng bạn nhận thêm không trừ bớt gì từ phần của họ.</p>
-                  </div>
+                <div className="rounded-2xl bg-white/70 backdrop-blur-sm p-lg border border-purple-200/50">
+                  <h3 className="text-[16px] font-bold text-purple-900 mb-2">📋 Lấy link mời</h3>
+                  <p className="text-[14px] text-purple-700 leading-relaxed">
+                    Copy link giới thiệu cá nhân của bạn ở phần trên — link này chứa mã riêng của bạn.
+                  </p>
                 </div>
               </div>
 
-              <div className="mt-xl rounded-2xl bg-gray-50 p-lg">
-                <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-sm">Điều kiện</h4>
-                <ul className="list-disc list-inside text-[13px] text-gray-600 space-y-1">
-                  <li>Chỉ áp dụng khi đăng ký qua link mời.</li>
-                  <li>Đơn hàng phải ở trạng thái "Hoàn tất".</li>
-                </ul>
+              <div className="relative">
+                <div className="absolute -left-[38px] top-1 w-7 h-7 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 shadow-lg flex items-center justify-center text-white text-[13px] font-black">
+                  2
+                </div>
+                <div className="rounded-2xl bg-white/70 backdrop-blur-sm p-lg border border-purple-200/50">
+                  <h3 className="text-[16px] font-bold text-purple-900 mb-2">📢 Gửi cho bạn bè</h3>
+                  <p className="text-[14px] text-purple-700 leading-relaxed">
+                    Chia sẻ link qua Zalo, Facebook, Telegram hoặc bất kỳ đâu. Càng nhiều người nhấp vào, càng tốt!
+                  </p>
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="absolute -left-[38px] top-1 w-7 h-7 rounded-full bg-gradient-to-br from-emerald-400 to-green-500 shadow-lg flex items-center justify-center text-white text-[13px] font-black">
+                  3
+                </div>
+                <div className="rounded-2xl bg-gradient-to-br from-emerald-100 to-green-100 p-lg border border-emerald-300/50">
+                  <h3 className="text-[16px] font-bold text-emerald-900 mb-2 flex items-center gap-2">
+                    🎉 Nhận quà thụ động
+                  </h3>
+                  <p className="text-[14px] text-emerald-700 leading-relaxed">
+                    Tự động nhận {referralRate * 100}% hoa hồng mỗi khi bạn bè mua sắm thành công. Không cần làm gì thêm!
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          
-          {/* How it works */}
-          <div className="rounded-3xl bg-white p-xl shadow-sm ring-1 ring-black/5">
-            <h2 className="text-[16px] font-bold text-gray-900 mb-lg">Cách thức hoạt động</h2>
-            <div className="relative border-l-2 border-[#D13A6B]/20 ml-3 pl-lg space-y-lg py-2">
-              <div className="relative">
-                <div className="absolute -left-[29px] top-1 h-3 w-3 rounded-full bg-[#D13A6B] ring-4 ring-rose-50"></div>
-                <h3 className="text-[14px] font-bold text-gray-900">Lấy link mời</h3>
-                <p className="text-[13px] text-gray-500 mt-1">Copy link giới thiệu cá nhân của bạn ở phía trên.</p>
-              </div>
-              <div className="relative">
-                <div className="absolute -left-[29px] top-1 h-3 w-3 rounded-full bg-[#D13A6B] ring-4 ring-rose-50"></div>
-                <h3 className="text-[14px] font-bold text-gray-900">Gửi cho bạn bè</h3>
-                <p className="text-[13px] text-gray-500 mt-1">Chia sẻ link qua Zalo, Facebook hoặc bất kỳ đâu.</p>
-              </div>
-              <div className="relative">
-                <div className="absolute -left-[29px] top-1 h-3 w-3 rounded-full bg-gray-300 ring-4 ring-gray-50"></div>
-                <h3 className="text-[14px] font-bold text-gray-900">Nhận quà thụ động</h3>
-                <p className="text-[13px] text-gray-500 mt-1">Tự động nhận hoa hồng mỗi khi bạn bè mua sắm thành công.</p>
-              </div>
-            </div>
-          </div>
-          
         </div>
       </div>
     </div>
