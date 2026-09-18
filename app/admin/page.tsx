@@ -40,48 +40,60 @@ export default async function AdminDashboardPage() {
   const paid = Number(paidAgg._sum.customerRewardAmount ?? 0);
 
   return (
-    <div className="flex flex-col gap-lg fade-in">
+    <div className="flex flex-col gap-lg fade-in relative">
+      {/* Floating Bunny Decorations */}
+      <div className="pointer-events-none fixed inset-0 overflow-hidden opacity-40 z-0">
+        <img src="/mascots/icons/bunny-delighted.webp" alt="" className="float-icon-1 absolute top-[10%] left-[5%] h-12 w-12 opacity-20" />
+        <img src="/mascots/icons/bunny-sparkle.webp" alt="" className="float-icon-2 absolute top-[60%] right-[8%] h-14 w-14 opacity-25" />
+        <img src="/mascots/icons/bunny-wink.webp" alt="" className="float-icon-3 absolute bottom-[20%] left-[10%] h-10 w-10 opacity-15" />
+      </div>
 
       {/* ═══ HEADER ═══ */}
-      <div className="relative overflow-hidden rounded-3xl p-xl sm:p-2xl"
-        style={{ background: "linear-gradient(135deg, #FFF3F7 0%, #FDE3EB 50%, #FFE8F0 100%)" }}>
-        <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#FFC4D6] opacity-30" />
-        <div className="pointer-events-none absolute -bottom-6 right-32 h-24 w-24 rounded-full bg-[#F2809E] opacity-20" />
-        <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#FFDCE7] opacity-40" />
+      <div className="relative overflow-hidden rounded-3xl p-xl sm:p-2xl shadow-xl"
+        style={{ background: "linear-gradient(135deg, #FFF0F4 0%, #FFE5ED 50%, #FFDCE7 100%)" }}>
+        {/* Animated Background Elements */}
+        <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[#FFC4D6] opacity-30 animate-pulse-slow" />
+        <div className="pointer-events-none absolute -bottom-6 right-32 h-24 w-24 rounded-full bg-[#F2809E] opacity-20 sparkle-2" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-40 w-40 rounded-full bg-[#FFDCE7] opacity-40 sparkle-1" />
+        <div className="pointer-events-none absolute top-1/2 left-1/4 h-16 w-16 rounded-full bg-white opacity-20 sparkle-3" />
 
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-lg flex-wrap">
           <div className="flex items-center gap-lg">
-            <img
-              src="/mascots/icons/bunny-sparkle.webp"
-              alt="Tổng quan"
-              className="h-20 w-20 sm:h-24 sm:w-24 object-contain drop-shadow-lg shrink-0"
-            />
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#D13A6B] to-[#E8558A] opacity-20 blur-2xl rounded-full animate-pulse-slow" />
+              <img
+                src="/mascots/icons/bunny-sparkle.webp"
+                alt="Tổng quan"
+                className="relative h-20 w-20 sm:h-24 sm:w-24 object-contain drop-shadow-2xl shrink-0 hover:scale-110 transition-transform duration-300"
+              />
+            </div>
             <div>
-              <p className="text-[12px] font-bold uppercase tracking-widest text-[#D13A6B]/60 mb-1">
-                Bảng điều khiển
+              <p className="text-[12px] font-bold uppercase tracking-widest text-[#D13A6B]/70 mb-1 flex items-center gap-xs">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#D13A6B] animate-pulse" />
+                Bảng điều khiển Admin
               </p>
-              <h1 className="text-[26px] sm:text-[32px] font-black leading-tight text-[#2E1F26]">
-                Tổng quan hệ thống
+              <h1 className="text-[26px] sm:text-[36px] font-black leading-tight bg-gradient-to-r from-[#2E1F26] via-[#D13A6B] to-[#E8558A] bg-clip-text text-transparent">
+                Tổng quan hệ thống 🐰
               </h1>
-              <p className="mt-1 text-[13px] text-[#9A8490] leading-relaxed">
-                Hiệu suất affiliate và số dư công nợ toàn hệ thống.
+              <p className="mt-1 text-[13px] text-[#9A8490] leading-relaxed font-medium">
+                ✨ Hiệu suất affiliate và số dư công nợ toàn hệ thống
               </p>
             </div>
           </div>
           <div className="flex gap-sm flex-wrap items-center">
             <a href="/admin/orders/import">
-              <button className="flex items-center gap-xs rounded-2xl bg-white/80 border border-[#D13A6B]/20 px-xl py-[10px] text-[13px] font-bold text-[#D13A6B] shadow-sm transition-all hover:bg-white hover:shadow-md active:scale-[0.97]">
-                Import đối soát
-                <ArrowUpRight size={14} strokeWidth={2.5} />
+              <button className="group flex items-center gap-xs rounded-2xl bg-white/90 backdrop-blur-sm border-2 border-[#D13A6B]/20 px-xl py-[12px] text-[13px] font-bold text-[#D13A6B] shadow-lg transition-all hover:bg-white hover:shadow-xl hover:border-[#D13A6B]/40 hover:-translate-y-0.5 active:scale-[0.97]">
+                📊 Import đối soát
+                <ArrowUpRight size={14} strokeWidth={2.5} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </a>
             <a href="/admin/payments">
-              <button className="sheen gloss flex items-center gap-xs rounded-2xl bg-[#D13A6B] px-xl py-[10px] text-[13px] font-bold text-white shadow-glow transition-all duration-200 ease-soft hover:bg-[#B92E5B] active:scale-[0.97]">
-                Thanh toán
-                <ArrowUpRight size={14} strokeWidth={2.5} />
+              <button className="sheen gloss group flex items-center gap-xs rounded-2xl bg-gradient-to-r from-[#D13A6B] via-[#E8558A] to-[#D13A6B] px-xl py-[12px] text-[13px] font-bold text-white shadow-glow transition-all duration-200 ease-soft hover:shadow-2xl hover:-translate-y-0.5 active:scale-[0.97]">
+                💰 Thanh toán
+                <ArrowUpRight size={14} strokeWidth={2.5} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </a>
-            <div className="hidden lg:grid h-[88px] w-[88px] place-items-center rounded-full bg-white/70 ring-2 ring-[#D13A6B]/12 shadow-cute">
+            <div className="hidden lg:grid h-[92px] w-[92px] place-items-center rounded-full bg-gradient-to-br from-white via-[#FFF0F4] to-white ring-2 ring-[#D13A6B]/20 shadow-2xl hover:scale-105 transition-transform duration-300 hover:rotate-6">
               <BunnyMascot size={72} />
             </div>
           </div>
@@ -89,68 +101,76 @@ export default async function AdminDashboardPage() {
       </div>
 
       {/* ═══ 4 KPI CARDS ═══ */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-md relative z-10">
         {/* Khách hàng */}
-        <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-sky-50 opacity-60" />
+        <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-lg ring-1 ring-black/[0.06] transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:ring-blue-200">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-sky-50 to-blue-50 opacity-70" />
+          <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-blue-200 opacity-20 group-hover:scale-150 transition-transform duration-500" />
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-100 transition-transform group-hover:scale-110">
-                <img src="/mascots/icons/bunny-delighted.webp" alt="" className="h-7 w-7 object-contain" />
+              <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 transition-transform group-hover:scale-110 group-hover:rotate-6 duration-300 shadow-md">
+                <img src="/mascots/icons/bunny-delighted.webp" alt="" className="h-8 w-8 object-contain" />
+                <div className="absolute inset-0 bg-blue-300 opacity-0 group-hover:opacity-20 rounded-2xl blur transition-opacity" />
               </div>
-              <span className="rounded-full bg-blue-100 px-sm py-[3px] text-[10px] font-bold text-blue-600">Thành viên</span>
+              <span className="rounded-full bg-gradient-to-r from-blue-100 to-blue-200 px-sm py-[3px] text-[10px] font-bold text-blue-600 shadow-sm">👥 Thành viên</span>
             </div>
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1">Khách hàng</div>
-            <div className="text-[28px] font-black text-gray-900 tabular-nums leading-tight">{totalCustomers}</div>
-            <div className="mt-1 text-[11px] text-gray-400">người dùng đã đăng ký</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-blue-400 mb-1">Khách hàng</div>
+            <div className="text-[32px] font-black bg-gradient-to-br from-blue-600 to-blue-400 bg-clip-text text-transparent tabular-nums leading-tight">{totalCustomers}</div>
+            <div className="mt-1 text-[11px] text-gray-500 font-medium">người dùng đã đăng ký</div>
           </div>
         </div>
 
         {/* Link Affiliate */}
-        <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-          <div className="absolute inset-0 bg-gradient-to-br from-violet-50 to-purple-50 opacity-60" />
+        <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-lg ring-1 ring-black/[0.06] transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:ring-violet-200">
+          <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-purple-50 to-violet-50 opacity-70" />
+          <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-violet-200 opacity-20 group-hover:scale-150 transition-transform duration-500" />
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-violet-100 transition-transform group-hover:scale-110">
-                <img src="/mascots/icons/bunny-wink.webp" alt="" className="h-7 w-7 object-contain" />
+              <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-100 to-violet-200 transition-transform group-hover:scale-110 group-hover:rotate-6 duration-300 shadow-md">
+                <img src="/mascots/icons/bunny-wink.webp" alt="" className="h-8 w-8 object-contain" />
+                <div className="absolute inset-0 bg-violet-300 opacity-0 group-hover:opacity-20 rounded-2xl blur transition-opacity" />
               </div>
-              <span className="rounded-full bg-violet-100 px-sm py-[3px] text-[10px] font-bold text-violet-600">Affiliate</span>
+              <span className="rounded-full bg-gradient-to-r from-violet-100 to-violet-200 px-sm py-[3px] text-[10px] font-bold text-violet-600 shadow-sm">🔗 Affiliate</span>
             </div>
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1">Link Affiliate</div>
-            <div className="text-[28px] font-black text-gray-900 tabular-nums leading-tight">{totalLinks}</div>
-            <div className="mt-1 text-[11px] text-gray-400">link đang hoạt động</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-violet-400 mb-1">Link Affiliate</div>
+            <div className="text-[32px] font-black bg-gradient-to-br from-violet-600 to-violet-400 bg-clip-text text-transparent tabular-nums leading-tight">{totalLinks}</div>
+            <div className="mt-1 text-[11px] text-gray-500 font-medium">link đang hoạt động</div>
           </div>
         </div>
 
         {/* Đơn hàng */}
-        <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-sm ring-1 ring-black/[0.06] transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-          <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-pink-50 opacity-60" />
+        <div className="group relative overflow-hidden rounded-2xl bg-white p-lg shadow-lg ring-1 ring-black/[0.06] transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:ring-amber-200">
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 opacity-70" />
+          <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-amber-200 opacity-20 group-hover:scale-150 transition-transform duration-500" />
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-100 transition-transform group-hover:scale-110">
-                <img src="/mascots/icons/bunny-heart.webp" alt="" className="h-7 w-7 object-contain" />
+              <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-100 to-amber-200 transition-transform group-hover:scale-110 group-hover:rotate-6 duration-300 shadow-md">
+                <img src="/mascots/icons/bunny-heart.webp" alt="" className="h-8 w-8 object-contain" />
+                <div className="absolute inset-0 bg-amber-300 opacity-0 group-hover:opacity-20 rounded-2xl blur transition-opacity" />
               </div>
-              <span className="rounded-full bg-amber-100 px-sm py-[3px] text-[10px] font-bold text-amber-600">Đơn hàng</span>
+              <span className="rounded-full bg-gradient-to-r from-amber-100 to-amber-200 px-sm py-[3px] text-[10px] font-bold text-amber-600 shadow-sm">📦 Đơn hàng</span>
             </div>
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1">Tổng đơn</div>
-            <div className="text-[28px] font-black text-gray-900 tabular-nums leading-tight">{totalOrders}</div>
-            <div className="mt-1 text-[11px] text-gray-400">đơn hàng đã ghi nhận</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-amber-400 mb-1">Tổng đơn</div>
+            <div className="text-[32px] font-black bg-gradient-to-br from-amber-600 to-amber-400 bg-clip-text text-transparent tabular-nums leading-tight">{totalOrders}</div>
+            <div className="mt-1 text-[11px] text-gray-500 font-medium">đơn hàng đã ghi nhận</div>
           </div>
         </div>
 
         {/* Đã hoàn tiền */}
-        <div className="group relative overflow-hidden rounded-2xl p-lg shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
-          style={{ background: "linear-gradient(135deg, #e8f5e9 0%, #f1fdf2 100%)", outline: "1px solid rgba(0,0,0,0.06)" }}>
+        <div className="group relative overflow-hidden rounded-2xl p-lg shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+          style={{ background: "linear-gradient(135deg, #e8f5e9 0%, #f1fdf2 50%, #e8f5e9 100%)", outline: "1px solid rgba(0,0,0,0.06)" }}>
+          <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-emerald-200 opacity-20 group-hover:scale-150 transition-transform duration-500" />
           <div className="relative">
             <div className="flex items-start justify-between mb-md">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-100 transition-transform group-hover:scale-110">
-                <img src="/mascots/icons/bunny-heart.webp" alt="" className="h-7 w-7 object-contain" />
+              <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-100 to-emerald-200 transition-transform group-hover:scale-110 group-hover:rotate-6 duration-300 shadow-md">
+                <img src="/mascots/icons/bunny-heart.webp" alt="" className="h-8 w-8 object-contain" />
+                <div className="absolute inset-0 bg-emerald-300 opacity-0 group-hover:opacity-20 rounded-2xl blur transition-opacity" />
               </div>
-              <span className="rounded-full bg-emerald-100 px-sm py-[3px] text-[10px] font-bold text-emerald-600">Đã hoàn</span>
+              <span className="rounded-full bg-gradient-to-r from-emerald-100 to-emerald-200 px-sm py-[3px] text-[10px] font-bold text-emerald-600 shadow-sm">✅ Đã hoàn</span>
             </div>
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1">Đã hoàn tiền</div>
-            <div className="text-[22px] font-black text-gray-900 tabular-nums leading-tight">{formatCurrency(paid)}</div>
-            <div className="mt-1 text-[11px] text-gray-400">đã chuyển khoản thành công</div>
+            <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-1">Đã hoàn tiền</div>
+            <div className="text-[26px] font-black bg-gradient-to-br from-emerald-600 to-emerald-400 bg-clip-text text-transparent tabular-nums leading-tight">{formatCurrency(paid)}</div>
+            <div className="mt-1 text-[11px] text-gray-500 font-medium">đã chuyển khoản thành công</div>
           </div>
         </div>
       </div>
