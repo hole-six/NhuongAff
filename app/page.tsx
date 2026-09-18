@@ -18,14 +18,24 @@ export const metadata: Metadata = {
     locale: "vi_VN",
     url: "/",
     siteName: "BunnyHoanTien",
-    images: [{ url: "/icontitle.png", width: 1536, height: 1024, alt: "BunnyHoanTien - Nền tảng hoàn tiền affiliate" }],
+    images: [
+      { 
+        url: "/icon-512.png", 
+        width: 512, 
+        height: 512, 
+        alt: "BunnyHoanTien - Nền tảng hoàn tiền thông minh với mascot thỏ đáng yêu",
+        type: "image/png"
+      }
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "BunnyHoanTien — Mua sắm thông minh, nhận hoàn tiền tự động",
     description:
       "Nền tảng affiliate hoàn tiền cho Shopee, TikTok Shop và Lazada. Rút tiền từ 10.000đ, tích hợp bot Telegram.",
-    images: ["/icontitle.png"],
+    images: ["/icon-512.png"],
+    creator: "@hoahuongaff",
+    site: "@hoahuongaff",
   },
 };
 
@@ -44,21 +54,37 @@ const jsonLd = {
       "@type": "Organization",
       "@id": "https://hoahuongaff.click/#organization",
       name: "BunnyHoanTien",
+      alternateName: "Bunny Hoan Tien",
       url: "https://hoahuongaff.click",
-      logo: "https://hoahuongaff.click/icontitle.png",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://hoahuongaff.click/icon-512.png",
+        width: 512,
+        height: 512,
+        caption: "BunnyHoanTien Logo"
+      },
+      image: "https://hoahuongaff.click/icon-512.png",
       telephone: "+84336487534",
+      email: "support@hoahuongaff.click",
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "VN",
+        addressLocality: "Vietnam"
+      },
       contactPoint: {
         "@type": "ContactPoint",
         telephone: "+84336487534",
         contactType: "customer service",
         areaServed: "VN",
-        availableLanguage: "Vietnamese",
+        availableLanguage: ["Vietnamese", "vi"],
+        contactOption: "TollFree"
       },
       sameAs: [
         "https://www.facebook.com/share/1BShYKizDV/?mibextid=wwXIfr",
         "https://www.tiktok.com/@vi_ha790?_r=1&_t=ZS-983XgTM1aum",
         "https://www.instagram.com/imviihaaa?igsh=M2RqZml1NHpzbmgx&utm_source=qr",
         "https://www.youtube.com/@iviback",
+        "https://t.me/hoahuongaff"
       ],
     },
     {

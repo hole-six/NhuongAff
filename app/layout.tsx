@@ -14,8 +14,15 @@ const beVietnamPro = Be_Vietnam_Pro({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hoahuongaff.click"),
-  title: "BunnyHoanTien",
-  description: "Nền tảng affiliate hoàn tiền tích hợp Web + Zalo",
+  title: {
+    default: "BunnyHoanTien — Mua sắm Shopee, TikTok Shop, Lazada nhận hoàn tiền",
+    template: "%s | BunnyHoanTien"
+  },
+  description: "Nền tảng hoàn tiền thông minh cho Shopee, TikTok Shop & Lazada. Rút tiền từ 10.000đ, tích hợp bot Telegram, miễn phí hoàn toàn.",
+  keywords: ["hoàn tiền", "cashback", "affiliate", "Shopee", "TikTok Shop", "Lazada", "mua sắm online", "tiết kiệm"],
+  authors: [{ name: "BunnyHoanTien" }],
+  creator: "BunnyHoanTien",
+  publisher: "BunnyHoanTien",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
@@ -28,6 +35,9 @@ export const metadata: Metadata = {
       { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    other: [
+      { rel: "mask-icon", url: "/icon-512.png", color: "#D13A6B" },
+    ],
   },
 };
 
