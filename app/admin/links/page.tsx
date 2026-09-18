@@ -75,7 +75,7 @@ export default async function AdminLinksPage({ searchParams }: { searchParams: {
           <div className="flex items-center gap-lg">
             <img src="/mascots/icons/bunny-delighted.webp" alt="" className="h-20 w-20 object-contain drop-shadow-lg shrink-0" />
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-widest text-indigo-400 mb-1">Affiliate System</p>
+              <p className="text-[11px] font-bold uppercase tracking-widest text-indigo-400 mb-1">BunnyHoanTien System</p>
               <h1 className="text-[26px] sm:text-[30px] font-black leading-tight text-[#1e1b4b]">Link Affiliate</h1>
               <p className="mt-1 text-[13px] text-indigo-400">
                 <span className="font-bold text-indigo-600">{activeCount}</span> đang hoạt động •{" "}

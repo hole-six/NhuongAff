@@ -53,7 +53,7 @@ export function AdminSidebar({
           <div className="h-8 w-8 rounded-full bg-pink-100 p-0.5 flex items-center justify-center">
             <BunnyMascot size={24} />
           </div>
-          <div className="font-bold text-[14px] text-ink truncate max-w-[200px]">Ivi Admin</div>
+          <div className="font-bold text-[14px] text-ink truncate max-w-[200px]">BunnyHoanTien Admin</div>
         </div>
         <button
           onClick={() => setIsOpen(true)}
@@ -92,7 +92,7 @@ export function AdminSidebar({
                 <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-[#2bc48a] border-2 border-white translate-x-1 translate-y-1" />
               </div>
               <div className="min-w-0">
-                <div className="truncate text-[14px] font-bold text-ink leading-tight">Ivi Admin</div>
+                <div className="truncate text-[14px] font-bold text-ink leading-tight">BunnyHoanTien Admin</div>
                 <div className="truncate text-[12px] font-medium text-mute leading-tight mt-[2px]">
                   {adminName}
                 </div>
@@ -151,9 +151,9 @@ export function AdminSidebar({
               <BunnyMascot size={26} />
             </div>
             <div className="min-w-0">
-              <div className="truncate text-[12px] font-bold text-ink">Ivi</div>
+              <div className="truncate text-[12px] font-bold text-ink">BunnyHoanTien</div>
               <div className="truncate text-[11px] text-mute leading-tight">
-                Tiết kiệm hôm nay, vững vàng ngày mai
+                Hoàn tiền thông minh, tiết kiệm vui vẻ
               </div>
             </div>
           </div>

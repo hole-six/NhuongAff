@@ -148,7 +148,7 @@ export function buildConvertLinkPromptMessage(): string {
 
 export function buildTelegramHelpMessage(): string {
   return [
-    "👋 <b>Chào mừng đến với bot ivi Hoàn Tiền!</b>",
+    "👋 <b>Chào mừng đến với bot BunnyHoanTien!</b>",
     "",
     "Gửi link Shopee, TikTok Shop hoặc Lazada, bot sẽ đổi sang link hoàn tiền ngay lập tức.",
     "",
@@ -387,24 +387,32 @@ export function buildBankInfoFlowPrompt(
 ): string {
   if (step === "await_bank_name") {
     return [
-      "🏦 <b>Bạn chưa có thông tin tài khoản ngân hàng để nhận tiền.</b>",
+      "🏦 <b>Để rút tiền, bạn cần cung cấp thông tin tài khoản ngân hàng.</b>",
       "",
-      "Cho tôi biết <b>tên ngân hàng</b> của bạn (vd: Vietcombank, Techcombank, MB Bank...).",
+      "Bước 1/3: Cho tôi biết <b>tên ngân hàng</b> của bạn",
+      "📝 Ví dụ: Vietcombank, Techcombank, MB Bank, VPBank, BIDV...",
       "",
-      "Gõ /huy để huỷ bất cứ lúc nào.",
+      "💡 Gõ /huy để huỷ bất cứ lúc nào.",
     ].join("\n");
   }
   if (step === "await_bank_account_number") {
     return [
       `✅ Đã ghi nhận ngân hàng: <b>${escapeHtml(context?.bankName ?? "")}</b>`,
       "",
-      "Giờ cho tôi <b>số tài khoản</b> ngân hàng của bạn.",
+      "Bước 2/3: Giờ cho tôi <b>số tài khoản</b> ngân hàng của bạn",
+      "📝 Ví dụ: 0123456789 hoặc 1234567890123",
+      "",
+      "💡 Gõ /huy để huỷ.",
     ].join("\n");
   }
   return [
-    `✅ Đã ghi nhận số tài khoản: <b>${escapeHtml(context?.bankAccountNumber ?? "")}</b>`,
+    `✅ Đã ghi nhận số tài khoản: <code>${escapeHtml(context?.bankAccountNumber ?? "")}</code>`,
     "",
-    "Cuối cùng, cho tôi <b>tên chủ tài khoản</b> (viết đúng như trên thẻ/tài khoản, thường là IN HOA không dấu).",
+    "Bước 3/3: Cuối cùng, cho tôi <b>tên chủ tài khoản</b>",
+    "📝 Viết đúng như trên thẻ/tài khoản (thường là IN HOA không dấu)",
+    "📝 Ví dụ: NGUYEN VAN A",
+    "",
+    "💡 Gõ /huy để huỷ.",
   ].join("\n");
 }
 
